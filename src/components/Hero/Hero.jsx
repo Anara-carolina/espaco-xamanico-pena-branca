@@ -1,11 +1,38 @@
+import imagemMobile from "../../assets/imagens/pmobile.jpg";
+import imagemDesktop from "../../assets/imagens/pdesktop.png";
+import "./Hero.css";
+
 function Hero() {
   return (
-    <section>
-      <h2>Conecte-se com a sua essência através da Medicina da Floresta</h2>
-      <p>
-        Um espaço de cura, conexão e expansão da consciência,
-        inspirado nos saberes ancestrais e na força da natureza.
-      </p>
+    <section className="hero">
+      <picture>
+        <source 
+          media="(min-width: 768px)" 
+          srcSet={imagemDesktop}
+        />
+
+        <img 
+          src={imagemMobile} 
+          alt="Espaço Xamânico Pena Branca"
+        />
+      </picture>
+
+      <div className="hero-content">
+        <h1>PENA BRANCA</h1>
+
+        <h3>
+          Cultura • Natureza • Espiritualidade • Ancestralidade
+        </h3>
+
+        <p>
+          Conecte com a floresta, com a medicina e consigo mesmo.
+        </p>
+
+        <button>
+          Conheça nossa história
+        </button>
+      </div>
+
     </section>
   );
 }

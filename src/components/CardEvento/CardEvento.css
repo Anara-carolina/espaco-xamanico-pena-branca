@@ -1,0 +1,364 @@
+/* ===========================
+   SEÇÃO DA AGENDA
+=========================== */
+
+.eventos {
+
+  background-color: #1f3b2d;
+
+  padding: 50px 20px;
+
+}
+
+
+.eventos h2 {
+
+  text-align: center;
+
+  color: #ffffff;
+
+  font-size: 32px;
+
+  margin-bottom: 35px;
+
+  letter-spacing: 2px;
+
+}
+
+
+
+/* ===========================
+   CARD
+=========================== */
+
+
+.evento-card {
+
+  display: flex;
+
+  background-color: #d8c8a4;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  margin-bottom: 25px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+
+}
+
+
+
+/* ===========================
+   DATA
+=========================== */
+
+
+.data-evento {
+
+  width: 85px;
+
+  background-color: #4c5d2f;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 15px 10px;
+
+}
+
+
+
+.data-evento strong {
+
+  font-size: 42px;
+
+  color: #d4af37;
+
+  line-height: 1;
+
+}
+
+
+
+.data-evento span {
+
+  margin-top: 8px;
+
+  color: #d4af37;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+/* ===========================
+   CONTEÚDO
+=========================== */
+
+
+.evento-info {
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 15px;
+
+  gap: 15px;
+
+}
+
+
+
+.texto-evento {
+
+  flex: 1;
+
+}
+
+
+
+.texto-evento h3 {
+
+  color: #5e360d;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+
+  margin: 0;
+
+}
+
+
+
+/* ===========================
+   IMAGEM
+=========================== */
+
+
+.evento-info img {
+
+  width: 95px;
+
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  border: 2px solid #5e360d;
+
+}
+
+
+
+/* ===========================
+   MODAL
+=========================== */
+
+
+.modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.9);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 20px;
+
+  z-index: 999;
+
+}
+
+
+
+.imagem-modal {
+
+  width: auto;
+
+  height: auto;
+
+  max-width: 100%;
+
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+
+}
+
+
+
+.fechar {
+
+  position: absolute;
+
+  top: 20px;
+
+  right: 25px;
+
+  color: white;
+
+  font-size: 40px;
+
+  cursor: pointer;
+
+}
+
+
+
+/* ===========================
+   LINK DA AGENDA
+=========================== */
+
+
+.agenda-link {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: 20px;
+
+}
+
+
+
+.agenda-link a {
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  transition: color 0.3s ease;
+
+}
+
+
+
+.agenda-link a:hover {
+
+  color: #d4af37;
+
+}
+
+
+
+.agenda-link a:visited {
+
+  color: #ffffff;
+
+}
+
+
+
+.agenda-link a:active {
+
+  color: #ffffff;
+
+}
+
+
+
+
+/* ===========================
+   AJUSTES DESKTOP
+=========================== */
+
+
+@media (min-width: 1024px) {
+
+
+  .eventos {
+
+    padding: 70px 0;
+
+  }
+
+
+
+  .evento-card {
+
+    max-width: 900px;
+
+    margin: 0 auto 30px auto;
+
+  }
+
+
+
+  .data-evento {
+
+    width: 100px;
+
+  }
+
+
+
+  .evento-info {
+
+    padding: 25px;
+
+    gap: 30px;
+
+  }
+
+
+
+  .texto-evento h3 {
+
+    font-size: 20px;
+
+  }
+
+
+
+  .evento-info img {
+
+    width: 130px;
+
+    height: 150px;
+
+  }
+
+
+
+  .agenda-link {
+
+    max-width: 900px;
+
+    margin: 20px auto 0;
+
+  }
+
+
+}

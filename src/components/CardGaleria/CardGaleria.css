@@ -1,0 +1,285 @@
+.galeria {
+
+    padding: 100px 8%;
+    background: #0f2418;
+    text-align: center;
+
+}
+
+
+.galeria h2 {
+
+    color: #D4AF37;
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+
+}
+
+
+.galeria p {
+
+    color: #ddd;
+    max-width: 700px;
+    margin: 0 auto 45px;
+    line-height: 1.8;
+
+}
+
+
+
+/* CONTAINER DO CARROSSEL */
+
+.container-carrossel {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+
+/* CARROSSEL */
+
+.carrossel {
+
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    width: 100%;
+
+    padding: 10px;
+
+    scrollbar-width: none;
+
+}
+
+
+
+/* remove barra no Chrome */
+
+.carrossel::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+
+/* imagens */
+
+.imagem-galeria {
+
+    min-width: 320px;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+
+}
+
+
+.imagem-galeria:hover {
+
+    transform: scale(1.05);
+
+    box-shadow: 0 0 20px rgba(212,175,55,0.4);
+
+}
+
+
+
+/* SETAS */
+
+.seta {
+
+    position: absolute;
+
+    z-index: 5;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #D4AF37;
+
+    color: #0f2418;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.3s;
+
+}
+
+
+.seta:hover {
+
+    transform: scale(1.1);
+
+}
+
+
+.esquerda {
+
+    left: 10px;
+
+}
+
+
+.direita {
+
+    right: 10px;
+
+}
+
+
+
+
+/* LINK */
+
+.galeria-link {
+
+    margin-top: 45px;
+
+}
+
+
+.galeria-link a {
+
+    color: #D4AF37;
+
+    text-decoration: none;
+
+    font-size: 1.1rem;
+
+    transition: 0.3s;
+
+}
+
+
+.galeria-link a:hover {
+
+    letter-spacing: 1px;
+
+}
+
+
+
+
+/* MODAL FOTO GRANDE */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.90);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+
+}
+
+
+.imagem-modal {
+
+    max-width: 90%;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+}
+
+
+.fechar {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 40px;
+
+    color: white;
+
+    font-size: 45px;
+
+    cursor: pointer;
+
+}
+
+
+
+/* CELULAR */
+
+@media(max-width:768px){
+
+
+    .imagem-galeria {
+
+        min-width: 260px;
+
+        height: 190px;
+
+    }
+
+
+    .seta {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 20px;
+
+    }
+
+
+    .esquerda {
+
+        left: 5px;
+
+    }
+
+
+    .direita {
+
+        right: 5px;
+
+    }
+
+
+}

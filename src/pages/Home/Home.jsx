@@ -3,10 +3,8 @@ import Hero from "../../components/Hero/Hero";
 import CardEvento from "../../components/CardEvento/CardEvento";
 import Button from "../../components/Button/Button";
 import CardGaleria from "../../components/CardGaleria/CardGaleria";
-import CardVideo from "../../components/CardVideo/CardVideo";
 import Footer from "../../components/Footer/Footer";
-import Navbar from "../../components/Navbar/Navbar";
-import Newsletter from "../../components/Newsletter/Newsletter";
+import CardMedicina from "../../components/CardMedicina/CardMedicina";
 
 function Home() {
   return (
@@ -16,10 +14,8 @@ function Home() {
       <CardEvento />
       <Button />
       <CardGaleria />
-      <CardVideo />
+      <CardMedicina />
       <Footer />
-      <Navbar />
-      <Newsletter />
     </>
   );
 }

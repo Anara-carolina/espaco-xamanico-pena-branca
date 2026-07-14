@@ -1,0 +1,164 @@
+.header {
+
+  width: 100%;
+
+  height: 70px;
+
+  background-color: black;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  z-index: 10;
+
+  overflow: visible;
+
+}
+
+
+/* ========================= */
+/* MENU HAMBURGUER */
+/* ========================= */
+
+
+.menu-button {
+
+  position: absolute;
+
+  left: 0;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: none;
+
+  border: none;
+
+  padding: 0;
+
+  margin: 0;
+
+  cursor: pointer;
+
+}
+
+
+
+.menu-button img {
+
+  width: 70px;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+
+/* ========================= */
+/* LOGO CENTRAL */
+/* ========================= */
+
+
+.logo {
+
+  width: 55px;
+
+  height: auto;
+
+  display: block;
+
+}
+
+
+
+/* ========================= */
+/* DESKTOP */
+/* ========================= */
+
+
+@media (min-width: 1024px) {
+
+
+  .header {
+
+    height: 120px;
+
+  }
+
+
+
+  .menu-button {
+
+    left: 35px;
+
+  }
+
+
+
+  .menu-button img {
+
+    width: 75px;
+
+  }
+
+
+
+  .logo {
+
+    width: 100px;
+
+  }
+
+
+}
+
+
+
+/* ========================= */
+/* TELAS GRANDES */
+/* ========================= */
+
+
+@media (min-width: 1440px) {
+
+
+  .header {
+
+    height: 130px;
+
+  }
+
+
+
+  .menu-button {
+
+    left: 60px;
+
+  }
+
+
+
+  .menu-button img {
+
+    width: 80px;
+
+  }
+
+
+
+  .logo {
+
+    width: 120px;
+
+  }
+
+
+}
