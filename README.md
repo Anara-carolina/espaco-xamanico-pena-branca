@@ -131,11 +131,7 @@ O projeto utiliza o **Firebase Firestore** para armazenar:
 
 **Anara Carolina Barbosa Martins**
 
-GitHub:
-https://github.com/Anara-carolina
 
-LinkedIn:
-https://www.linkedin.com/
 
 ---
 
