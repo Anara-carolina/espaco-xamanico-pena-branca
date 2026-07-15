@@ -1,46 +1,60 @@
-.sobre-page {
+.kambo-page {
 
   background: #d8c8a4;
+
   color: #2b1b0b;
 
 }
 
 
-/* IMAGEM PRINCIPAL */
 
-.sobre-hero {
+
+
+.kambo-hero {
+
+  height: 70vh;
 
   position: relative;
-  height: 70vh;
+
   overflow: hidden;
 
 }
 
 
-.sobre-hero img {
+
+
+
+.kambo-hero img {
 
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
 
 }
 
 
 
-.sobre-titulo {
+
+
+.kambo-titulo {
 
   position: absolute;
+
   inset: 0;
 
+  background: rgba(0,0,0,0.45);
+
   display: flex;
+
   flex-direction: column;
 
   justify-content: center;
+
   align-items: center;
 
   text-align: center;
-
-  background: rgba(0,0,0,0.45);
 
   color: white;
 
@@ -48,11 +62,13 @@
 
 
 
-.sobre-titulo h1 {
 
-  font-size: 3rem;
+
+.kambo-titulo h1 {
 
   color: #D4AF37;
+
+  font-size: 3rem;
 
   letter-spacing: 3px;
 
@@ -60,7 +76,9 @@
 
 
 
-.sobre-titulo p {
+
+
+.kambo-titulo p {
 
   font-size: 1.2rem;
 
@@ -70,10 +88,9 @@
 
 
 
-/* TEXTOS */
 
-.sobre-texto,
-.sobre-destaque {
+
+.kambo-texto {
 
   max-width: 900px;
 
@@ -87,8 +104,10 @@
 
 
 
-.sobre-texto h2,
-.sobre-destaque h2 {
+
+
+.kambo-texto h2,
+.kambo-destaque h2 {
 
   color: #1B3A2A;
 
@@ -100,8 +119,10 @@
 
 
 
-.sobre-texto p,
-.sobre-destaque p {
+
+
+.kambo-texto p,
+.kambo-destaque p {
 
   line-height: 1.8;
 
@@ -113,47 +134,15 @@
 
 
 
-/* BLOCO DE DESTAQUE */
 
-.sobre-destaque {
+
+.kambo-destaque {
 
   background: #1B3A2A;
 
   color: white;
 
-  max-width: 100%;
-
-}
-
-
-
-.sobre-destaque h2 {
-
-  color: #D4AF37;
-
-}
-
-
-
-.sobre-destaque p {
-
-  max-width: 850px;
-
-  margin: 20px auto;
-
-}
-
-
-
-
-
-/* FRASE FINAL */
-
-.frase-sobre {
-
-  padding: 60px 30px;
-
-  background: #1B3A2A;
+  padding: 70px 30px;
 
   text-align: center;
 
@@ -161,7 +150,35 @@
 
 
 
-.frase-sobre h2 {
+
+
+.kambo-destaque h2 {
+
+  color: #D4AF37;
+
+}
+
+
+
+
+
+
+
+.frase-kambo {
+
+  background: #1B3A2A;
+
+  padding: 60px 30px;
+
+  text-align: center;
+
+}
+
+
+
+
+
+.frase-kambo h2 {
 
   color: #D4AF37;
 
@@ -174,34 +191,37 @@
 
 
 
-/* MOBILE */
+
+
 
 @media(max-width:768px){
 
 
-  .sobre-hero {
+  .kambo-hero {
 
     height: 55vh;
 
   }
 
 
-  .sobre-titulo h1 {
+
+  .kambo-titulo h1 {
 
     font-size: 2rem;
 
   }
 
 
-  .sobre-titulo p {
+
+  .kambo-titulo p {
 
     font-size: 1rem;
 
   }
 
 
-  .sobre-texto,
-  .sobre-destaque {
+
+  .kambo-texto {
 
     padding: 45px 20px;
 

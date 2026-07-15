@@ -1,4 +1,4 @@
-.sobre-page {
+.ayahuasca-page {
 
   background: #d8c8a4;
   color: #2b1b0b;
@@ -6,18 +6,18 @@
 }
 
 
-/* IMAGEM PRINCIPAL */
+/* IMAGEM TOPO */
 
-.sobre-hero {
+.ayahuasca-hero {
 
-  position: relative;
   height: 70vh;
+  position: relative;
   overflow: hidden;
 
 }
 
 
-.sobre-hero img {
+.ayahuasca-hero img {
 
   width: 100%;
   height: 100%;
@@ -27,20 +27,20 @@
 
 
 
-.sobre-titulo {
+.ayahuasca-titulo {
 
   position: absolute;
   inset: 0;
 
+  background: rgba(0,0,0,0.45);
+
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   text-align: center;
-
-  background: rgba(0,0,0,0.45);
 
   color: white;
 
@@ -48,11 +48,11 @@
 
 
 
-.sobre-titulo h1 {
-
-  font-size: 3rem;
+.ayahuasca-titulo h1 {
 
   color: #D4AF37;
+
+  font-size: 3rem;
 
   letter-spacing: 3px;
 
@@ -60,7 +60,7 @@
 
 
 
-.sobre-titulo p {
+.ayahuasca-titulo p {
 
   font-size: 1.2rem;
 
@@ -72,8 +72,7 @@
 
 /* TEXTOS */
 
-.sobre-texto,
-.sobre-destaque {
+.ayahuasca-texto {
 
   max-width: 900px;
 
@@ -87,8 +86,8 @@
 
 
 
-.sobre-texto h2,
-.sobre-destaque h2 {
+.ayahuasca-texto h2,
+.ayahuasca-destaque h2 {
 
   color: #1B3A2A;
 
@@ -100,8 +99,8 @@
 
 
 
-.sobre-texto p,
-.sobre-destaque p {
+.ayahuasca-texto p,
+.ayahuasca-destaque p {
 
   line-height: 1.8;
 
@@ -113,47 +112,15 @@
 
 
 
-/* BLOCO DE DESTAQUE */
+/* BLOCO VERDE */
 
-.sobre-destaque {
+.ayahuasca-destaque {
 
   background: #1B3A2A;
 
   color: white;
 
-  max-width: 100%;
-
-}
-
-
-
-.sobre-destaque h2 {
-
-  color: #D4AF37;
-
-}
-
-
-
-.sobre-destaque p {
-
-  max-width: 850px;
-
-  margin: 20px auto;
-
-}
-
-
-
-
-
-/* FRASE FINAL */
-
-.frase-sobre {
-
-  padding: 60px 30px;
-
-  background: #1B3A2A;
+  padding: 70px 30px;
 
   text-align: center;
 
@@ -161,47 +128,78 @@
 
 
 
-.frase-sobre h2 {
+.ayahuasca-destaque h2,
+.ayahuasca-destaque h3 {
 
   color: #D4AF37;
 
-  font-size: 2rem;
+}
 
-  font-style: italic;
+
+
+.ayahuasca-destaque h3 {
+
+  margin-top: 35px;
+
+  font-size: 1.5rem;
 
 }
 
 
 
 
-/* MOBILE */
+/* FRASE FINAL */
+
+.frase-ayahuasca {
+
+  background: #1B3A2A;
+
+  padding: 60px 30px;
+
+  text-align: center;
+
+}
+
+
+
+.frase-ayahuasca h2 {
+
+  color: #D4AF37;
+
+  font-style: italic;
+
+  font-size: 2rem;
+
+}
+
+
+
 
 @media(max-width:768px){
 
 
-  .sobre-hero {
+  .ayahuasca-hero {
 
     height: 55vh;
 
   }
 
 
-  .sobre-titulo h1 {
+  .ayahuasca-titulo h1 {
 
     font-size: 2rem;
 
   }
 
 
-  .sobre-titulo p {
+  .ayahuasca-titulo p {
 
     font-size: 1rem;
 
   }
 
 
-  .sobre-texto,
-  .sobre-destaque {
+  .ayahuasca-texto {
 
     padding: 45px 20px;
 

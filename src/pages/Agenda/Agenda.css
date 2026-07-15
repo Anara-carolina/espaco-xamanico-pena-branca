@@ -1,0 +1,418 @@
+/* ===========================
+   PÁGINA AGENDA
+=========================== */
+
+
+.agenda-page {
+
+  background-color: #1f3b2d;
+
+  min-height: 100vh;
+
+  padding: 70px 20px;
+
+}
+
+
+
+
+.agenda-page h1 {
+
+  text-align: center;
+
+  color: #ffffff;
+
+  font-size: 34px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 40px;
+
+}
+
+
+
+
+
+/* ===========================
+   LISTA DE EVENTOS
+=========================== */
+
+
+.agenda-lista {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+
+}
+
+
+
+
+
+/* ===========================
+   CARD
+=========================== */
+
+
+.agenda-card {
+
+  display: flex;
+
+  background-color: #d8c8a4;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+
+}
+
+
+
+
+
+/* ===========================
+   DATA
+=========================== */
+
+
+.data-agenda {
+
+  width: 100px;
+
+  background-color: #4c5d2f;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+
+
+.data-agenda strong {
+
+  font-size: 45px;
+
+  color: #d4af37;
+
+  line-height: 1;
+
+}
+
+
+
+.data-agenda span {
+
+  color: #d4af37;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  margin-top: 8px;
+
+}
+
+
+
+
+
+/* ===========================
+   CONTEÚDO
+=========================== */
+
+
+.info-agenda {
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 25px;
+
+  gap: 30px;
+
+}
+
+
+
+
+.info-agenda h2 {
+
+  color: #5e360d;
+
+  font-size: 22px;
+
+  line-height: 1.5;
+
+  margin-bottom: 20px;
+
+}
+
+
+
+
+
+/* ===========================
+   BOTÃO
+=========================== */
+
+
+.info-agenda button {
+
+  background-color: #1B3A2A;
+
+  color: #d4af37;
+
+  border: none;
+
+  padding: 10px 20px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  transition: .3s;
+
+}
+
+
+
+.info-agenda button:hover {
+
+  background-color: #d4af37;
+
+  color: #1B3A2A;
+
+}
+
+
+
+
+
+/* ===========================
+   IMAGEM
+=========================== */
+
+
+.info-agenda img {
+
+  width: 150px;
+
+  height: 160px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+
+  border: 3px solid #5e360d;
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   DESKTOP
+=========================== */
+
+
+@media(min-width:1024px){
+
+
+.agenda-page {
+
+  padding: 90px 0;
+
+}
+
+
+
+.agenda-lista {
+
+  max-width: 900px;
+
+  margin: auto;
+
+}
+
+
+
+.agenda-card {
+
+  margin-bottom: 10px;
+
+}
+
+
+
+.data-agenda {
+
+  width: 120px;
+
+}
+
+
+
+.data-agenda strong {
+
+  font-size: 55px;
+
+}
+
+
+
+.info-agenda {
+
+  padding: 30px;
+
+}
+
+
+
+.info-agenda h2 {
+
+  font-size: 24px;
+
+}
+
+
+
+.info-agenda img {
+
+  width: 170px;
+
+  height: 180px;
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+
+@media(max-width:600px){
+
+
+
+.agenda-page {
+
+  padding: 50px 15px;
+
+}
+
+
+
+.agenda-page h1 {
+
+  font-size: 28px;
+
+}
+
+
+
+
+.agenda-card {
+
+  min-height: 150px;
+
+}
+
+
+
+
+.data-agenda {
+
+  width: 75px;
+
+}
+
+
+
+.data-agenda strong {
+
+  font-size: 35px;
+
+}
+
+
+
+.data-agenda span {
+
+  font-size: 15px;
+
+}
+
+
+
+
+
+.info-agenda {
+
+  padding: 15px;
+
+  gap: 10px;
+
+}
+
+
+
+.info-agenda h2 {
+
+  font-size: 16px;
+
+}
+
+
+
+.info-agenda button {
+
+  font-size: 13px;
+
+  padding: 8px 12px;
+
+}
+
+
+
+
+.info-agenda img {
+
+  width: 90px;
+
+  height: 110px;
+
+}
+
+
+
+}
