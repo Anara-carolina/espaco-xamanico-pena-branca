@@ -1,0 +1,355 @@
+.cerimonias-page {
+
+  background: #d8c8a4;
+  color: #2b1b0b;
+
+}
+
+
+/* IMAGEM TOPO */
+
+.cerimonias-hero {
+
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+
+}
+
+
+
+.cerimonias-hero img {
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+
+
+.cerimonias-titulo {
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  color: white;
+
+}
+
+
+
+.cerimonias-titulo h1 {
+
+  color: #D4AF37;
+
+  font-size: 3rem;
+
+  letter-spacing: 3px;
+
+}
+
+
+
+.cerimonias-titulo p {
+
+  font-size: 1.2rem;
+
+  max-width: 700px;
+
+}
+
+
+
+/* TEXTOS */
+
+.cerimonias-texto {
+
+  max-width: 900px;
+
+  margin: auto;
+
+  padding: 70px 30px;
+
+  text-align: center;
+
+}
+
+
+
+.cerimonias-texto h2,
+.cerimonias-destaque h2 {
+
+  color: #1B3A2A;
+
+  font-size: 2rem;
+
+  margin-bottom: 25px;
+
+}
+
+
+
+.cerimonias-texto p,
+.cerimonias-destaque p {
+
+  line-height: 1.8;
+
+  font-size: 1.1rem;
+
+}
+
+
+
+
+
+/* LISTA DE PREPARAÇÃO */
+
+.cerimonias-lista {
+
+  max-width: 700px;
+
+  margin: 30px auto;
+
+  text-align: left;
+
+}
+
+
+
+.cerimonias-lista li {
+
+  list-style: none;
+
+  background: rgba(255,255,255,0.35);
+
+  margin-bottom: 15px;
+
+  padding: 15px 20px;
+
+  border-radius: 15px;
+
+  font-size: 1.1rem;
+
+}
+
+
+
+
+
+/* BLOCO VERDE */
+
+.cerimonias-destaque {
+
+  background: #1B3A2A;
+
+  color: white;
+
+  padding: 70px 30px;
+
+  text-align: center;
+
+}
+
+
+
+.cerimonias-destaque h2,
+.cerimonias-destaque h3 {
+
+  color: #D4AF37;
+
+}
+
+
+
+.cerimonias-destaque h3 {
+
+  margin-top: 35px;
+
+  font-size: 1.5rem;
+
+}
+
+
+
+
+
+/* HORÁRIOS */
+
+.cerimonias-horarios {
+
+  max-width: 800px;
+
+  margin: 40px auto;
+
+}
+
+
+
+.cerimonias-horarios p {
+
+  background: rgba(255,255,255,0.15);
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  margin-bottom: 15px;
+
+}
+
+
+
+
+
+/* PARTILHA */
+
+.cerimonias-partilha {
+
+  max-width: 900px;
+
+  margin: auto;
+
+  padding: 70px 30px;
+
+  text-align: center;
+
+}
+
+
+
+.cerimonias-partilha h2 {
+
+  color: #1B3A2A;
+
+  font-size: 2rem;
+
+}
+
+
+
+
+
+/* FRASE FINAL */
+
+.frase-cerimonia {
+
+  background: #1B3A2A;
+
+  padding: 60px 30px;
+
+  text-align: center;
+
+}
+
+
+
+.frase-cerimonia h2 {
+
+  color: #D4AF37;
+
+  font-style: italic;
+
+  font-size: 2rem;
+
+}
+
+
+
+
+/* BOTÃO */
+
+.cerimonias-botao {
+
+  margin-top: 30px;
+
+}
+
+
+
+.cerimonias-botao button {
+
+  background: #D4AF37;
+
+  color: #1B3A2A;
+
+  border: none;
+
+  padding: 15px 35px;
+
+  border-radius: 30px;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+
+
+.cerimonias-botao button:hover {
+
+  background: white;
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+  .cerimonias-hero {
+
+    height: 55vh;
+
+  }
+
+
+
+  .cerimonias-titulo h1 {
+
+    font-size: 2rem;
+
+  }
+
+
+
+  .cerimonias-titulo p {
+
+    font-size: 1rem;
+
+  }
+
+
+
+  .cerimonias-texto,
+  .cerimonias-partilha {
+
+    padding: 45px 20px;
+
+  }
+
+
+  .cerimonias-lista {
+
+    text-align: left;
+
+  }
+
+
+
+}
