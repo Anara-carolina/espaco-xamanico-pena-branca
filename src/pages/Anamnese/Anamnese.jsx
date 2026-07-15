@@ -2,12 +2,17 @@ import "./Anamnese.css";
 
 import logo from "../../assets/imagens/logonome.png";
 
+import { useState } from "react";
+
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/config";
+
+import { salvarAnamnese } from "../../services/firebaseService";
 
 import { useNavigate } from "react-router-dom";
 
 import { FaHome } from "react-icons/fa";
+
 
 
 function Anamnese() {
@@ -19,16 +24,172 @@ function Anamnese() {
 
 
 
+  const [formulario, setFormulario] = useState({});
+
+
+
+
+  function atualizarCampo(e){
+
+
+    const {
+
+      name,
+
+      value,
+
+      type,
+
+      checked
+
+
+    } = e.target;
+
+
+
+    if(type === "checkbox"){
+
+
+      setFormulario({
+
+        ...formulario,
+
+        [name]: checked
+
+      });
+
+
+
+    } else {
+
+
+      setFormulario({
+
+        ...formulario,
+
+        [name]: value
+
+      });
+
+
+    }
+
+
+  }
+
+
+
+
+
+  async function enviarFormulario(e){
+
+
+    e.preventDefault();
+
+
+
+    if(!usuario){
+
+
+      alert(
+
+        "Você precisa estar logado para enviar a ficha."
+
+      );
+
+
+      return;
+
+
+    }
+
+
+
+
+
+    const dadosAnamnese = {
+
+
+      usuarioId: usuario.uid,
+
+
+      nomeUsuario: usuario.displayName,
+
+
+      emailUsuario: usuario.email,
+
+
+      dataEnvio: new Date(),
+
+
+      ...formulario
+
+
+    };
+
+
+
+
+
+
+    try{
+
+
+      await salvarAnamnese(dadosAnamnese);
+
+
+
+      alert(
+
+        "Ficha enviada com sucesso 🌿"
+
+      );
+
+
+
+      setFormulario({});
+
+
+
+    }catch(error){
+
+
+      console.error(error);
+
+
+
+      alert(
+
+        "Erro ao salvar ficha."
+
+      );
+
+
+    }
+
+
+  }
+
+
+
+
+
+
+
   return (
 
     <main className="anamnese">
+
 
 
       <section className="anamnese-header">
 
 
 
+
+
         {/* BOTÃO HOME */}
+
 
         <button
 
@@ -48,59 +209,73 @@ function Anamnese() {
 
 
 
-        {/* LINHA DOURADA */}
-
-        <div className="linha-separadora"></div>
 
 
 
+        {/* LOGIN DO USUÁRIO */}
 
-
-
-
-        {/* USUÁRIO LOGADO */}
 
         {usuario && (
 
-          <div className="usuario-logado">
+          <>
 
 
-            {usuario.photoURL && (
+            {/* LINHA DOURADA */}
 
-              <img
 
-                src={usuario.photoURL}
-
-                alt="Foto do usuário"
-
-              />
-
-            )}
+            <div className="linha-separadora"></div>
 
 
 
-            <div>
 
 
-              <strong>
-
-                Olá, {usuario.displayName}
-
-              </strong>
+            <div className="usuario-logado">
 
 
 
-              <span>
+              {usuario.photoURL && (
 
-                {usuario.email}
+                <img
 
-              </span>
+                  src={usuario.photoURL}
+
+                  alt="Usuário"
+
+                />
+
+              )}
+
+
+
+
+
+              <div>
+
+
+                <strong>
+
+                  Olá, {usuario.displayName}
+
+                </strong>
+
+
+
+                <span>
+
+                  {usuario.email}
+
+                </span>
+
+
+              </div>
+
 
 
             </div>
 
 
-          </div>
+
+          </>
 
         )}
 
@@ -112,13 +287,18 @@ function Anamnese() {
 
         {/* LOGO */}
 
+
         <img
+
 
           src={logo}
 
+
           alt="Espaço Xamânico Pena Branca"
 
+
           className="logo-anamnese"
+
 
         />
 
@@ -138,7 +318,6 @@ function Anamnese() {
 
 
 
-
         <p>
 
           Esta ficha tem como objetivo conhecer sua história,
@@ -146,6 +325,7 @@ function Anamnese() {
           Todas as informações são tratadas com respeito e cuidado.
 
         </p>
+
 
 
 
@@ -157,11 +337,16 @@ function Anamnese() {
 
 
 
+      <form
 
 
-      <form className="form-anamnese">
+        className="form-anamnese"
 
 
+        onSubmit={enviarFormulario}
+
+
+      >
 
 
 
@@ -170,74 +355,142 @@ function Anamnese() {
         <section className="campo-grupo">
 
 
-          <h2>🌿 Dados pessoais</h2>
+          <h2>
+
+            🌿 Dados pessoais
+
+          </h2>
+
+
+
 
 
           <input
-            type="text"
+
+            name="nome"
+
             placeholder="Nome completo"
+
+            onChange={atualizarCampo}
+
           />
 
 
+
+
           <input
-            type="text"
+
+            name="cpf"
+
             placeholder="CPF"
+
+            onChange={atualizarCampo}
+
           />
 
 
+
+
           <input
+
+            name="email"
+
             type="email"
+
             placeholder="E-mail"
+
+            onChange={atualizarCampo}
+
           />
 
 
+
+
           <input
+
+            name="nascimento"
+
             type="date"
+
+            onChange={atualizarCampo}
+
           />
 
 
+
+
           <input
-            type="tel"
+
+            name="telefone"
+
             placeholder="Telefone / WhatsApp"
+
+            onChange={atualizarCampo}
+
           />
 
 
+
+
           <input
-            type="text"
+
+            name="cidade"
+
             placeholder="Cidade onde reside"
+
+            onChange={atualizarCampo}
+
           />
 
 
+
         </section>
+                <section className="campo-grupo">
 
 
+          <h2>
+
+            📞 Contato de emergência
+
+          </h2>
 
 
-
-
-
-
-        <section className="campo-grupo">
-
-
-          <h2>📞 Contato de emergência</h2>
 
 
           <input
-            type="text"
+
+            name="contatoEmergencia"
+
             placeholder="Nome do contato"
+
+            onChange={atualizarCampo}
+
           />
 
 
+
+
           <input
-            type="tel"
+
+            name="telefoneEmergencia"
+
             placeholder="Telefone do contato"
+
+            onChange={atualizarCampo}
+
           />
+
+
 
 
           <input
-            type="text"
+
+            name="parentesco"
+
             placeholder="Grau de parentesco"
+
+            onChange={atualizarCampo}
+
           />
 
 
@@ -253,37 +506,66 @@ function Anamnese() {
         <section className="campo-grupo">
 
 
-          <h2>🤍 Saúde física</h2>
+          <h2>
+
+            🤍 Saúde física
+
+          </h2>
+
+
 
 
 
           <p>
+
             Possui pressão alta?
+
           </p>
+
 
 
 
           <label>
 
-            <input 
-              type="radio" 
+
+            <input
+
+              type="radio"
+
               name="pressao"
+
+              value="Sim"
+
+              onChange={atualizarCampo}
+
             />
 
             Sim
+
 
           </label>
 
 
 
+
+
           <label>
 
-            <input 
-              type="radio" 
+
+            <input
+
+              type="radio"
+
               name="pressao"
+
+              value="Não"
+
+              onChange={atualizarCampo}
+
             />
 
             Não
+
 
           </label>
 
@@ -293,33 +575,56 @@ function Anamnese() {
 
 
           <p>
+
             Possui diabetes?
+
           </p>
 
 
 
+
+
           <label>
 
-            <input 
-              type="radio" 
+
+            <input
+
+              type="radio"
+
               name="diabetes"
+
+              value="Sim"
+
+              onChange={atualizarCampo}
+
             />
 
             Sim
 
+
           </label>
+
 
 
 
 
           <label>
 
-            <input 
-              type="radio" 
+
+            <input
+
+              type="radio"
+
               name="diabetes"
+
+              value="Não"
+
+              onChange={atualizarCampo}
+
             />
 
             Não
+
 
           </label>
 
@@ -327,20 +632,57 @@ function Anamnese() {
 
 
 
+
           <textarea
-            placeholder="Possui alguma doença crônica ou condição de saúde importante?"
+
+
+            name="doencas"
+
+
+            placeholder="Possui alguma doença ou condição importante?"
+
+
+            onChange={atualizarCampo}
+
+
           />
 
 
 
+
+
+
           <textarea
-            placeholder="Utiliza medicamentos atualmente? Informe quais."
+
+
+            name="medicamentos"
+
+
+            placeholder="Utiliza medicamentos atualmente?"
+
+
+            onChange={atualizarCampo}
+
+
           />
 
 
 
+
+
+
           <textarea
+
+
+            name="alergias"
+
+
             placeholder="Possui alergias?"
+
+
+            onChange={atualizarCampo}
+
+
           />
 
 
@@ -358,50 +700,77 @@ function Anamnese() {
         <section className="campo-grupo">
 
 
-          <h2>🧠 Neurodivergência e saúde emocional</h2>
+          <h2>
+
+            🧠 Neurodivergência
+
+          </h2>
 
 
-          <p>
-            Possui alguma neurodivergência?
-          </p>
 
 
 
           <label>
 
-            <input type="checkbox"/>
+
+            <input
+
+              type="checkbox"
+
+              name="tdah"
+
+              onChange={atualizarCampo}
+
+            />
+
 
             TDAH
 
+
           </label>
+
+
 
 
 
           <label>
 
-            <input type="checkbox"/>
+
+            <input
+
+              type="checkbox"
+
+              name="autismo"
+
+              onChange={atualizarCampo}
+
+            />
+
 
             Autismo (TEA)
 
-          </label>
-
-
-
-          <label>
-
-            <input type="checkbox"/>
-
-            Outra
 
           </label>
+
+
+
 
 
 
           <textarea
 
-            placeholder="Caso tenha alguma outra condição, informe aqui."
+
+            name="outraNeurodivergencia"
+
+
+            placeholder="Outra condição"
+
+
+            onChange={atualizarCampo}
+
 
           />
+
 
 
         </section>
@@ -417,7 +786,13 @@ function Anamnese() {
         <section className="campo-grupo">
 
 
-          <h2>🌿 Uso de substâncias</h2>
+          <h2>
+
+            🌿 Uso de substâncias
+
+          </h2>
+
+
 
 
 
@@ -429,49 +804,74 @@ function Anamnese() {
 
 
 
+
+
           <label>
 
-            <input 
-              type="radio" 
+
+            <input
+
+              type="radio"
+
               name="substancias"
+
+              value="Sim"
+
+              onChange={atualizarCampo}
+
             />
+
 
             Sim
 
+
           </label>
+
 
 
 
 
           <label>
 
-            <input 
-              type="radio" 
+
+            <input
+
+              type="radio"
+
               name="substancias"
+
+              value="Não"
+
+              onChange={atualizarCampo}
+
             />
+
 
             Não
 
+
           </label>
 
 
 
 
 
+
           <textarea
+
+
+            name="substanciasQuais"
+
 
             placeholder="Se sim, qual substância utilizou?"
 
+
+            onChange={atualizarCampo}
+
+
           />
 
 
-
-
-          <textarea
-
-            placeholder="Por quanto tempo utilizou? Quando foi o último uso?"
-
-          />
 
 
 
@@ -488,72 +888,11 @@ function Anamnese() {
         <section className="campo-grupo">
 
 
-          <h2>🌙 Sua intenção</h2>
+          <h2>
 
+            🌙 Sua intenção
 
-
-          <textarea
-
-            placeholder="Conte qual sua intenção ao participar desta cerimônia."
-
-          />
-
-
-
-        </section>
-
-
-
-
-
-
-
-
-
-        <section className="campo-grupo">
-
-
-          <h2>🌱 Experiência com medicinas</h2>
-
-
-
-          <label>
-
-            <input type="checkbox"/>
-
-            Ayahuasca
-
-          </label>
-
-
-
-          <label>
-
-            <input type="checkbox"/>
-
-            Rapé
-
-          </label>
-
-
-
-          <label>
-
-            <input type="checkbox"/>
-
-            Sananga
-
-          </label>
-
-
-
-          <label>
-
-            <input type="checkbox"/>
-
-            Kambô
-
-          </label>
+          </h2>
 
 
 
@@ -561,7 +900,53 @@ function Anamnese() {
 
           <textarea
 
-            placeholder="Conte como foi sua última experiência com a medicina. Como você se sentiu durante e após a cerimônia?"
+
+            name="intencao"
+
+
+            placeholder="Conte sua intenção ao participar desta cerimônia."
+
+
+            onChange={atualizarCampo}
+
+
+          />
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <section className="campo-grupo">
+
+
+          <h2>
+
+            🌱 Experiência com medicinas
+
+          </h2>
+
+
+
+
+
+          <textarea
+
+
+            name="experienciaMedicinas"
+
+
+            placeholder="Conte sua experiência com as medicinas."
+
+
+            onChange={atualizarCampo}
+
 
           />
 
@@ -580,41 +965,12 @@ function Anamnese() {
         <section className="campo-grupo">
 
 
-          <h2>🌿 Próxima cerimônia</h2>
+          <h2>
 
+            🙏 Consentimento
 
+          </h2>
 
-          <label>
-
-            Informe a data da cerimônia que deseja participar:
-
-          </label>
-
-
-
-
-          <input
-
-            type="date"
-
-          />
-
-
-
-        </section>
-
-
-
-
-
-
-
-
-
-        <section className="campo-grupo">
-
-
-          <h2>🙏 Consentimento</h2>
 
 
 
@@ -622,12 +978,23 @@ function Anamnese() {
           <label className="check-termo">
 
 
-            <input type="checkbox"/>
+            <input
 
 
-            Declaro que as informações fornecidas são verdadeiras
-            e estou ciente da importância de comunicar qualquer
-            condição de saúde relevante.
+              type="checkbox"
+
+
+              name="aceitouTermos"
+
+
+              onChange={atualizarCampo}
+
+
+            />
+
+
+
+            Declaro que as informações fornecidas são verdadeiras.
 
 
           </label>
@@ -643,11 +1010,25 @@ function Anamnese() {
 
 
 
-        <button className="btn-enviar">
+
+        <button
+
+
+          className="btn-enviar"
+
+
+          type="submit"
+
+
+        >
+
 
           Enviar minha ficha 🌿
 
+
         </button>
+
+
 
 
 
@@ -658,9 +1039,12 @@ function Anamnese() {
 
 
 
+
     </main>
 
+
   );
+
 
 }
 
