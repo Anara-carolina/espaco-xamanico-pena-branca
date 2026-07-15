@@ -14,7 +14,7 @@
 
   position: relative;
 
-  z-index: 10;
+  z-index: 1000;
 
   overflow: visible;
 
@@ -30,36 +30,49 @@
 
   position: absolute;
 
-  left: 0;
+  left: 15px;
 
   top: 50%;
 
   transform: translateY(-50%);
 
-  background: none;
+  background: transparent;
 
   border: none;
 
-  padding: 0;
+  padding: 5px;
 
   margin: 0;
 
   cursor: pointer;
 
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 1100;
+
 }
 
+
+/* ========================= */
+/* ÍCONE MENU */
+/* ========================= */
 
 
 .menu-button img {
 
-  width: 70px;
+  width: 100px;
 
-  height: auto;
+  height: 100px;
+
+  object-fit: contain;
 
   display: block;
 
 }
-
 
 
 /* ========================= */
@@ -69,11 +82,19 @@
 
 .logo {
 
-  width: 55px;
+  width: 90px;
 
-  height: auto;
+  height: 90px;
+
+  object-fit: contain;
 
   display: block;
+
+  position: relative;
+
+  top: 10px;
+
+  z-index: 1200;
 
 }
 
@@ -89,31 +110,34 @@
 
   .header {
 
-    height: 120px;
+    height: 100px;
 
   }
-
 
 
   .menu-button {
 
-    left: 35px;
+    left: 40px;
 
   }
-
 
 
   .menu-button img {
 
-    width: 75px;
+    width: 55px;
+
+    height: 55px;
 
   }
 
 
-
   .logo {
 
-    width: 100px;
+    width: 120px;
+
+    height: 120px;
+
+    top: 20px;
 
   }
 
@@ -132,10 +156,9 @@
 
   .header {
 
-    height: 130px;
+    height: 120px;
 
   }
-
 
 
   .menu-button {
@@ -145,18 +168,22 @@
   }
 
 
-
   .menu-button img {
 
-    width: 80px;
+    width: 65px;
+
+    height: 65px;
 
   }
 
 
-
   .logo {
 
-    width: 120px;
+    width: 140px;
+
+    height: 140px;
+
+    top: 25px;
 
   }
 

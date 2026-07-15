@@ -6,151 +6,96 @@ import { Link } from "react-router-dom";
 
 import "./MenuMobile.css";
 
-
 function MenuMobile({ aberto, fecharMenu }) {
-
-
   return (
-
     <>
-
-
       {aberto && (
-
-        <div 
+        <div
           className="menu-overlay"
           onClick={fecharMenu}
-        >
-
-        </div>
-
+        ></div>
       )}
 
-
-
       <nav className={`menu-mobile ${aberto ? "ativo" : ""}`}>
-
-
-
-        <button 
+        <button
           className="fechar-menu"
           onClick={fecharMenu}
         >
           ×
         </button>
 
-
-
-
-        <img 
+        <img
           className="logo-menu"
           src={logo}
           alt="Espaço Xamânico Pena Branca"
         />
 
-
-
         <p className="frase-menu">
-
           Cultura • Natureza • Espiritualidade
-
         </p>
 
-
-
-
-
         <Link to="/" onClick={fecharMenu}>
-  Início
-</Link>
+          Início
+        </Link>
 
+        <Link to="/sobre" onClick={fecharMenu}>
+          Sobre Nós
+        </Link>
 
-<Link to="/sobre" onClick={fecharMenu}>
-  Sobre Nós
-</Link>
+        <Link to="/cerimonias" onClick={fecharMenu}>
+          Cerimônias
+        </Link>
 
+        <Link to="/agenda" onClick={fecharMenu}>
+          Agenda
+        </Link>
 
-<Link to="/cerimonias" onClick={fecharMenu}>
-  Cerimônias
-</Link>
+        <Link to="/medicinas/ayahuasca" onClick={fecharMenu}>
+          Medicinas
+        </Link>
 
+        <Link to="/galeria" onClick={fecharMenu}>
+          Galeria
+        </Link>
 
-<Link to="/agenda" onClick={fecharMenu}>
-  Agenda
-</Link>
+        <Link to="/login" onClick={fecharMenu}>
+          Ficha de Anamnese
+        </Link>
 
+        <Link to="/contato" onClick={fecharMenu}>
+          Contato
+        </Link>
 
-<Link to="/medicinas/ayahuasca" onClick={fecharMenu}>
-  Medicinas
-</Link>
-
-
-<Link to="/galeria" onClick={fecharMenu}>
-  Galeria
-</Link>
-
-
-<Link to="/anamnese" onClick={fecharMenu}>
-  Anamnese
-</Link>
-
-
-<Link to="/contato" onClick={fecharMenu}>
-  Contato
-</Link>
-
-
-<Link to="/perguntas" onClick={fecharMenu}>
-  Perguntas Frequentes
-</Link>
-
-
-
+        <Link to="/perguntas" onClick={fecharMenu}>
+          Perguntas Frequentes
+        </Link>
 
         <div className="redes-menu">
-
-
-          <a 
+          <a
             href="https://www.instagram.com/e.xamanicopenabranca"
             target="_blank"
+            rel="noopener noreferrer"
           >
-
-            <img 
+            <img
               src={instagram}
               alt="Instagram"
             />
-
           </a>
 
-
-
-
-          <a 
+          <a
             href="https://wa.me/5534988434935"
             target="_blank"
+            rel="noopener noreferrer"
           >
-
-            <img 
+            <img
               src={whats}
               alt="WhatsApp"
             />
-
           </a>
-
-
-
         </div>
-
-
-
       </nav>
-
-
     </>
-
   );
-
 }
-
 
 export default MenuMobile;

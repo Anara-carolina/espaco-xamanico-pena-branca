@@ -1,0 +1,137 @@
+.contato {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: #10251c;
+  color: #f5e6b3;
+  display: flex;
+  justify-content: center;
+}
+
+
+.contato-container {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+
+.contato h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #d8b45a;
+}
+
+
+.descricao {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #eee;
+  margin-bottom: 15px;
+}
+
+
+.form-contato {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+.form-contato input,
+.form-contato select {
+
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #d8b45a;
+  background: #173326;
+  color: white;
+  font-size: 16px;
+
+}
+
+
+.form-contato input::placeholder {
+  color: #ccc;
+}
+
+
+.form-contato button {
+
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+
+  background: #d8b45a;
+  color: #10251c;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: .3s;
+
+}
+
+
+.form-contato button:hover {
+
+  transform: scale(1.05);
+  background: #f1cf72;
+
+}
+
+
+.localizacao {
+
+  margin-top: 50px;
+
+}
+
+
+.localizacao h2 {
+
+  color: #d8b45a;
+  margin-bottom: 10px;
+
+}
+
+
+.localizacao p {
+
+  font-size: 18px;
+  color: white;
+
+}
+
+
+.frase-final {
+
+  margin-top: 50px;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+
+}
+
+
+.frase-final span {
+
+  color: #d8b45a;
+  font-weight: bold;
+
+}
+
+
+@media(max-width:600px){
+
+  .contato h1{
+    font-size:32px;
+  }
+
+  .descricao{
+    font-size:16px;
+  }
+
+}

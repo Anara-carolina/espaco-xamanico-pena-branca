@@ -1,0 +1,366 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.login{
+
+    min-height:100vh;
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    padding:20px;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(8,18,12,.68);
+
+}
+
+.login-card{
+
+    position:relative;
+
+    width:100%;
+    max-width:520px;
+
+    padding:50px 40px;
+
+    border-radius:25px;
+
+    background:rgba(20,35,26,.55);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(216,180,90,.35);
+
+    text-align:center;
+
+    color:white;
+
+    animation:fade .8s ease;
+
+}
+
+.logo{
+
+    font-size:55px;
+
+    margin-bottom:15px;
+
+}
+
+.login-card h2{
+
+    color:#D8B45A;
+
+    letter-spacing:3px;
+
+    font-size:22px;
+
+    text-transform:uppercase;
+
+}
+
+.login-card h1{
+
+    font-size:48px;
+
+    color:white;
+
+    margin-top:8px;
+
+    margin-bottom:15px;
+
+}
+
+.linha{
+
+    display:block;
+
+    width:120px;
+
+    height:2px;
+
+    background:#D8B45A;
+
+    margin:20px auto;
+
+}
+
+.login-card h3{
+
+    color:#D8B45A;
+
+    margin-bottom:25px;
+
+    font-size:28px;
+
+}
+
+.login-card p{
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+
+    color:#ececec;
+
+}
+
+.texto-secundario{
+
+    color:#d9d9d9;
+
+    margin-bottom:35px;
+
+}
+
+.google-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.google-btn img{
+
+    width:28px;
+
+}
+
+.google-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.30);
+
+}
+
+.seguranca{
+
+    margin-top:30px;
+
+    font-size:15px;
+
+    color:#ddd;
+
+    line-height:1.6;
+
+}
+
+.frase{
+
+    margin-top:40px;
+
+    font-style:italic;
+
+    color:#D8B45A;
+
+}
+
+.haux{
+
+    display:block;
+
+    margin-top:12px;
+
+    font-size:20px;
+
+    color:#D8B45A;
+
+    font-weight:bold;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+.login-card{
+
+padding:35px 25px;
+
+}
+
+.login-card h1{
+
+font-size:36px;
+
+}
+
+.login-card h2{
+
+font-size:18px;
+
+}
+
+.login-card h3{
+
+font-size:24px;
+
+}
+
+.login-card p{
+
+font-size:15px;
+
+}
+
+.google-btn{
+
+font-size:16px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.login-card{
+
+padding:30px 20px;
+
+}
+
+.logo{
+
+font-size:45px;
+
+}
+
+.login-card h1{
+
+font-size:30px;
+
+}
+
+.login-card h3{
+
+font-size:20px;
+
+}
+
+.google-btn{
+
+padding:14px;
+
+}
+
+}
+/* =========================
+   BOTÃO HOME
+========================= */
+
+.home-login{
+
+    position:absolute;
+
+    top:25px;
+
+    left:25px;
+
+    background:transparent;
+
+    border:none;
+
+    color:#D8B45A;
+
+    cursor:pointer;
+
+    z-index:5;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:5px;
+
+    transition:.3s;
+
+}
+
+
+.home-login svg{
+
+    font-size:32px;
+
+}
+
+
+.home-login span{
+
+    width:38px;
+
+    height:2px;
+
+    background:#D8B45A;
+
+    display:block;
+
+}
+
+
+.home-login:hover{
+
+    transform:scale(1.1);
+
+}

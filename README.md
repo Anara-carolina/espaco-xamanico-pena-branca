@@ -159,4 +159,4 @@ Nosso propósito é acolher, compartilhar conhecimentos e fortalecer a conexão 
 
 ## 📌 Status
 
-🚧 Projeto em desenvolvimento.
+🚧 Projeto em desenvolvimento
