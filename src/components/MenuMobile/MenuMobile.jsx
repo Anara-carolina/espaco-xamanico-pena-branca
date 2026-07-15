@@ -2,6 +2,8 @@ import logo from "../../assets/imagens/logonome.png";
 import instagram from "../../assets/imagens/instagram.png";
 import whats from "../../assets/imagens/whats.png";
 
+import { Link } from "react-router-dom";
+
 import "./MenuMobile.css";
 
 
@@ -58,40 +60,49 @@ function MenuMobile({ aberto, fecharMenu }) {
 
 
 
-        <a href="/" onClick={fecharMenu}>
-          Início
-        </a>
+        <Link to="/" onClick={fecharMenu}>
+  Início
+</Link>
 
 
-        <a href="#sobre" onClick={fecharMenu}>
-          Sobre Nós
-        </a>
+<Link to="/sobre" onClick={fecharMenu}>
+  Sobre Nós
+</Link>
 
 
-        <a href="#medicinas" onClick={fecharMenu}>
-          Medicinas
-        </a>
+<Link to="/cerimonias" onClick={fecharMenu}>
+  Cerimônias
+</Link>
 
 
-        <a href="#galeria" onClick={fecharMenu}>
-          Galeria
-        </a>
+<Link to="/agenda" onClick={fecharMenu}>
+  Agenda
+</Link>
 
 
-        <a href="#agenda" onClick={fecharMenu}>
-          Agenda
-        </a>
+<Link to="/medicinas/ayahuasca" onClick={fecharMenu}>
+  Medicinas
+</Link>
 
 
-        <a href="#anamnese" onClick={fecharMenu}>
-          Anamnese
-        </a>
+<Link to="/galeria" onClick={fecharMenu}>
+  Galeria
+</Link>
 
 
-        <a href="#contato" onClick={fecharMenu}>
-          Contato
-        </a>
+<Link to="/anamnese" onClick={fecharMenu}>
+  Anamnese
+</Link>
 
+
+<Link to="/contato" onClick={fecharMenu}>
+  Contato
+</Link>
+
+
+<Link to="/perguntas" onClick={fecharMenu}>
+  Perguntas Frequentes
+</Link>
 
 
 

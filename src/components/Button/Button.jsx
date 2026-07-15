@@ -1,19 +1,36 @@
+import { Link } from "react-router-dom";
+
 import "./Button.css";
 import imagemLobo from "../../assets/imagens/lobo.jpg";
 
+
 function Button() {
+
   return (
+
     <section className="sobre">
 
+
       <img
+
         src={imagemLobo}
+
         alt="Lobo"
+
         className="sobre-imagem"
+
       />
+
+
 
       <div className="sobre-conteudo">
 
-        <h2>Sobre Nós</h2>
+
+        <h2>
+          Sobre Nós
+        </h2>
+
+
 
         <p>
           O Espaço Xamânico Pena Branca nasceu com o propósito de acolher,
@@ -22,14 +39,25 @@ function Button() {
           oferecendo momentos de cura, amor, respeito e transformação.
         </p>
 
-        <button>
-          Saiba mais
-        </button>
+
+
+        <Link to="/sobre">
+
+          <button type="button">
+            Saiba mais
+          </button>
+
+        </Link>
+
 
       </div>
 
+
     </section>
+
   );
+
 }
+
 
 export default Button;

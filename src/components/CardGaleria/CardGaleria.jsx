@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+
 import "./CardGaleria.css";
 
 import imagem001 from "../../assets/imagens/001.jpg";
@@ -13,9 +15,11 @@ import imagem008 from "../../assets/imagens/008.jpg";
 
 function CardGaleria() {
 
+
   const [imagemSelecionada, setImagemSelecionada] = useState(null);
 
   const carrosselRef = useRef(null);
+
 
 
   const imagens = [
@@ -30,6 +34,7 @@ function CardGaleria() {
   ];
 
 
+
   function moverCarrossel(direcao) {
 
     if (carrosselRef.current) {
@@ -41,12 +46,19 @@ function CardGaleria() {
   }
 
 
+
   return (
+
     <>
+
 
       <section className="galeria">
 
-        <h2>Nossa Galeria</h2>
+
+        <h2>
+          Nossa Galeria
+        </h2>
+
 
 
         <p>
@@ -56,25 +68,37 @@ function CardGaleria() {
 
 
 
+
         <div className="container-carrossel">
 
 
           <button
+
             className="seta esquerda"
+
             onClick={() => moverCarrossel(-350)}
+
           >
+
             ❮
+
           </button>
 
 
 
+
           <div
+
             className="carrossel"
+
             ref={carrosselRef}
+
           >
 
 
+
             {imagens.map((imagem, index) => (
+
 
               <img
 
@@ -90,10 +114,13 @@ function CardGaleria() {
 
               />
 
+
             ))}
 
 
+
           </div>
+
 
 
 
@@ -117,15 +144,19 @@ function CardGaleria() {
 
 
 
+
         <div className="galeria-link">
 
-          <a href="/galeria">
+
+          <Link to="/galeria">
 
             Ver a galeria completa →
 
-          </a>
+          </Link>
+
 
         </div>
+
 
 
       </section>
@@ -134,7 +165,10 @@ function CardGaleria() {
 
 
 
+
+
       {imagemSelecionada && (
+
 
         <div
 
@@ -145,11 +179,14 @@ function CardGaleria() {
         >
 
 
+
           <span className="fechar">
 
             &times;
 
           </span>
+
+
 
 
 
@@ -164,7 +201,9 @@ function CardGaleria() {
           />
 
 
+
         </div>
+
 
       )}
 

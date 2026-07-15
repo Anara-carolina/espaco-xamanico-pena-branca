@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Footer.css";
 
 import logo from "../../assets/imagens/logonome.png";
@@ -13,11 +15,18 @@ function Footer() {
     <footer className="footer">
 
 
+
       <img
+
         src={logo}
+
         alt="Espaço Xamânico Pena Branca"
+
         className="logo-footer"
+
       />
+
+
 
 
 
@@ -31,37 +40,63 @@ function Footer() {
 
 
 
+
+
       <div className="redes-footer">
 
 
+
         <a
+
           href="https://www.instagram.com/e.xamanicopenabranca?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+
           target="_blank"
+
           rel="noreferrer"
+
         >
 
+
           <img
+
             src={instagram}
+
             alt="Instagram"
+
           />
 
+
         </a>
+
+
+
 
 
 
 
         <a
+
           href="https://wa.me/5534988434935"
+
           target="_blank"
+
           rel="noreferrer"
+
         >
 
+
           <img
+
             src={whats}
+
             alt="WhatsApp"
+
           />
 
+
         </a>
+
+
 
 
       </div>
@@ -69,20 +104,47 @@ function Footer() {
 
 
 
+
+
+
       <nav className="menu-footer">
 
 
-        <a href="/">Início</a>
 
-        <a href="#sobre">Sobre</a>
+        <Link to="/">
+          Início
+        </Link>
 
-        <a href="#medicinas">Medicinas</a>
 
-        <a href="#galeria">Galeria</a>
 
-        <a href="#agenda">Agenda</a>
+        <Link to="/sobre">
+          Sobre
+        </Link>
 
-        <a href="#contato">Contato</a>
+
+
+        <Link to="/medicinas/ayahuasca">
+          Medicinas
+        </Link>
+
+
+
+        <Link to="/galeria">
+          Galeria
+        </Link>
+
+
+
+        <Link to="/agenda">
+          Agenda
+        </Link>
+
+
+
+        <Link to="/contato">
+          Contato
+        </Link>
+
 
 
       </nav>
@@ -90,7 +152,14 @@ function Footer() {
 
 
 
+
+
+
       <div className="linha-footer"></div>
+
+
+
+
 
 
 
@@ -102,11 +171,14 @@ function Footer() {
 
 
 
+
+
     </footer>
 
   );
 
 }
+
 
 
 export default Footer;
