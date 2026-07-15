@@ -20,16 +20,25 @@ function Anamnese() {
 
   const [usuario] = useAuthState(auth);
 
+
   const navigate = useNavigate();
 
 
 
-  const [formulario, setFormulario] = useState({});
+  const [formulario, setFormulario] = useState({
+
+    medicinasConsagradas: []
+
+  });
+
+
+
 
 
 
 
   function atualizarCampo(e){
+
 
 
     const {
@@ -47,55 +56,57 @@ function Anamnese() {
 
 
 
-    if(type === "checkbox"){
+
+
+    // CHECKBOX DAS MEDICINAS
+
+    if(type === "checkbox" && name === "medicinasConsagradas"){
+
+
+
+      let lista = formulario.medicinasConsagradas || [];
+
+
+
+      if(checked){
+
+
+        lista = [
+
+          ...lista,
+
+          value
+
+        ];
+
+
+      } else {
+
+
+        lista = lista.filter(
+
+          (item) => item !== value
+
+        );
+
+
+      }
+
+
+
 
 
       setFormulario({
 
-        ...formulario,
-
-        [name]: checked
-
-      });
-
-
-
-    } else {
-
-
-      setFormulario({
 
         ...formulario,
 
-        [name]: value
+
+        medicinasConsagradas: lista
+
 
       });
 
-
-    }
-
-
-  }
-
-
-
-
-
-  async function enviarFormulario(e){
-
-
-    e.preventDefault();
-
-
-
-    if(!usuario){
-
-
-      alert(
-
-        "Você precisa estar logado para enviar a ficha."
-
-      );
 
 
       return;
@@ -107,7 +118,71 @@ function Anamnese() {
 
 
 
+
+
+
+    setFormulario({
+
+
+      ...formulario,
+
+
+      [name]: type === "checkbox"
+
+      ? checked
+
+      : value
+
+
+    });
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+  async function enviarFormulario(e){
+
+
+
+    e.preventDefault();
+
+
+
+
+
+    if(!usuario){
+
+
+
+      alert(
+
+        "Você precisa estar logado para enviar a ficha."
+
+      );
+
+
+
+      return;
+
+
+    }
+
+
+
+
+
+
+
     const dadosAnamnese = {
+
 
 
       usuarioId: usuario.uid,
@@ -122,7 +197,9 @@ function Anamnese() {
       dataEnvio: new Date(),
 
 
+
       ...formulario
+
 
 
     };
@@ -132,10 +209,16 @@ function Anamnese() {
 
 
 
+
+
+
     try{
 
 
+
       await salvarAnamnese(dadosAnamnese);
+
+
 
 
 
@@ -147,11 +230,20 @@ function Anamnese() {
 
 
 
-      setFormulario({});
+
+
+      setFormulario({
+
+        medicinasConsagradas: []
+
+      });
+
+
 
 
 
     }catch(error){
+
 
 
       console.error(error);
@@ -165,7 +257,9 @@ function Anamnese() {
       );
 
 
+
     }
+
 
 
   }
@@ -176,13 +270,23 @@ function Anamnese() {
 
 
 
+
+
+
   return (
+
+
 
     <main className="anamnese">
 
 
 
+
+
+
       <section className="anamnese-header">
+
+
 
 
 
@@ -193,15 +297,21 @@ function Anamnese() {
 
         <button
 
+
           className="btn-home"
+
 
           onClick={() => navigate("/")}
 
+
           aria-label="Voltar para Home"
+
 
         >
 
+
           <FaHome />
+
 
         </button>
 
@@ -212,18 +322,21 @@ function Anamnese() {
 
 
 
-        {/* LOGIN DO USUÁRIO */}
+
+        {/* USUÁRIO LOGADO */}
+
 
 
         {usuario && (
 
+
+
           <>
 
 
-            {/* LINHA DOURADA */}
-
 
             <div className="linha-separadora"></div>
+
 
 
 
@@ -233,17 +346,29 @@ function Anamnese() {
 
 
 
+
+
               {usuario.photoURL && (
+
+
 
                 <img
 
+
                   src={usuario.photoURL}
+
 
                   alt="Usuário"
 
+
                 />
 
+
+
               )}
+
+
+
 
 
 
@@ -252,22 +377,34 @@ function Anamnese() {
               <div>
 
 
+
                 <strong>
 
+
                   Olá, {usuario.displayName}
+
 
                 </strong>
 
 
 
+
+
                 <span>
 
+
                   {usuario.email}
+
 
                 </span>
 
 
+
+
+
               </div>
+
+
 
 
 
@@ -275,7 +412,11 @@ function Anamnese() {
 
 
 
+
+
           </>
+
+
 
         )}
 
@@ -285,7 +426,10 @@ function Anamnese() {
 
 
 
+
+
         {/* LOGO */}
+
 
 
         <img
@@ -308,9 +452,12 @@ function Anamnese() {
 
 
 
+
         <h1>
 
+
           Ficha de Anamnese
+
 
         </h1>
 
@@ -318,18 +465,26 @@ function Anamnese() {
 
 
 
+
+
         <p>
+
 
           Esta ficha tem como objetivo conhecer sua história,
           sua saúde e sua intenção antes da participação nas cerimônias.
           Todas as informações são tratadas com respeito e cuidado.
+
 
         </p>
 
 
 
 
+
+
       </section>
+
+
 
 
 
@@ -352,7 +507,10 @@ function Anamnese() {
 
 
 
+
+
         <section className="campo-grupo">
+
 
 
           <h2>
@@ -365,87 +523,133 @@ function Anamnese() {
 
 
 
+
+
           <input
+
 
             name="nome"
 
+
             placeholder="Nome completo"
 
+
             onChange={atualizarCampo}
+
 
           />
 
 
 
 
+
+
           <input
+
 
             name="cpf"
 
+
             placeholder="CPF"
 
+
             onChange={atualizarCampo}
+
 
           />
 
 
 
 
+
+
           <input
+
 
             name="email"
 
+
             type="email"
+
 
             placeholder="E-mail"
 
+
             onChange={atualizarCampo}
+
 
           />
 
 
 
 
+
+
           <input
+
 
             name="nascimento"
 
+
             type="date"
 
+
             onChange={atualizarCampo}
+
 
           />
 
 
 
 
+
+
           <input
+
 
             name="telefone"
 
+
             placeholder="Telefone / WhatsApp"
+
 
             onChange={atualizarCampo}
 
+
           />
+
+
 
 
 
 
           <input
 
+
             name="cidade"
+
 
             placeholder="Cidade onde reside"
 
+
             onChange={atualizarCampo}
 
+
           />
+
+
 
 
 
         </section>
-                <section className="campo-grupo">
+
+
+
+
+
+
+
+        <section className="campo-grupo">
 
 
           <h2>
@@ -457,53 +661,63 @@ function Anamnese() {
 
 
 
+
           <input
+
 
             name="contatoEmergencia"
 
+
             placeholder="Nome do contato"
 
+
             onChange={atualizarCampo}
+
 
           />
 
 
 
 
+
           <input
+
 
             name="telefoneEmergencia"
 
+
             placeholder="Telefone do contato"
+
 
             onChange={atualizarCampo}
 
+
           />
+
 
 
 
 
           <input
 
+
             name="parentesco"
+
 
             placeholder="Grau de parentesco"
 
+
             onChange={atualizarCampo}
 
+
           />
+
+
 
 
         </section>
 
-
-
-
-
-
-
-
-        <section className="campo-grupo">
+                <section className="campo-grupo">
 
 
           <h2>
@@ -525,20 +739,27 @@ function Anamnese() {
 
 
 
+
           <label>
 
 
             <input
 
+
               type="radio"
+
 
               name="pressao"
 
+
               value="Sim"
+
 
               onChange={atualizarCampo}
 
+
             />
+
 
             Sim
 
@@ -549,25 +770,35 @@ function Anamnese() {
 
 
 
+
           <label>
 
 
             <input
 
+
               type="radio"
+
 
               name="pressao"
 
+
               value="Não"
+
 
               onChange={atualizarCampo}
 
+
             />
+
 
             Não
 
 
           </label>
+
+
+
 
 
 
@@ -584,20 +815,28 @@ function Anamnese() {
 
 
 
+
+
           <label>
 
 
             <input
 
+
               type="radio"
+
 
               name="diabetes"
 
+
               value="Sim"
+
 
               onChange={atualizarCampo}
 
+
             />
+
 
             Sim
 
@@ -608,25 +847,35 @@ function Anamnese() {
 
 
 
+
           <label>
 
 
             <input
 
+
               type="radio"
+
 
               name="diabetes"
 
+
               value="Não"
+
 
               onChange={atualizarCampo}
 
+
             />
+
 
             Não
 
 
           </label>
+
+
+
 
 
 
@@ -652,6 +901,8 @@ function Anamnese() {
 
 
 
+
+
           <textarea
 
 
@@ -671,6 +922,8 @@ function Anamnese() {
 
 
 
+
+
           <textarea
 
 
@@ -684,6 +937,7 @@ function Anamnese() {
 
 
           />
+
 
 
 
@@ -710,16 +964,23 @@ function Anamnese() {
 
 
 
+
+
+
           <label>
 
 
             <input
 
+
               type="checkbox"
+
 
               name="tdah"
 
+
               onChange={atualizarCampo}
+
 
             />
 
@@ -733,16 +994,23 @@ function Anamnese() {
 
 
 
+
+
+
           <label>
 
 
             <input
 
+
               type="checkbox"
+
 
               name="autismo"
 
+
               onChange={atualizarCampo}
+
 
             />
 
@@ -751,6 +1019,8 @@ function Anamnese() {
 
 
           </label>
+
+
 
 
 
@@ -770,6 +1040,8 @@ function Anamnese() {
 
 
           />
+
+
 
 
 
@@ -796,6 +1068,8 @@ function Anamnese() {
 
 
 
+
+
           <p>
 
             Faz ou já fez uso de substâncias psicoativas?
@@ -806,18 +1080,26 @@ function Anamnese() {
 
 
 
+
+
+
           <label>
 
 
             <input
 
+
               type="radio"
+
 
               name="substancias"
 
+
               value="Sim"
 
+
               onChange={atualizarCampo}
+
 
             />
 
@@ -831,18 +1113,26 @@ function Anamnese() {
 
 
 
+
+
+
           <label>
 
 
             <input
 
+
               type="radio"
+
 
               name="substancias"
 
+
               value="Não"
 
+
               onChange={atualizarCampo}
+
 
             />
 
@@ -851,6 +1141,8 @@ function Anamnese() {
 
 
           </label>
+
+
 
 
 
@@ -898,6 +1190,9 @@ function Anamnese() {
 
 
 
+
+
+
           <textarea
 
 
@@ -911,6 +1206,9 @@ function Anamnese() {
 
 
           />
+
+
+
 
 
         </section>
@@ -928,9 +1226,178 @@ function Anamnese() {
 
           <h2>
 
-            🌱 Experiência com medicinas
+            🌿 Medicinas já consagradas
 
           </h2>
+
+
+
+
+
+
+
+
+          <p>
+
+            Selecione quais medicinas você já teve contato:
+
+          </p>
+
+
+
+
+
+
+
+
+          <label>
+
+
+            <input
+
+
+              type="checkbox"
+
+
+              name="medicinasConsagradas"
+
+
+              value="Ayahuasca"
+
+
+              onChange={atualizarCampo}
+
+
+            />
+
+
+            Ayahuasca
+
+
+          </label>
+
+
+
+
+
+
+
+
+          <label>
+
+
+            <input
+
+
+              type="checkbox"
+
+
+              name="medicinasConsagradas"
+
+
+              value="Rapé"
+
+
+              onChange={atualizarCampo}
+
+
+            />
+
+
+            Medicina do Rapé
+
+
+          </label>
+
+
+
+
+
+
+
+
+          <label>
+
+
+            <input
+
+
+              type="checkbox"
+
+
+              name="medicinasConsagradas"
+
+
+              value="Sananga"
+
+
+              onChange={atualizarCampo}
+
+
+            />
+
+
+            Sananga
+
+
+          </label>
+
+
+
+
+
+
+
+
+          <label>
+
+
+            <input
+
+
+              type="checkbox"
+
+
+              name="medicinasConsagradas"
+
+
+              value="Kambô"
+
+
+              onChange={atualizarCampo}
+
+
+            />
+
+
+            Kambô
+
+
+          </label>
+
+
+
+
+
+
+
+
+          <input
+
+
+            name="outrasMedicinas"
+
+
+            placeholder="Outras medicinas que já consagrou"
+
+
+            onChange={atualizarCampo}
+
+
+          />
+
+
+
 
 
 
@@ -942,13 +1409,58 @@ function Anamnese() {
             name="experienciaMedicinas"
 
 
-            placeholder="Conte sua experiência com as medicinas."
+            placeholder="Conte como foi sua última experiência com as medicinas. Como você se sentiu durante e após a cerimônia?"
 
 
             onChange={atualizarCampo}
 
 
           />
+
+
+
+
+
+        </section>
+
+                <section className="campo-grupo">
+
+
+          <h2>
+
+            🌿 Próxima cerimônia
+
+          </h2>
+
+
+
+
+
+          <p>
+
+            Informe a data da cerimônia que deseja participar:
+
+          </p>
+
+
+
+
+
+          <input
+
+
+            type="date"
+
+
+            name="cerimoniaData"
+
+
+            onChange={atualizarCampo}
+
+
+          />
+
+
 
 
 
@@ -975,7 +1487,12 @@ function Anamnese() {
 
 
 
+
+
           <label className="check-termo">
+
+
+
 
 
             <input
@@ -994,10 +1511,20 @@ function Anamnese() {
 
 
 
-            Declaro que as informações fornecidas são verdadeiras.
+
+
+
+            Declaro que as informações fornecidas são verdadeiras
+            e estou ciente da importância de comunicar qualquer
+            condição de saúde relevante.
+
+
+
 
 
           </label>
+
+
 
 
 
@@ -1023,10 +1550,14 @@ function Anamnese() {
         >
 
 
+
           Enviar minha ficha 🌿
 
 
+
         </button>
+
+
 
 
 
