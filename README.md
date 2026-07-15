@@ -1,151 +1,129 @@
 # 🌿 Espaço Xamânico Pena Branca
 
-<p align="center">
-  <img src="./src/assets/images/logo.png" alt="Espaço Xamânico Pena Branca" width="180">
-</p>
+> Um projeto desenvolvido com amor, respeito e propósito para conectar pessoas às medicinas sagradas da floresta, à natureza e ao autoconhecimento.
 
-<p align="center">
-  <strong>Conectando pessoas à natureza, ao autoconhecimento e à sabedoria ancestral.</strong>
-</p>
+## 🌐 Acesse o projeto
+
+**Site:** [Espaço Xamânico Pena Branca](https://espaco-xamanico-pena-branca.vercel.app/?utm_source=chatgpt.com)
 
 ---
 
-## 📖 Sobre o projeto
+## ✨ Sobre o projeto
 
-O **Espaço Xamânico Pena Branca** é uma aplicação web desenvolvida para apresentar o espaço, divulgar eventos, vivências, conteúdos, vídeos e projetos voltados ao autoconhecimento, à música e às medicinas da floresta.
+O **Espaço Xamânico Pena Branca** é um site desenvolvido para apresentar o espaço, compartilhar informações sobre as medicinas da floresta, divulgar cerimônias e facilitar o contato entre participantes e organizadores.
 
-O projeto foi desenvolvido com foco em uma experiência moderna, responsiva e intuitiva, permitindo que os administradores atualizem o conteúdo do site por meio de um painel integrado ao Firebase, sem necessidade de alterar o código.
+O projeto foi pensado para oferecer uma experiência acolhedora, intuitiva e totalmente responsiva, funcionando perfeitamente em computadores, tablets e celulares.
 
----
-
-## ✨ Funcionalidades
-
-- 🏠 Página inicial
-- 🌿 Sobre o Espaço
-- 📅 Agenda de eventos
-- 🎥 Vídeos
-- 🖼️ Galeria de fotos
-- 🌱 Áreas de atuação
-- 📩 Formulário de contato
-- 🔐 Painel administrativo
-- ☁️ Upload de imagens
-- 📱 Layout responsivo
+Além da apresentação institucional, o sistema conta com autenticação de usuários, formulário de contato e ficha completa de anamnese integrada ao Firebase.
 
 ---
 
-## 🚀 Tecnologias
+## 🚀 Funcionalidades
 
-- React
-- Vite
-- JavaScript
-- CSS3
-- React Router DOM
-- Firebase Authentication
-- Firestore Database
-- Firebase Storage
-- Git
-- GitHub
+* 🏠 Página inicial responsiva
+* 🌿 História do Espaço Xamânico
+* 📅 Agenda de cerimônias
+* 🍃 Informações sobre as medicinas:
 
----
-
-## 🎨 Identidade Visual
-
-### Paleta de cores
-
-| Cor | Código |
-|------|---------|
-| Verde Escuro | `#0A1E12` |
-| Verde Floresta | `#123524` |
-| Dourado | `#D4A24A` |
-| Dourado Claro | `#E5C27A` |
-| Branco | `#F5F3EE` |
-| Cinza Claro | `#D9D9D9` |
-| Preto | `#050505` |
+  * Ayahuasca
+  * Rapé
+  * Sananga
+  * Kambô
+* 🖼️ Galeria de fotos
+* ❓ Perguntas frequentes
+* 📞 Formulário de contato
+* 🔐 Login com Google
+* 📋 Ficha completa de Anamnese
+* ☁️ Integração com Firebase Firestore
+* 📱 Layout Mobile First
 
 ---
 
-## 🔤 Tipografia
+## 📋 Ficha de Anamnese
 
-### Títulos
-- Cormorant Garamond
+A ficha foi desenvolvida para oferecer mais segurança antes da participação nas cerimônias.
 
-### Textos
-- Poppins
+Ela contempla informações como:
+
+* Dados pessoais
+* Contato de emergência
+* Histórico de saúde
+* Neurodivergências
+* Uso de medicamentos
+* Alergias
+* Uso de substâncias psicoativas
+* Experiência com medicinas da floresta
+* Medicinas já consagradas
+* Última experiência
+* Intenção para a cerimônia
+* Data da cerimônia
+* Consentimento
+
+Todas as respostas são armazenadas com segurança no **Firebase Firestore**.
 
 ---
 
-## 📂 Estrutura do Projeto
+## 💻 Tecnologias utilizadas
+
+* React.js
+* Vite
+* JavaScript (ES6+)
+* HTML5
+* CSS3
+* React Router DOM
+* Firebase Authentication
+* Firebase Firestore
+* React Icons
+* React Firebase Hooks
+
+---
+
+## 📂 Estrutura do projeto
 
 ```text
-src
-│
-├── assets
-│   ├── images
-│   ├── icons
-│   ├── fonts
-│   └── videos
-│
-├── components
-│
-├── pages
-│
-├── routes
-│
-├── firebase
-│
-├── services
-│
-├── hooks
-│
-├── contexts
-│
-├── styles
-│
-├── App.jsx
-├── main.jsx
-└── index.css
+src/
+ ├── assets/
+ ├── components/
+ ├── firebase/
+ ├── pages/
+ ├── services/
+ ├── styles/
+ ├── App.jsx
+ └── main.jsx
 ```
-
----
-
-## 🔥 Firebase
-
-O projeto utilizará:
-
-- Authentication
-- Firestore Database
-- Firebase Storage
-
-Permitindo que o administrador gerencie eventos, imagens, vídeos e textos diretamente pelo painel administrativo.
-
----
-
-## 🎯 Objetivos
-
-- Compartilhar informações sobre o Espaço Xamânico Pena Branca.
-- Divulgar eventos, vivências e encontros.
-- Centralizar conteúdos em um único ambiente.
-- Permitir o gerenciamento completo do site através do Firebase.
-- Oferecer uma experiência moderna, intuitiva e responsiva.
 
 ---
 
 ## 📱 Responsividade
 
-O projeto será desenvolvido para:
+O projeto foi desenvolvido utilizando a abordagem **Mobile First**, garantindo uma ótima experiência em:
 
-- 📱 Mobile
-- 💻 Notebook
-- 🖥 Desktop
-- 📺 Telas maiores
+* 📱 Smartphones
+* 📲 Tablets
+* 💻 Notebooks
+* 🖥️ Desktop
 
 ---
 
-## 🌱 Valores
+## 🔐 Banco de Dados
 
-O **Espaço Xamânico Pena Branca** acredita que o amor, a união, a caridade e o respeito à natureza são caminhos para o fortalecimento da comunidade e do ser humano.
+O projeto utiliza o **Firebase Firestore** para armazenar:
 
-Nosso propósito é acolher, compartilhar conhecimentos e fortalecer a conexão entre as pessoas, a natureza e a sabedoria ancestral.
+* Mensagens enviadas pelo formulário de contato
+* Fichas completas de Anamnese
+* Dados dos usuários autenticados
+
+---
+
+## 🎯 Próximas melhorias
+
+* Painel Administrativo
+* Edição de eventos
+* Upload de imagens
+* Gerenciamento das fichas de anamnese
+* Gerenciamento das mensagens recebidas
+* Dashboard para administradores
+* Controle de participantes por cerimônia
 
 ---
 
@@ -153,10 +131,16 @@ Nosso propósito é acolher, compartilhar conhecimentos e fortalecer a conexão 
 
 **Anara Carolina Barbosa Martins**
 
-- GitHub: https://github.com/Anara-carolina
+GitHub:
+https://github.com/Anara-carolina
+
+LinkedIn:
+https://www.linkedin.com/
 
 ---
 
-## 📌 Status
+## 🌱 Gratidão
 
-🚧 Projeto em desenvolvimento
+Que este projeto possa contribuir para aproximar pessoas do conhecimento ancestral, do respeito à natureza e do caminho do autoconhecimento.
+
+> "A floresta ensina em silêncio aquilo que o coração precisa recordar." 🌿
