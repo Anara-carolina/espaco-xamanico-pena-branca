@@ -59,19 +59,19 @@ function Cerimonias() {
         <ul className="cerimonias-lista">
 
           <li>
-            🥗 Evitar o consumo de carne;
+            Evitar o consumo de carne;
           </li>
 
           <li>
-            🤍 Não ter relações sexuais;
+            Não ter relações sexuais;
           </li>
 
           <li>
-            🚫 Não utilizar drogas ou bebidas alcoólicas;
+            Não utilizar drogas ou bebidas alcoólicas;
           </li>
 
           <li>
-            💊 Suspender medicamentos somente conforme orientação do facilitador.
+            Suspender medicamentos somente conforme orientação do facilitador.
           </li>
 
         </ul>
@@ -88,7 +88,7 @@ function Cerimonias() {
 
 
         <h2>
-          🎒 O que levar
+           O que levar
         </h2>
 
 
@@ -101,7 +101,7 @@ function Cerimonias() {
 
 
         <h3>
-          🕒 Horários
+           Horários
         </h3>
 
 
@@ -130,7 +130,7 @@ function Cerimonias() {
           Que sua caminhada até a cerimônia seja leve,
           consciente e abençoada.
           <br/>
-          Haux! 🍃
+          Haux! 
         </h2>
 
 

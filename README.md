@@ -1,142 +1,86 @@
 # 🌿 Espaço Xamânico Pena Branca
 
-> Um projeto desenvolvido com amor, respeito e propósito para conectar pessoas às medicinas sagradas da floresta, à natureza e ao autoconhecimento.
+![Logo Espaço Xamânico Pena Branca](src/assets/imagens/logonome.png)
 
-## 🌐 Acesse o projeto
+Um espaço dedicado ao autoconhecimento, espiritualidade e conexão com a natureza através de vivências xamânicas, cerimônias e medicinas da floresta.
 
-**Site:** [Espaço Xamânico Pena Branca](https://espaco-xamanico-pena-branca.vercel.app/?utm_source=chatgpt.com)
-
----
-
-## ✨ Sobre o projeto
-
-O **Espaço Xamânico Pena Branca** é um site desenvolvido para apresentar o espaço, compartilhar informações sobre as medicinas da floresta, divulgar cerimônias e facilitar o contato entre participantes e organizadores.
-
-O projeto foi pensado para oferecer uma experiência acolhedora, intuitiva e totalmente responsiva, funcionando perfeitamente em computadores, tablets e celulares.
-
-Além da apresentação institucional, o sistema conta com autenticação de usuários, formulário de contato e ficha completa de anamnese integrada ao Firebase.
+🌐 **Site oficial:**  
+https://espaco-xamanico-pena-branca.vercel.app/
 
 ---
 
-## 🚀 Funcionalidades
+## ✨ Sobre o Projeto
 
-* 🏠 Página inicial responsiva
-* 🌿 História do Espaço Xamânico
-* 📅 Agenda de cerimônias
-* 🍃 Informações sobre as medicinas:
+Este projeto foi desenvolvido como uma **SPA (Single Page Application)** utilizando React, com foco em uma experiência acolhedora, responsiva e intuitiva para apresentar o Espaço Xamânico Pena Branca.
 
-  * Ayahuasca
-  * Rapé
-  * Sananga
-  * Kambô
-* 🖼️ Galeria de fotos
-* ❓ Perguntas frequentes
-* 📞 Formulário de contato
-* 🔐 Login com Google
-* 📋 Ficha completa de Anamnese
-* ☁️ Integração com Firebase Firestore
-* 📱 Layout Mobile First
+A plataforma permite conhecer:
+
+- 🌿 O Espaço
+- 🌙 Cerimônias e vivências
+- 🌱 Medicinas da floresta
+- 📸 Galeria de fotos
+- 📅 Agenda de eventos
+- 📝 Anamnese para participantes
+- 📩 Formulário de contato
 
 ---
 
-## 📋 Ficha de Anamnese
+## 🚀 Tecnologias utilizadas
 
-A ficha foi desenvolvida para oferecer mais segurança antes da participação nas cerimônias.
-
-Ela contempla informações como:
-
-* Dados pessoais
-* Contato de emergência
-* Histórico de saúde
-* Neurodivergências
-* Uso de medicamentos
-* Alergias
-* Uso de substâncias psicoativas
-* Experiência com medicinas da floresta
-* Medicinas já consagradas
-* Última experiência
-* Intenção para a cerimônia
-* Data da cerimônia
-* Consentimento
-
-Todas as respostas são armazenadas com segurança no **Firebase Firestore**.
-
----
-
-## 💻 Tecnologias utilizadas
-
-* React.js
-* Vite
-* JavaScript (ES6+)
-* HTML5
-* CSS3
-* React Router DOM
-* Firebase Authentication
-* Firebase Firestore
-* React Icons
-* React Firebase Hooks
-
----
-
-## 📂 Estrutura do projeto
-
-```text
-src/
- ├── assets/
- ├── components/
- ├── firebase/
- ├── pages/
- ├── services/
- ├── styles/
- ├── App.jsx
- └── main.jsx
-```
+- React.js
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+- React Router DOM
+- React Icons
+- Firebase
+- Vercel
 
 ---
 
 ## 📱 Responsividade
 
-O projeto foi desenvolvido utilizando a abordagem **Mobile First**, garantindo uma ótima experiência em:
+O projeto foi desenvolvido seguindo a abordagem **Mobile First**, garantindo uma boa experiência em:
 
-* 📱 Smartphones
-* 📲 Tablets
-* 💻 Notebooks
-* 🖥️ Desktop
-
----
-
-## 🔐 Banco de Dados
-
-O projeto utiliza o **Firebase Firestore** para armazenar:
-
-* Mensagens enviadas pelo formulário de contato
-* Fichas completas de Anamnese
-* Dados dos usuários autenticados
+✅ Smartphones  
+✅ Tablets  
+✅ Computadores
 
 ---
 
-## 🎯 Próximas melhorias
+## 🎨 Identidade Visual
 
-* Painel Administrativo
-* Edição de eventos
-* Upload de imagens
-* Gerenciamento das fichas de anamnese
-* Gerenciamento das mensagens recebidas
-* Dashboard para administradores
-* Controle de participantes por cerimônia
+Paleta inspirada na natureza e espiritualidade:
+
+🌿 Verde Musgo — conexão com a terra  
+🌙 Preto — mistério e profundidade  
+✨ Dourado — energia e sabedoria  
+🤍 Bege — acolhimento e equilíbrio
+
+---
+
+## 🔥 Funcionalidades
+
+✔ Navegação entre páginas  
+✔ Menu responsivo estilo mobile  
+✔ Galeria de imagens  
+✔ Cards de cerimônias  
+✔ Página de detalhes das medicinas  
+✔ Formulário de anamnese  
+✔ Autenticação com Firebase  
+✔ Integração preparada para armazenamento de dados
 
 ---
 
 ## 👩‍💻 Desenvolvido por
 
-**Anara Carolina Barbosa Martins**
+**Anara Carolina Martins**
 
+Tecnologia da Informação | React Developer
 
+GitHub:
+https://github.com/Anara-carolina
 
----
-
-## 🌱 Gratidão
-
-Que este projeto possa contribuir para aproximar pessoas do conhecimento ancestral, do respeito à natureza e do caminho do autoconhecimento.
-
-> "A floresta ensina em silêncio aquilo que o coração precisa recordar." 🌿
+🌐 Projeto publicado:
+https://espaco-xamanico-pena-branca.vercel.app/

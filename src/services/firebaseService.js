@@ -1,7 +1,11 @@
-import { 
-  collection, 
-  addDoc, 
-  serverTimestamp 
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  getDocs,
+  doc,
+  getDoc,
+  deleteDoc
 } from "firebase/firestore";
 
 import { db } from "../firebase/config";
@@ -14,15 +18,7 @@ import { db } from "../firebase/config";
 
 export async function salvarContato(dados) {
 
-
-  console.log(
-    "Dados recebidos:",
-    dados
-  );
-
-
   try {
-
 
     const documento = await addDoc(
 
@@ -38,45 +34,86 @@ export async function salvarContato(dados) {
 
     );
 
-
-
-    console.log(
-
-      "Documento contato criado:",
-
-      documento.id
-
-    );
-
-
-
     return documento.id;
-
-
 
   } catch (error) {
 
-
     console.error(
-
       "Erro ao salvar contato:",
-
       error
-
     );
-
 
     throw error;
 
-
   }
-
 
 }
 
 
 
+// =============================
+// BUSCAR CONTATOS
+// =============================
 
+export async function buscarContatos() {
+
+  try {
+
+    const resultado = await getDocs(
+
+      collection(db, "contatos")
+
+    );
+
+    return resultado.docs.map((documento) => ({
+
+      id: documento.id,
+
+      ...documento.data()
+
+    }));
+
+  } catch (error) {
+
+    console.error(
+      "Erro ao buscar contatos:",
+      error
+    );
+
+    throw error;
+
+  }
+
+}
+
+
+
+// =============================
+// REMOVER CONTATO
+// =============================
+
+export async function removerContato(id) {
+
+  try {
+
+    await deleteDoc(
+
+      doc(db, "contatos", id)
+
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Erro ao remover contato:",
+      error
+    );
+
+    throw error;
+
+  }
+
+}
 
 
 
@@ -86,19 +123,7 @@ export async function salvarContato(dados) {
 
 export async function salvarAnamnese(dados) {
 
-
-  console.log(
-
-    "Dados da anamnese:",
-
-    dados
-
-  );
-
-
-
   try {
-
 
     const documento = await addDoc(
 
@@ -106,35 +131,17 @@ export async function salvarAnamnese(dados) {
 
       {
 
-
         ...dados,
 
-
         criadoEm: serverTimestamp()
-
 
       }
 
     );
 
-
-
-    console.log(
-
-      "Documento anamnese criado:",
-
-      documento.id
-
-    );
-
-
-
     return documento.id;
 
-
-
   } catch (error) {
-
 
     console.error(
 
@@ -144,11 +151,104 @@ export async function salvarAnamnese(dados) {
 
     );
 
-
     throw error;
-
 
   }
 
+}
+
+
+
+// =============================
+// BUSCAR TODAS ANAMNESES
+// =============================
+
+export async function buscarAnamneses() {
+
+  try {
+
+    const resultado = await getDocs(
+
+      collection(db, "anamneses")
+
+    );
+
+    return resultado.docs.map((documento) => ({
+
+      id: documento.id,
+
+      ...documento.data()
+
+    }));
+
+  } catch (error) {
+
+    console.error(
+
+      "Erro ao buscar anamneses:",
+
+      error
+
+    );
+
+    throw error;
+
+  }
+
+}
+
+
+
+// =============================
+// BUSCAR UMA ANAMNESE
+// =============================
+
+export async function buscarAnamnesePorId(id) {
+
+  try {
+
+    const referencia = doc(
+
+      db,
+
+      "anamneses",
+
+      id
+
+    );
+
+    const resultado = await getDoc(
+
+      referencia
+
+    );
+
+    if (resultado.exists()) {
+
+      return {
+
+        id: resultado.id,
+
+        ...resultado.data()
+
+      };
+
+    }
+
+    return null;
+
+  } catch (error) {
+
+    console.error(
+
+      "Erro ao buscar anamnese:",
+
+      error
+
+    );
+
+    throw error;
+
+  }
 
 }

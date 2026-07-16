@@ -1,0 +1,310 @@
+.cerimonia-modal-fundo {
+
+  position: fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.45);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:15px;
+
+  z-index:9999;
+
+}
+
+
+
+/* MODAL DESKTOP */
+
+.cerimonia-modal {
+
+
+  width:100%;
+
+  max-width:380px;
+
+
+  max-height:90vh;
+
+
+  overflow-y:auto;
+
+
+  background:#f8f3e8;
+
+
+  border-radius:22px;
+
+
+  padding:25px;
+
+
+  box-sizing:border-box;
+
+
+}
+
+
+
+
+.cerimonia-modal h2 {
+
+
+  text-align:center;
+
+
+  color:#3f4f32;
+
+
+  font-size:22px;
+
+
+  margin:0 0 18px;
+
+
+}
+
+
+
+
+.cerimonia-modal form {
+
+
+  display:flex;
+
+  flex-direction:column;
+
+}
+
+
+
+
+.cerimonia-modal label {
+
+
+  color:#556b2f;
+
+  font-weight:bold;
+
+  font-size:14px;
+
+  margin-top:8px;
+
+  margin-bottom:4px;
+
+
+}
+
+
+
+
+
+.cerimonia-modal input,
+.cerimonia-modal textarea,
+.cerimonia-modal select {
+
+
+  width:100%;
+
+  padding:10px;
+
+  border-radius:10px;
+
+  border:1px solid #ccc;
+
+  box-sizing:border-box;
+
+  font-size:14px;
+
+
+}
+
+
+
+
+.cerimonia-modal textarea {
+
+  height:80px;
+
+}
+
+
+
+
+.cerimonia-modal-botoes {
+
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:12px;
+
+  margin-top:18px;
+
+
+}
+
+
+
+
+.cerimonia-modal-botoes button {
+
+
+  width:120px;
+
+  padding:10px;
+
+  border:none;
+
+  border-radius:20px;
+
+  font-weight:bold;
+
+}
+
+
+
+
+.cerimonia-btn-salvar {
+
+
+  background:#556b2f;
+
+  color:white;
+
+
+}
+
+
+
+.cerimonia-btn-cancelar {
+
+
+  background:#ddd;
+
+  color:#555;
+
+
+}
+
+
+
+
+
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+
+@media(max-width:600px){
+
+
+
+.cerimonia-modal {
+
+
+  max-width:320px;
+
+  padding:15px;
+
+  max-height:95vh;
+
+  overflow:hidden;
+
+
+}
+
+
+
+
+.cerimonia-modal h2 {
+
+
+  font-size:18px;
+
+  margin-bottom:10px;
+
+
+}
+
+
+
+
+.cerimonia-modal label {
+
+
+  font-size:12px;
+
+  margin-top:5px;
+
+
+}
+
+
+
+
+.cerimonia-modal input,
+.cerimonia-modal textarea,
+.cerimonia-modal select {
+
+
+  padding:7px;
+
+  font-size:12px;
+
+  border-radius:8px;
+
+
+}
+
+
+
+
+.cerimonia-modal textarea {
+
+
+  height:55px;
+
+
+}
+
+
+
+
+.cerimonia-modal-botoes {
+
+
+  margin-top:12px;
+
+  gap:8px;
+
+
+}
+
+
+
+
+.cerimonia-modal-botoes button {
+
+
+  width:100%;
+
+  padding:8px;
+
+  font-size:12px;
+
+
+}
+
+
+
+}

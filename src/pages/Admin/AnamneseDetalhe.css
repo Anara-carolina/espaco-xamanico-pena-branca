@@ -1,0 +1,396 @@
+/* ==================================
+   DETALHE DA ANAMNESE
+================================== */
+
+
+.anamnese-detalhe {
+
+  min-height: 100vh;
+
+  background: #f3eee3;
+
+  padding: 40px 20px;
+
+  color: #3b3328;
+
+}
+
+
+
+
+
+/* ==================================
+   CABEÇALHO
+================================== */
+
+
+.anamnese-detalhe header {
+
+  max-width: 950px;
+
+  margin: 0 auto 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+
+}
+
+
+
+
+
+.anamnese-detalhe header h1 {
+
+  color: #355c45;
+
+  font-size: 30px;
+
+  margin: 0;
+
+}
+
+
+
+
+
+.anamnese-detalhe header button {
+
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+
+  background: #355c45;
+
+  color: white;
+
+
+  border: none;
+
+  padding: 12px 20px;
+
+
+  border-radius: 10px;
+
+
+  cursor: pointer;
+
+
+  font-size: 15px;
+
+
+  transition: .3s;
+
+
+}
+
+
+
+
+
+.anamnese-detalhe header button:hover {
+
+
+  background: #254431;
+
+
+  transform: translateY(-2px);
+
+
+}
+
+
+
+
+
+
+
+/* ==================================
+   DOCUMENTO
+================================== */
+
+
+.anamnese-detalhe section {
+
+
+  max-width: 950px;
+
+
+  margin: auto;
+
+
+  background: white;
+
+
+  padding: 40px;
+
+
+  border-radius: 20px;
+
+
+  box-shadow:
+
+  0 10px 30px rgba(0,0,0,.12);
+
+
+}
+
+
+
+
+
+/* ==================================
+   TITULOS DOS BLOCOS
+================================== */
+
+
+.anamnese-detalhe section h2 {
+
+
+  color: #355c45;
+
+
+  margin-top: 35px;
+
+
+  margin-bottom: 18px;
+
+
+  padding-bottom: 10px;
+
+
+  border-bottom:
+
+  2px solid #c8a951;
+
+
+  font-size: 22px;
+
+
+}
+
+
+
+
+
+.anamnese-detalhe section h2:first-child {
+
+
+  margin-top: 0;
+
+
+}
+
+
+
+
+
+
+
+/* ==================================
+   CAMPOS
+================================== */
+
+
+.anamnese-detalhe section p {
+
+
+  background:
+
+  #faf7ef;
+
+
+  border-left:
+
+  4px solid #355c45;
+
+
+  padding: 14px 18px;
+
+
+  border-radius: 8px;
+
+
+  margin: 10px 0;
+
+
+  line-height: 1.6;
+
+
+  font-size: 16px;
+
+
+  word-break: break-word;
+
+
+}
+
+
+
+
+
+/* ==================================
+   RESPOSTAS IMPORTANTES
+================================== */
+
+
+.anamnese-detalhe section p strong {
+
+
+  color: #355c45;
+
+
+}
+
+
+
+
+
+/* ==================================
+   CONSENTIMENTO
+================================== */
+
+
+.anamnese-detalhe section p:last-child {
+
+
+  font-weight: 600;
+
+
+}
+
+
+
+
+
+
+
+/* ==================================
+   EFEITO DOCUMENTO
+================================== */
+
+
+.anamnese-detalhe section::before {
+
+
+  content:"🌿";
+
+
+  display:block;
+
+
+  text-align:center;
+
+
+  font-size:35px;
+
+
+  margin-bottom:20px;
+
+
+}
+
+
+
+
+
+
+
+/* ==================================
+   RESPONSIVO CELULAR
+================================== */
+
+
+@media(max-width:700px){
+
+
+
+  .anamnese-detalhe {
+
+
+    padding:20px 12px;
+
+
+  }
+
+
+
+
+  .anamnese-detalhe header {
+
+
+    flex-direction:column;
+
+
+    align-items:flex-start;
+
+
+  }
+
+
+
+
+
+  .anamnese-detalhe header h1 {
+
+
+    font-size:24px;
+
+
+  }
+
+
+
+
+
+
+
+  .anamnese-detalhe section {
+
+
+    padding:22px 15px;
+
+
+    border-radius:15px;
+
+
+  }
+
+
+
+
+
+  .anamnese-detalhe section h2 {
+
+
+    font-size:19px;
+
+
+  }
+
+
+
+
+
+  .anamnese-detalhe section p {
+
+
+    font-size:14px;
+
+
+    padding:12px;
+
+
+  }
+
+
+
+}
