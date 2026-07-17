@@ -34,7 +34,9 @@ export async function salvarContato(dados) {
 
     );
 
+
     return documento.id;
+
 
   } catch (error) {
 
@@ -65,6 +67,7 @@ export async function buscarContatos() {
 
     );
 
+
     return resultado.docs.map((documento) => ({
 
       id: documento.id,
@@ -72,6 +75,7 @@ export async function buscarContatos() {
       ...documento.data()
 
     }));
+
 
   } catch (error) {
 
@@ -102,6 +106,7 @@ export async function removerContato(id) {
 
     );
 
+
   } catch (error) {
 
     console.error(
@@ -114,6 +119,8 @@ export async function removerContato(id) {
   }
 
 }
+
+
 
 
 
@@ -139,7 +146,9 @@ export async function salvarAnamnese(dados) {
 
     );
 
+
     return documento.id;
+
 
   } catch (error) {
 
@@ -173,6 +182,7 @@ export async function buscarAnamneses() {
 
     );
 
+
     return resultado.docs.map((documento) => ({
 
       id: documento.id,
@@ -180,6 +190,7 @@ export async function buscarAnamneses() {
       ...documento.data()
 
     }));
+
 
   } catch (error) {
 
@@ -217,13 +228,16 @@ export async function buscarAnamnesePorId(id) {
 
     );
 
+
     const resultado = await getDoc(
 
       referencia
 
     );
 
+
     if (resultado.exists()) {
+
 
       return {
 
@@ -233,9 +247,12 @@ export async function buscarAnamnesePorId(id) {
 
       };
 
+
     }
 
+
     return null;
+
 
   } catch (error) {
 
@@ -248,6 +265,146 @@ export async function buscarAnamnesePorId(id) {
     );
 
     throw error;
+
+  }
+
+}
+
+
+
+
+
+// =============================
+// SALVAR CERIMÔNIA
+// =============================
+
+export async function salvarCerimonia(dados) {
+
+  try {
+
+
+    const documento = await addDoc(
+
+      collection(db, "cerimonias"),
+
+      {
+
+        ...dados,
+
+        criadoEm: serverTimestamp()
+
+      }
+
+    );
+
+
+    return documento.id;
+
+
+  } catch (error) {
+
+
+    console.error(
+
+      "Erro ao salvar cerimônia:",
+
+      error
+
+    );
+
+
+    throw error;
+
+
+  }
+
+}
+
+
+
+
+
+// =============================
+// BUSCAR CERIMÔNIAS
+// =============================
+
+export async function buscarCerimonias() {
+
+  try {
+
+
+    const resultado = await getDocs(
+
+      collection(db, "cerimonias")
+
+    );
+
+
+    return resultado.docs.map((documento) => ({
+
+
+      id: documento.id,
+
+
+      ...documento.data()
+
+
+    }));
+
+
+  } catch (error) {
+
+
+    console.error(
+
+      "Erro ao buscar cerimônias:",
+
+      error
+
+    );
+
+
+    throw error;
+
+
+  }
+
+}
+
+
+
+
+
+// =============================
+// REMOVER CERIMÔNIA
+// =============================
+
+export async function removerCerimonia(id) {
+
+  try {
+
+
+    await deleteDoc(
+
+      doc(db, "cerimonias", id)
+
+    );
+
+
+  } catch (error) {
+
+
+    console.error(
+
+      "Erro ao remover cerimônia:",
+
+      error
+
+    );
+
+
+    throw error;
+
 
   }
 

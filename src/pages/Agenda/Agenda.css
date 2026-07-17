@@ -5,7 +5,6 @@
 
 .agenda-page {
 
-
   background-color: #1f3b2d;
 
   min-height: 100vh;
@@ -35,8 +34,9 @@
 
 
 
+
 /* ===========================
-   LISTA DE EVENTOS
+   LISTA
 =========================== */
 
 
@@ -54,6 +54,8 @@
 
 
 
+
+
 /* ===========================
    CARD
 =========================== */
@@ -62,6 +64,8 @@
 .agenda-card {
 
   display: flex;
+
+  width: 100%;
 
   background-color: #d8c8a4;
 
@@ -77,6 +81,8 @@
 
 
 
+
+
 /* ===========================
    DATA
 =========================== */
@@ -84,7 +90,9 @@
 
 .data-agenda {
 
-  width: 100px;
+  width: 85px;
+
+  flex-shrink: 0;
 
   background-color: #4c5d2f;
 
@@ -100,9 +108,10 @@
 
 
 
+
 .data-agenda strong {
 
-  font-size: 45px;
+  font-size: 34px;
 
   color: #d4af37;
 
@@ -112,17 +121,20 @@
 
 
 
+
 .data-agenda span {
 
   color: #d4af37;
 
-  font-size: 20px;
+  font-size: 15px;
 
   font-weight: bold;
 
-  margin-top: 8px;
+  margin-top: 6px;
 
 }
+
+
 
 
 
@@ -143,9 +155,19 @@
 
   justify-content: space-between;
 
-  padding: 25px;
+  padding: 20px;
 
-  gap: 30px;
+  gap: 20px;
+
+}
+
+
+
+
+
+.texto-agenda {
+
+  flex: 1;
 
 }
 
@@ -156,67 +178,45 @@
 
   color: #5e360d;
 
-  font-size: 22px;
+  font-size: 21px;
 
-  line-height: 1.5;
+  line-height: 1.4;
 
-  margin-bottom: 20px;
+  margin: 0 0 12px;
 
 }
 
 
 
 
+.info-agenda p {
 
-/* ===========================
-   BOTÃO
-=========================== */
-
-
-.info-agenda button {
-
-  background-color: #1B3A2A;
-
-  color: #d4af37;
-
-  border: none;
-
-  padding: 10px 20px;
-
-  border-radius: 20px;
-
-  cursor: pointer;
+  color: #3d2b12;
 
   font-size: 15px;
 
-  transition: .3s;
+  line-height: 1.5;
+
+  margin: 0;
 
 }
 
 
-
-.info-agenda button:hover {
-
-  background-color: #d4af37;
-
-  color: #1B3A2A;
-
-}
 
 
 
 
 
 /* ===========================
-   IMAGEM
+   IMAGEM CARD
 =========================== */
 
 
-.info-agenda img {
+.imagem-agenda {
 
   width: 150px;
 
-  height: 160px;
+  height: 150px;
 
   object-fit: cover;
 
@@ -224,7 +224,21 @@
 
   border: 3px solid #5e360d;
 
+  cursor: pointer;
+
+  transition: .3s;
+
 }
+
+
+
+
+.imagem-agenda:hover {
+
+  transform: scale(1.05);
+
+}
+
 
 
 
@@ -240,11 +254,14 @@
 @media(min-width:1024px){
 
 
+
 .agenda-page {
 
   padding: 90px 0;
 
 }
+
+
 
 
 
@@ -258,27 +275,37 @@
 
 
 
-.agenda-card {
-
-  margin-bottom: 10px;
-
-}
-
 
 
 .data-agenda {
 
-  width: 120px;
+  width: 200px;
 
 }
 
 
+
+
+
+/* DATA MENOR SOMENTE DESKTOP */
 
 .data-agenda strong {
 
-  font-size: 55px;
+  font-size: 28px;
 
 }
+
+
+
+.data-agenda span {
+
+  font-size: 12px;
+
+}
+
+
+
+
 
 
 
@@ -290,6 +317,10 @@
 
 
 
+
+
+
+
 .info-agenda h2 {
 
   font-size: 24px;
@@ -298,17 +329,33 @@
 
 
 
-.info-agenda img {
+
+
+
+.info-agenda p {
+
+  font-size: 16px;
+
+}
+
+
+
+
+
+
+.imagem-agenda {
 
   width: 170px;
 
-  height: 180px;
+  height: 170px;
 
 }
 
 
 
 }
+
+
 
 
 
@@ -333,6 +380,9 @@
 
 
 
+
+
+
 .agenda-page h1 {
 
   font-size: 28px;
@@ -342,44 +392,27 @@
 
 
 
+
+
 .agenda-card {
 
-  min-height: 150px;
+  flex-direction: column;
 
 }
+
+
+
 
 
 
 
 .data-agenda {
 
-  width: 75px;
+  width: 100%;
 
-}
+  height: 65px;
 
-
-
-.data-agenda strong {
-
-  font-size: 35px;
-
-}
-
-
-
-.data-agenda span {
-
-  font-size: 15px;
-
-}
-
-
-
-
-
-.info-agenda {
-
-  padding: 15px;
+  flex-direction: row;
 
   gap: 10px;
 
@@ -387,33 +420,179 @@
 
 
 
+
+
+
+.data-agenda strong {
+
+  font-size: 28px;
+
+}
+
+
+
+
+
+
+
+.data-agenda span {
+
+  font-size: 14px;
+
+  margin-top: 0;
+
+}
+
+
+
+
+
+
+
+
+.info-agenda {
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  padding: 15px;
+
+  gap: 15px;
+
+}
+
+
+
+
+
+
+
 .info-agenda h2 {
 
-  font-size: 16px;
-
-}
-
-
-
-.info-agenda button {
-
-  font-size: 13px;
-
-  padding: 8px 12px;
+  font-size: 18px;
 
 }
 
 
 
 
-.info-agenda img {
 
-  width: 90px;
 
-  height: 110px;
+.info-agenda p {
+
+  font-size: 14px;
 
 }
 
+
+
+
+
+
+
+.imagem-agenda {
+
+  width: 100%;
+
+  height: 200px;
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   MODAL IMAGEM GRANDE
+=========================== */
+
+
+.imagem-modal {
+
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+
+  height: 100vh;
+
+  background: rgba(0,0,0,.90);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  z-index: 99999;
+
+}
+
+
+
+
+
+.imagem-modal img {
+
+
+  display: block;
+
+  max-width: 90vw;
+
+  max-height: 85vh;
+
+  width: auto;
+
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 15px;
+
+}
+
+
+
+
+
+
+.fechar-imagem {
+
+
+  position: fixed;
+
+  top: 20px;
+
+  right: 30px;
+
+
+  background: transparent;
+
+  border: none;
+
+
+  color: white;
+
+  font-size: 45px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 100000;
 
 
 }
