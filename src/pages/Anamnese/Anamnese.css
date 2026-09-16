@@ -3,9 +3,16 @@
 ===================================================== */
 
 .anamnese {
+  width: 100%;
   min-height: 100vh;
+
   background: #f3eee3;
-  padding-bottom: 50px;
+
+  padding-bottom: 60px;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
 }
 
 
@@ -15,23 +22,18 @@
 
 .anamnese-header {
   position: relative;
+
+  width: 100%;
+
   background: #24382a;
-  padding: 60px 20px 40px;
+
+  padding: 18px 25px 20px;
+
   text-align: center;
+
   color: white;
-}
 
-
-/* =====================================================
-   LINHA SEPARADORA DOURADA
-===================================================== */
-
-.linha-separadora {
-  width: 80%;
-  max-width: 500px;
-  height: 2px;
-  background: #d1ad63;
-  margin: 25px auto;
+  box-sizing: border-box;
 }
 
 
@@ -39,35 +41,43 @@
    BOTÃO HOME
 ===================================================== */
 
-.btn-home {
+.btn-home,
+.home-login {
   position: absolute;
-  top: 25px;
-  left: 25px;
 
-  width: 45px;
-  height: 45px;
+  top: 16px;
+  left: 22px;
+
+  width: 40px;
+  height: 40px;
 
   border-radius: 50%;
+
   border: none;
 
   background: #d1ad63;
+
   color: #24382a;
 
-  font-size: 22px;
+  font-size: 19px;
+
   cursor: pointer;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  transition: 0.3s;
+  transition: all 0.3s ease;
 
   z-index: 5;
 }
 
-.btn-home:hover {
+.btn-home:hover,
+.home-login:hover {
   background: white;
-  transform: scale(1.1);
+
+  transform: scale(1.08);
 }
 
 
@@ -77,18 +87,21 @@
 
 .usuario-logado {
   display: flex;
+
   justify-content: center;
   align-items: center;
 
-  gap: 12px;
-  margin-bottom: 25px;
+  gap: 9px;
+
+  margin-bottom: 5px;
 }
 
 .usuario-logado img {
-  width: 55px;
-  height: 55px;
+  width: 36px;
+  height: 36px;
 
   border-radius: 50%;
+
   object-fit: cover;
 
   border: 2px solid #d1ad63;
@@ -96,18 +109,22 @@
 
 .usuario-logado div {
   display: flex;
+
   flex-direction: column;
+
   text-align: left;
 }
 
 .usuario-logado strong {
   color: white;
-  font-size: 17px;
+
+  font-size: 14px;
 }
 
 .usuario-logado span {
   color: #ddd;
-  font-size: 14px;
+
+  font-size: 11px;
 }
 
 
@@ -116,12 +133,13 @@
 ===================================================== */
 
 .logo-anamnese {
-  width: 240px;
-  max-width: 85%;
-
-  margin: 10px auto 25px;
-
   display: block;
+
+  width: 145px;
+
+  max-width: 60%;
+
+  margin: 2px auto 5px;
 }
 
 
@@ -132,23 +150,106 @@
 .anamnese-header h1 {
   color: #d1ad63;
 
-  font-size: 32px;
+  font-size: 24px;
 
-  margin-bottom: 18px;
+  line-height: 1.2;
+
+  margin: 0 0 5px;
 
   font-weight: 600;
 }
 
 .anamnese-header p {
-  max-width: 650px;
+  width: 100%;
 
-  margin: auto;
+  max-width: 900px;
 
-  line-height: 1.7;
+  margin: 0 auto;
 
-  font-size: 16px;
+  color: #f4f4f4;
+
+  font-size: 13px;
+
+  line-height: 1.4;
 
   opacity: 0.95;
+}
+
+
+/* =====================================================
+   LINHA SEPARADORA
+===================================================== */
+
+.linha-separadora {
+  width: 35%;
+
+  max-width: 400px;
+
+  height: 1px;
+
+  background: #d1ad63;
+
+  margin: 7px auto;
+}
+
+
+/* =====================================================
+   PROGRESSO
+===================================================== */
+
+.progresso-anamnese {
+  width: 100%;
+
+  margin: 20px 0 0;
+
+  padding: 0 25px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+.progresso-anamnese span {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #24382a;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   BARRA DE PROGRESSO
+===================================================== */
+
+.barra-progresso {
+  width: 100%;
+
+  height: 8px;
+
+  background: #ddd5c4;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.barra-progresso-preenchida {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #24382a,
+    #d1ad63
+  );
+
+  border-radius: 20px;
+
+  transition: width 0.35s ease;
 }
 
 
@@ -158,13 +259,31 @@
 
 .form-anamnese {
   width: 100%;
-  max-width: 850px;
 
-  margin: auto;
+  max-width: none;
 
-  padding: 25px 18px;
+  margin: 0;
+
+  padding: 25px;
 
   box-sizing: border-box;
+}
+
+
+/* =====================================================
+   DESCRIÇÃO DA ETAPA
+===================================================== */
+
+.descricao-etapa {
+  width: 100%;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  margin: 0 0 22px;
 }
 
 
@@ -173,18 +292,20 @@
 ===================================================== */
 
 .campo-grupo {
+  width: 100%;
+
   background: white;
 
-  padding: 25px;
+  padding: 30px;
 
-  margin-bottom: 25px;
+  margin: 0 0 22px;
 
-  border-radius: 22px;
+  border-radius: 18px;
 
   border-left: 5px solid #c8a45d;
 
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.08);
+    0 5px 15px rgba(0, 0, 0, 0.06);
 
   box-sizing: border-box;
 }
@@ -192,72 +313,103 @@
 .campo-grupo h2 {
   color: #24382a;
 
-  font-size: 22px;
+  font-size: 23px;
 
-  margin-bottom: 20px;
+  line-height: 1.3;
+
+  margin: 0 0 10px;
+
+  font-weight: 600;
 }
 
-.campo-grupo p {
-  color: #555;
+.campo-grupo > p {
+  color: #666;
 
-  font-weight: 500;
+  font-size: 15px;
 
-  margin: 15px 0 10px;
+  line-height: 1.6;
+
+  margin: 0 0 22px;
 }
 
 
 /* =====================================================
-   CAMPOS DE TEXTO
+   CAMPO / PERGUNTA
 ===================================================== */
 
-/*
-   IMPORTANTE:
-   Não usamos mais input global aqui.
-   Assim checkbox e radio não herdam
-   width: 100% e padding de campo de texto.
-*/
+.campo-pergunta {
+  width: 100%;
+
+  margin-bottom: 19px;
+
+  box-sizing: border-box;
+}
+
+.campo-pergunta:last-child {
+  margin-bottom: 0;
+}
+
+.campo-pergunta label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #3f3f3f;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   INPUTS / SELECT / TEXTAREA
+===================================================== */
 
 .form-anamnese input:not(
   [type="checkbox"]
 ):not(
   [type="radio"]
 ),
+.form-anamnese select,
 .form-anamnese textarea {
   width: 100%;
 
-  padding: 14px;
+  padding: 13px 14px;
 
-  margin-bottom: 15px;
+  margin: 0;
 
-  border-radius: 12px;
+  border-radius: 11px;
 
   border: 1px solid #ddd;
 
   background: #fafafa;
+
+  color: #333;
 
   font-size: 16px;
 
   font-family: inherit;
 
   box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 
 /* =====================================================
-   FOCO DOS CAMPOS
+   SELECT
 ===================================================== */
 
-.form-anamnese input:not(
-  [type="checkbox"]
-):not(
-  [type="radio"]
-):focus,
-.form-anamnese textarea:focus {
-  outline: none;
+.form-anamnese select {
+  min-height: 48px;
 
-  border-color: #c8a45d;
-
-  background: white;
+  cursor: pointer;
 }
 
 
@@ -269,37 +421,48 @@
   min-height: 120px;
 
   resize: vertical;
-}
-
-
-/* =====================================================
-   LABELS
-===================================================== */
-
-.form-anamnese label {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-bottom: 12px;
-
-  color: #444;
 
   line-height: 1.5;
-
-  cursor: pointer;
 }
 
 
 /* =====================================================
-   CHECKBOX E RADIO
+   FOCO
 ===================================================== */
 
-/*
-   Aqui está a correção principal.
-*/
+.form-anamnese input:not(
+  [type="checkbox"]
+):not(
+  [type="radio"]
+):focus,
+
+.form-anamnese select:focus,
+
+.form-anamnese textarea:focus {
+  outline: none;
+
+  border-color: #c8a45d;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(200, 164, 93, 0.12);
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+.form-anamnese input::placeholder,
+.form-anamnese textarea::placeholder {
+  color: #999;
+}
+
+
+/* =====================================================
+   CHECKBOX / RADIO
+===================================================== */
 
 .form-anamnese input[type="checkbox"],
 .form-anamnese input[type="radio"] {
@@ -325,31 +488,73 @@
 
 
 /* =====================================================
-   CHECKBOX MARCADO
+   LABEL DE CHECKBOX / RADIO
 ===================================================== */
 
-.form-anamnese input[type="checkbox"]:checked {
-  accent-color: #24382a;
+.form-anamnese label:has(
+  input[type="checkbox"]
+),
+.form-anamnese label:has(
+  input[type="radio"]
+) {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+
+  color: #444;
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  cursor: pointer;
 }
 
 
 /* =====================================================
-   RADIO MARCADO
+   CONSENTIMENTO
 ===================================================== */
 
-.form-anamnese input[type="radio"]:checked {
-  accent-color: #24382a;
+.consentimento {
+  width: 100%;
+
+  margin-top: 10px;
 }
 
+.texto-consentimento {
+  width: 100%;
 
-/* =====================================================
-   TERMO / CONSENTIMENTO
-===================================================== */
-
-.check-termo {
   background: #f5f1e8;
 
-  padding: 15px;
+  padding: 18px;
+
+  border-radius: 12px;
+
+  margin-bottom: 18px;
+
+  color: #555;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  border: 1px solid #e2dac9;
+
+  box-sizing: border-box;
+}
+
+.check-termo {
+  width: 100%;
+
+  background: #f5f1e8;
+
+  padding: 16px;
 
   border-radius: 12px;
 
@@ -358,35 +563,133 @@
   align-items: flex-start;
 
   gap: 10px;
+
+  border: 1px solid #e2dac9;
+
+  box-sizing: border-box;
 }
 
 .check-termo input[type="checkbox"] {
   margin-top: 3px;
 }
 
+.check-termo span {
+  color: #444;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
 
 /* =====================================================
-   BOTÃO ENVIAR
+   NAVEGAÇÃO
 ===================================================== */
 
-.btn-enviar {
+.navegacao-anamnese {
   width: 100%;
 
-  padding: 17px;
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 25px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.btn-voltar,
+.btn-proximo,
+.btn-enviar {
+  min-height: 52px;
+
+  padding: 14px 28px;
 
   border-radius: 35px;
 
   border: none;
 
+  font-family: inherit;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  transition: all 0.3s ease;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   VOLTAR
+===================================================== */
+
+.btn-voltar {
+  background: transparent;
+
+  color: #24382a;
+
+  border: 1px solid #24382a;
+}
+
+.btn-voltar:hover {
   background: #24382a;
 
   color: white;
 
-  font-size: 18px;
+  transform: translateY(-2px);
+}
 
-  cursor: pointer;
 
-  transition: 0.3s;
+/* =====================================================
+   PRÓXIMO
+===================================================== */
+
+.btn-proximo {
+  margin-left: auto;
+
+  background: #24382a;
+
+  color: white;
+}
+
+.btn-proximo:hover {
+  background: #3b5a42;
+
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   ENVIAR
+===================================================== */
+
+.btn-enviar {
+  width: 100%;
+
+  background: #24382a;
+
+  color: white;
 }
 
 .btn-enviar:hover {
@@ -397,69 +700,72 @@
 
 
 /* =====================================================
-   BOTÃO HOME - LOGIN
+   BOTÕES DESABILITADOS
 ===================================================== */
 
-.home-login {
-  position: absolute;
+.btn-voltar:disabled,
+.btn-proximo:disabled,
+.btn-enviar:disabled {
+  opacity: 0.6;
 
-  top: 25px;
-  left: 25px;
+  cursor: not-allowed;
 
-  width: 45px;
-  height: 45px;
-
-  border-radius: 50%;
-
-  border: none;
-
-  background: #d1ad63;
-
-  color: #24382a;
-
-  font-size: 22px;
-
-  cursor: pointer;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  transition: 0.3s;
-
-  z-index: 5;
-}
-
-.home-login:hover {
-  background: white;
-
-  transform: scale(1.1);
+  transform: none;
 }
 
 
 /* =====================================================
-   DESKTOP
+   DESKTOP GRANDE
 ===================================================== */
 
-@media (min-width: 768px) {
+@media (min-width: 1440px) {
 
   .anamnese-header {
-    padding: 70px 20px 50px;
+    padding-top: 18px;
+    padding-bottom: 20px;
+  }
+
+  .logo-anamnese {
+    width: 150px;
   }
 
   .anamnese-header h1 {
-    font-size: 40px;
+    font-size: 25px;
   }
 
   .form-anamnese {
-    padding-top: 40px;
+    padding: 28px 30px;
+  }
+
+  .progresso-anamnese {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .campo-grupo {
-    padding: 35px;
+    padding: 34px;
+  }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+
+  .form-anamnese {
+    padding: 22px;
   }
 
+  .progresso-anamnese {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .campo-grupo {
+    padding: 27px;
+  }
 }
 
 
@@ -469,56 +775,165 @@
 
 @media (max-width: 767px) {
 
-  .anamnese-header {
-    padding: 55px 18px 35px;
+  .anamnese {
+    padding-bottom: 35px;
   }
+
+
+  /* CABEÇALHO */
+
+  .anamnese-header {
+    padding: 45px 15px 22px;
+  }
+
+
+  /* HOME */
 
   .btn-home,
   .home-login {
-    top: 18px;
-    left: 18px;
+    top: 12px;
+    left: 14px;
 
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
 
-    font-size: 20px;
+    font-size: 17px;
   }
+
+
+  /* USUÁRIO */
+
+  .usuario-logado {
+    gap: 8px;
+
+    margin-bottom: 7px;
+  }
+
+  .usuario-logado img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .usuario-logado strong {
+    font-size: 13px;
+  }
+
+  .usuario-logado span {
+    font-size: 10px;
+  }
+
+
+  /* LOGO */
 
   .logo-anamnese {
-    width: 210px;
+    width: 165px;
+
+    margin-bottom: 7px;
   }
 
+
+  /* TÍTULO */
+
   .anamnese-header h1 {
-    font-size: 28px;
+    font-size: 24px;
+
+    margin-bottom: 7px;
   }
 
   .anamnese-header p {
-    font-size: 14px;
+    font-size: 13px;
+
+    line-height: 1.45;
   }
+
+
+  /* LINHA */
+
+  .linha-separadora {
+    width: 45%;
+
+    margin: 8px auto;
+  }
+
+
+  /* PROGRESSO */
+
+  .progresso-anamnese {
+    margin-top: 18px;
+
+    padding: 0 10px;
+  }
+
+  .progresso-anamnese span {
+    font-size: 13px;
+  }
+
+
+  /* FORM */
 
   .form-anamnese {
-    padding: 20px 12px;
+    padding: 15px 10px;
   }
 
-  .campo-grupo {
-    padding: 20px;
 
-    border-radius: 18px;
+  /* CARDS */
+
+  .campo-grupo {
+    padding: 20px 16px;
+
+    margin-bottom: 18px;
+
+    border-radius: 16px;
+
+    border-left-width: 4px;
   }
 
   .campo-grupo h2 {
     font-size: 20px;
   }
 
-  .form-anamnese input[type="checkbox"],
-  .form-anamnese input[type="radio"] {
-    width: 18px;
-    height: 18px;
-
-    min-width: 18px;
-    min-height: 18px;
+  .campo-grupo > p {
+    font-size: 14px;
   }
 
+
+  /* CAMPOS */
+
+  .form-anamnese input:not(
+    [type="checkbox"]
+  ):not(
+    [type="radio"]
+  ),
+  .form-anamnese select,
+  .form-anamnese textarea {
+    font-size: 16px;
+
+    padding: 12px;
+  }
+
+
+  .form-anamnese textarea {
+    min-height: 110px;
+  }
+
+
+  /* NAVEGAÇÃO */
+
+  .navegacao-anamnese {
+    gap: 10px;
+
+    margin-top: 18px;
+  }
+
+  .btn-voltar,
+  .btn-proximo,
+  .btn-enviar {
+    min-height: 48px;
+
+    padding: 12px 18px;
+
+    font-size: 14px;
+  }
 }
 
 
@@ -528,17 +943,54 @@
 
 @media (max-width: 390px) {
 
+  .anamnese-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .logo-anamnese {
+    width: 150px;
+  }
+
+  .anamnese-header h1 {
+    font-size: 22px;
+  }
+
+  .anamnese-header p {
+    font-size: 12px;
+  }
+
+  .form-anamnese {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .progresso-anamnese {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   .campo-grupo {
-    padding: 17px;
+    padding: 17px 14px;
+
+    border-radius: 14px;
   }
 
   .campo-grupo h2 {
     font-size: 19px;
   }
 
-  .form-anamnese {
-    padding-left: 10px;
-    padding-right: 10px;
+  .campo-pergunta label {
+    font-size: 13px;
   }
 
+  .navegacao-anamnese {
+    flex-direction: column-reverse;
+  }
+
+  .btn-voltar,
+  .btn-proximo,
+  .btn-enviar {
+    width: 100%;
+  }
 }
