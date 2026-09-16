@@ -1,209 +1,390 @@
+/* ===================================
+   PÁGINA AYAHUASCA
+=================================== */
+
 .ayahuasca-page {
 
-  background: #d8c8a4;
-  color: #2b1b0b;
+    width: 100vw;
+    max-width: none;
+
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    background: #d8c8a4;
+
+    color: #2b1b0b;
+
+    overflow-x: hidden;
 
 }
 
 
-/* IMAGEM TOPO */
+/* ===================================
+   IMAGEM TOPO
+=================================== */
 
 .ayahuasca-hero {
 
-  height: 70vh;
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+
+    height: 70vh;
+
+    position: relative;
+
+    overflow: hidden;
 
 }
 
 
 .ayahuasca-hero img {
 
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
 
 }
 
 
+/* ===================================
+   TÍTULO
+=================================== */
 
 .ayahuasca-titulo {
 
-  position: absolute;
-  inset: 0;
+    position: absolute;
 
-  background: rgba(0,0,0,0.45);
+    inset: 0;
 
-  display: flex;
-  flex-direction: column;
+    background: rgba(0, 0, 0, .45);
 
-  align-items: center;
-  justify-content: center;
+    display: flex;
 
-  text-align: center;
+    flex-direction: column;
 
-  color: white;
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 20px;
+
+    box-sizing: border-box;
 
 }
-
 
 
 .ayahuasca-titulo h1 {
 
-  color: #D4AF37;
+    color: #D4AF37;
 
-  font-size: 3rem;
+    font-size: 3rem;
 
-  letter-spacing: 3px;
+    letter-spacing: 3px;
+
+    margin: 0 0 15px;
 
 }
-
 
 
 .ayahuasca-titulo p {
 
-  font-size: 1.2rem;
+    font-size: 1.2rem;
+
+    line-height: 1.6;
+
+    margin: 0;
 
 }
 
 
-
-
-
-/* TEXTOS */
+/* ===================================
+   TEXTOS
+=================================== */
 
 .ayahuasca-texto {
 
-  max-width: 900px;
+    width: 100%;
 
-  margin: auto;
+    max-width: 900px;
 
-  padding: 70px 30px;
+    margin: 0 auto;
 
-  text-align: center;
+    padding: 70px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
 
 }
-
 
 
 .ayahuasca-texto h2,
 .ayahuasca-destaque h2 {
 
-  color: #1B3A2A;
+    color: #1B3A2A;
 
-  font-size: 2rem;
+    font-size: 2rem;
 
-  margin-bottom: 25px;
+    margin: 0 0 25px;
 
 }
-
 
 
 .ayahuasca-texto p,
 .ayahuasca-destaque p {
 
-  line-height: 1.8;
+    line-height: 1.8;
 
-  font-size: 1.1rem;
+    font-size: 1.1rem;
+
+    margin: 0;
 
 }
 
 
-
-
-
-/* BLOCO VERDE */
+/* ===================================
+   BLOCO VERDE
+=================================== */
 
 .ayahuasca-destaque {
 
-  background: #1B3A2A;
+    width: 100%;
 
-  color: white;
+    background: #1B3A2A;
 
-  padding: 70px 30px;
+    color: white;
 
-  text-align: center;
+    padding: 70px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
 
 }
-
 
 
 .ayahuasca-destaque h2,
 .ayahuasca-destaque h3 {
 
-  color: #D4AF37;
+    color: #D4AF37;
 
 }
-
 
 
 .ayahuasca-destaque h3 {
 
-  margin-top: 35px;
+    margin-top: 35px;
 
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 
 }
 
 
-
-
-/* FRASE FINAL */
+/* ===================================
+   FRASE FINAL
+=================================== */
 
 .frase-ayahuasca {
 
-  background: #1B3A2A;
+    width: 100%;
 
-  padding: 60px 30px;
+    background: #1B3A2A;
 
-  text-align: center;
+    padding: 60px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
 
 }
-
 
 
 .frase-ayahuasca h2 {
 
-  color: #D4AF37;
+    color: #D4AF37;
 
-  font-style: italic;
+    font-style: italic;
 
-  font-size: 2rem;
+    font-size: 2rem;
+
+    margin: 0;
 
 }
 
 
+/* ===================================
+   TELAS GRANDES
+=================================== */
+
+@media (min-width: 1440px) {
+
+    .ayahuasca-titulo h1 {
+
+        font-size: 3.5rem;
+
+    }
 
 
-@media(max-width:768px){
+    .ayahuasca-titulo p {
+
+        font-size: 1.3rem;
+
+    }
 
 
-  .ayahuasca-hero {
+    .ayahuasca-texto {
 
-    height: 55vh;
+        max-width: 1000px;
 
-  }
+        padding-top: 90px;
 
+        padding-bottom: 90px;
 
-  .ayahuasca-titulo h1 {
-
-    font-size: 2rem;
-
-  }
+    }
 
 
-  .ayahuasca-titulo p {
+    .ayahuasca-destaque {
 
-    font-size: 1rem;
+        padding-top: 90px;
 
-  }
+        padding-bottom: 90px;
+
+    }
 
 
-  .ayahuasca-texto {
+    .frase-ayahuasca {
 
-    padding: 45px 20px;
+        padding-top: 80px;
 
-  }
+        padding-bottom: 80px;
 
+    }
+
+}
+
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width: 768px) {
+
+    .ayahuasca-page {
+
+        width: 100%;
+
+        max-width: none;
+
+        margin-left: 0;
+
+        transform: none;
+
+    }
+
+
+    .ayahuasca-hero {
+
+        height: 55vh;
+
+    }
+
+
+    .ayahuasca-titulo {
+
+        padding: 20px;
+
+    }
+
+
+    .ayahuasca-titulo h1 {
+
+        font-size: 2rem;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .ayahuasca-titulo p {
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+
+    }
+
+
+    .ayahuasca-texto {
+
+        width: 100%;
+
+        padding: 45px 20px;
+
+    }
+
+
+    .ayahuasca-texto h2 {
+
+        font-size: 1.7rem;
+
+    }
+
+
+    .ayahuasca-texto p,
+    .ayahuasca-destaque p {
+
+        font-size: 1rem;
+
+    }
+
+
+    .ayahuasca-destaque {
+
+        width: 100%;
+
+        padding: 50px 20px;
+
+    }
+
+
+    .ayahuasca-destaque h2 {
+
+        font-size: 1.7rem;
+
+    }
+
+
+    .ayahuasca-destaque h3 {
+
+        font-size: 1.3rem;
+
+    }
+
+
+    .frase-ayahuasca {
+
+        width: 100%;
+
+        padding: 45px 20px;
+
+    }
+
+
+    .frase-ayahuasca h2 {
+
+        font-size: 1.6rem;
+
+    }
 
 }

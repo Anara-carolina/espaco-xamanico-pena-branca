@@ -1,231 +1,244 @@
+/* ===================================
+   PÁGINA SANANGA
+=================================== */
+
 .sananga-page {
+    width: 100vw;
+    max-width: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    min-height: 100vh;
+    box-sizing: border-box;
 
-  background: #d8c8a4;
+    background: #d8c8a4;
+    color: #2b1b0b;
 
-  color: #2b1b0b;
-
+    overflow-x: hidden;
 }
 
 
-
-
+/* ===================================
+   HERO
+=================================== */
 
 .sananga-hero {
+    width: 100%;
+    height: 70vh;
 
-  height: 70vh;
-
-  position: relative;
-
-  overflow: hidden;
-
+    position: relative;
+    overflow: hidden;
 }
-
-
-
-
 
 .sananga-hero img {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 
-
-
+/* ===================================
+   TÍTULO DO HERO
+=================================== */
 
 .sananga-titulo {
+    position: absolute;
+    inset: 0;
 
-  position: absolute;
+    background: rgba(0, 0, 0, 0.45);
 
-  inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  background: rgba(0,0,0,0.45);
+    text-align: center;
+    color: white;
 
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: center;
-
-  text-align: center;
-
-  color: white;
-
+    padding: 20px;
+    box-sizing: border-box;
 }
-
-
-
-
 
 .sananga-titulo h1 {
-
-  color: #D4AF37;
-
-  font-size: 3rem;
-
-  letter-spacing: 3px;
-
+    color: #D4AF37;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin: 0 0 15px;
 }
-
-
-
-
 
 .sananga-titulo p {
-
-  font-size: 1.2rem;
-
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 
-
-
-
-
+/* ===================================
+   TEXTO
+=================================== */
 
 .sananga-texto {
+    width: 100%;
+    max-width: 900px;
 
-  max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 30px;
 
-  margin: auto;
-
-  padding: 70px 30px;
-
-  text-align: center;
-
+    box-sizing: border-box;
+    text-align: center;
 }
-
-
-
-
 
 .sananga-texto h2,
 .sananga-destaque h2 {
-
-  color: #1B3A2A;
-
-  font-size: 2rem;
-
-  margin-bottom: 25px;
-
+    color: #1B3A2A;
+    font-size: 2rem;
+    margin: 0 0 25px;
 }
-
-
-
-
 
 .sananga-texto p,
 .sananga-destaque p {
-
-  line-height: 1.8;
-
-  font-size: 1.1rem;
-
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 
-
-
-
-
+/* ===================================
+   DESTAQUE
+=================================== */
 
 .sananga-destaque {
+    width: 100%;
 
-  background: #1B3A2A;
+    background: #1B3A2A;
+    color: white;
 
-  color: white;
+    padding: 70px 30px;
 
-  padding: 70px 30px;
-
-  text-align: center;
-
+    box-sizing: border-box;
+    text-align: center;
 }
-
-
-
-
 
 .sananga-destaque h2 {
-
-  color: #D4AF37;
-
+    color: #D4AF37;
 }
 
 
-
-
-
-
+/* ===================================
+   FRASE
+=================================== */
 
 .frase-sananga {
+    width: 100%;
 
-  background: #1B3A2A;
+    background: #1B3A2A;
 
-  padding: 60px 30px;
+    padding: 60px 30px;
 
-  text-align: center;
-
+    box-sizing: border-box;
+    text-align: center;
 }
-
-
-
-
 
 .frase-sananga h2 {
-
-  color: #D4AF37;
-
-  font-size: 2rem;
-
-  font-style: italic;
-
+    color: #D4AF37;
+    font-size: 2rem;
+    font-style: italic;
+    margin: 0;
 }
 
 
+/* ===================================
+   TELAS GRANDES
+=================================== */
+
+@media (min-width: 1440px) {
+
+    .sananga-titulo h1 {
+        font-size: 3.5rem;
+    }
+
+    .sananga-titulo p {
+        font-size: 1.3rem;
+    }
+
+    .sananga-texto {
+        max-width: 1000px;
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .sananga-destaque {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .frase-sananga {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
 
 
+/* ===================================
+   MOBILE
+=================================== */
 
+@media (max-width: 768px) {
 
+    .sananga-page {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        transform: none;
+    }
 
-@media(max-width:768px){
+    .sananga-hero {
+        height: 55vh;
+    }
 
+    .sananga-titulo {
+        padding: 20px;
+    }
 
-  .sananga-hero {
+    .sananga-titulo h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
 
-    height: 55vh;
+    .sananga-titulo p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 
-  }
+    .sananga-texto {
+        width: 100%;
+        padding: 45px 20px;
+    }
 
+    .sananga-texto h2 {
+        font-size: 1.7rem;
+    }
 
+    .sananga-texto p,
+    .sananga-destaque p {
+        font-size: 1rem;
+    }
 
-  .sananga-titulo h1 {
+    .sananga-destaque {
+        width: 100%;
+        padding: 50px 20px;
+    }
 
-    font-size: 2rem;
+    .sananga-destaque h2 {
+        font-size: 1.7rem;
+    }
 
-  }
+    .frase-sananga {
+        width: 100%;
+        padding: 45px 20px;
+    }
 
-
-
-  .sananga-titulo p {
-
-    font-size: 1rem;
-
-  }
-
-
-
-  .sananga-texto {
-
-    padding: 45px 20px;
-
-  }
-
-
+    .frase-sananga h2 {
+        font-size: 1.6rem;
+    }
 }

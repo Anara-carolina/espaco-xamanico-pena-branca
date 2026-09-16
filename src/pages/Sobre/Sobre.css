@@ -1,211 +1,259 @@
+/* ===================================
+   PÁGINA SOBRE
+=================================== */
+
 .sobre-page {
+    width: 100vw;
+    max-width: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    min-height: 100vh;
+    box-sizing: border-box;
 
-  background: #d8c8a4;
-  color: #2b1b0b;
+    background: #d8c8a4;
+    color: #2b1b0b;
 
+    overflow-x: hidden;
 }
 
 
-/* IMAGEM PRINCIPAL */
+/* ===================================
+   IMAGEM PRINCIPAL
+=================================== */
 
 .sobre-hero {
+    width: 100%;
+    height: 70vh;
 
-  position: relative;
-  height: 70vh;
-  overflow: hidden;
-
+    position: relative;
+    overflow: hidden;
 }
-
 
 .sobre-hero img {
-
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 
+/* ===================================
+   TÍTULO DO HERO
+=================================== */
 
 .sobre-titulo {
+    position: absolute;
+    inset: 0;
 
-  position: absolute;
-  inset: 0;
+    display: flex;
+    flex-direction: column;
 
-  display: flex;
-  flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  justify-content: center;
-  align-items: center;
+    text-align: center;
 
-  text-align: center;
+    background: rgba(0, 0, 0, 0.45);
 
-  background: rgba(0,0,0,0.45);
+    color: white;
 
-  color: white;
-
+    padding: 20px;
+    box-sizing: border-box;
 }
-
-
 
 .sobre-titulo h1 {
-
-  font-size: 3rem;
-
-  color: #D4AF37;
-
-  letter-spacing: 3px;
-
+    font-size: 3rem;
+    color: #D4AF37;
+    letter-spacing: 3px;
+    margin: 0 0 15px;
 }
-
-
 
 .sobre-titulo p {
-
-  font-size: 1.2rem;
-
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 
+/* ===================================
+   TEXTOS
+=================================== */
 
+.sobre-texto {
+    width: 100%;
+    max-width: 900px;
 
+    margin: 0 auto;
+    padding: 70px 30px;
 
-/* TEXTOS */
-
-.sobre-texto,
-.sobre-destaque {
-
-  max-width: 900px;
-
-  margin: auto;
-
-  padding: 70px 30px;
-
-  text-align: center;
-
+    box-sizing: border-box;
+    text-align: center;
 }
-
-
 
 .sobre-texto h2,
 .sobre-destaque h2 {
-
-  color: #1B3A2A;
-
-  font-size: 2rem;
-
-  margin-bottom: 25px;
-
+    color: #1B3A2A;
+    font-size: 2rem;
+    margin: 0 0 25px;
 }
-
-
 
 .sobre-texto p,
 .sobre-destaque p {
-
-  line-height: 1.8;
-
-  font-size: 1.1rem;
-
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 
-
-
-
-/* BLOCO DE DESTAQUE */
+/* ===================================
+   BLOCO DE DESTAQUE
+=================================== */
 
 .sobre-destaque {
+    width: 100%;
+    max-width: none;
 
-  background: #1B3A2A;
+    background: #1B3A2A;
+    color: white;
 
-  color: white;
+    padding: 70px 30px;
 
-  max-width: 100%;
-
+    box-sizing: border-box;
+    text-align: center;
 }
-
-
 
 .sobre-destaque h2 {
-
-  color: #D4AF37;
-
+    color: #D4AF37;
 }
-
-
 
 .sobre-destaque p {
-
-  max-width: 850px;
-
-  margin: 20px auto;
-
+    max-width: 850px;
+    margin: 20px auto;
 }
 
 
-
-
-
-/* FRASE FINAL */
+/* ===================================
+   FRASE FINAL
+=================================== */
 
 .frase-sobre {
+    width: 100%;
 
-  padding: 60px 30px;
+    padding: 60px 30px;
 
-  background: #1B3A2A;
+    background: #1B3A2A;
 
-  text-align: center;
-
+    box-sizing: border-box;
+    text-align: center;
 }
-
-
 
 .frase-sobre h2 {
-
-  color: #D4AF37;
-
-  font-size: 2rem;
-
-  font-style: italic;
-
+    color: #D4AF37;
+    font-size: 2rem;
+    font-style: italic;
+    margin: 0;
 }
 
 
+/* ===================================
+   TELAS GRANDES
+=================================== */
+
+@media (min-width: 1440px) {
+
+    .sobre-titulo h1 {
+        font-size: 3.5rem;
+    }
+
+    .sobre-titulo p {
+        font-size: 1.3rem;
+    }
+
+    .sobre-texto {
+        max-width: 1000px;
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .sobre-destaque {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .sobre-destaque p {
+        max-width: 900px;
+    }
+
+    .frase-sobre {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
 
 
-/* MOBILE */
+/* ===================================
+   MOBILE
+=================================== */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
+    .sobre-page {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        transform: none;
+    }
 
-  .sobre-hero {
+    .sobre-hero {
+        height: 55vh;
+    }
 
-    height: 55vh;
+    .sobre-titulo {
+        padding: 20px;
+    }
 
-  }
+    .sobre-titulo h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
 
+    .sobre-titulo p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 
-  .sobre-titulo h1 {
+    .sobre-texto {
+        width: 100%;
+        padding: 45px 20px;
+    }
 
-    font-size: 2rem;
+    .sobre-texto h2 {
+        font-size: 1.7rem;
+    }
 
-  }
+    .sobre-texto p {
+        font-size: 1rem;
+    }
 
+    .sobre-destaque {
+        width: 100%;
+        padding: 50px 20px;
+    }
 
-  .sobre-titulo p {
+    .sobre-destaque h2 {
+        font-size: 1.7rem;
+    }
 
-    font-size: 1rem;
+    .sobre-destaque p {
+        font-size: 1rem;
+    }
 
-  }
+    .frase-sobre {
+        width: 100%;
+        padding: 45px 20px;
+    }
 
-
-  .sobre-texto,
-  .sobre-destaque {
-
-    padding: 45px 20px;
-
-  }
-
-
+    .frase-sobre h2 {
+        font-size: 1.6rem;
+    }
 }

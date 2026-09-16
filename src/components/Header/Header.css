@@ -1,8 +1,19 @@
-.header {
+/* =====================================================
+   HEADER
+===================================================== */
 
-  width: 100%;
+.header {
+  position: relative;
+
+  width: 100vw;
+  max-width: none;
+
+  margin-left: 50%;
+  transform: translateX(-50%);
 
   height: 70px;
+
+  box-sizing: border-box;
 
   background-color: black;
 
@@ -12,22 +23,17 @@
 
   justify-content: center;
 
-  position: relative;
-
   z-index: 1000;
 
   overflow: visible;
-
 }
 
 
-/* ========================= */
-/* MENU HAMBURGUER */
-/* ========================= */
-
+/* =====================================================
+   MENU HAMBURGUER
+===================================================== */
 
 .menu-button {
-
   position: absolute;
 
   left: 15px;
@@ -53,17 +59,14 @@
   justify-content: center;
 
   z-index: 1100;
-
 }
 
 
-/* ========================= */
-/* ÍCONE MENU */
-/* ========================= */
-
+/* =====================================================
+   ÍCONE DO MENU
+===================================================== */
 
 .menu-button img {
-
   width: 100px;
 
   height: 100px;
@@ -71,17 +74,14 @@
   object-fit: contain;
 
   display: block;
-
 }
 
 
-/* ========================= */
-/* LOGO CENTRAL */
-/* ========================= */
-
+/* =====================================================
+   LOGO CENTRAL
+===================================================== */
 
 .logo {
-
   width: 90px;
 
   height: 90px;
@@ -95,97 +95,78 @@
   top: 10px;
 
   z-index: 1200;
-
 }
 
 
-
-/* ========================= */
-/* DESKTOP */
-/* ========================= */
-
+/* =====================================================
+   DESKTOP
+===================================================== */
 
 @media (min-width: 1024px) {
 
-
   .header {
+    width: 100vw;
 
     height: 100px;
 
+    margin-left: 50%;
+
+    transform: translateX(-50%);
   }
 
 
   .menu-button {
-
     left: 40px;
-
   }
 
 
   .menu-button img {
-
     width: 55px;
 
     height: 55px;
-
   }
 
 
   .logo {
-
     width: 120px;
 
     height: 120px;
 
     top: 20px;
-
   }
-
-
 }
 
 
-
-/* ========================= */
-/* TELAS GRANDES */
-/* ========================= */
-
+/* =====================================================
+   TELAS GRANDES
+===================================================== */
 
 @media (min-width: 1440px) {
 
-
   .header {
+    width: 100vw;
 
     height: 120px;
-
   }
 
 
   .menu-button {
-
     left: 60px;
-
   }
 
 
   .menu-button img {
-
     width: 65px;
 
     height: 65px;
-
   }
 
 
   .logo {
-
     width: 140px;
 
     height: 140px;
 
     top: 25px;
-
   }
-
-
 }

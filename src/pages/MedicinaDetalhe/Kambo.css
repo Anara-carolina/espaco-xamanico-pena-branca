@@ -1,231 +1,373 @@
+/* ===================================
+   PÁGINA KAMBÔ
+=================================== */
+
 .kambo-page {
 
-  background: #d8c8a4;
+    width: 100vw;
+    max-width: none;
 
-  color: #2b1b0b;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    background: #d8c8a4;
+
+    color: #2b1b0b;
+
+    overflow-x: hidden;
 
 }
 
 
-
-
+/* ===================================
+   IMAGEM TOPO
+=================================== */
 
 .kambo-hero {
 
-  height: 70vh;
+    width: 100%;
 
-  position: relative;
+    height: 70vh;
 
-  overflow: hidden;
+    position: relative;
+
+    overflow: hidden;
 
 }
-
-
-
 
 
 .kambo-hero img {
 
-  width: 100%;
+    width: 100%;
 
-  height: 100%;
+    height: 100%;
 
-  object-fit: cover;
+    object-fit: cover;
+
+    display: block;
 
 }
 
 
-
-
+/* ===================================
+   TÍTULO
+=================================== */
 
 .kambo-titulo {
 
-  position: absolute;
+    position: absolute;
 
-  inset: 0;
+    inset: 0;
 
-  background: rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, .45);
 
-  display: flex;
+    display: flex;
 
-  flex-direction: column;
+    flex-direction: column;
 
-  justify-content: center;
+    justify-content: center;
 
-  align-items: center;
+    align-items: center;
 
-  text-align: center;
+    text-align: center;
 
-  color: white;
+    color: white;
+
+    padding: 20px;
+
+    box-sizing: border-box;
 
 }
-
-
-
 
 
 .kambo-titulo h1 {
 
-  color: #D4AF37;
+    color: #D4AF37;
 
-  font-size: 3rem;
+    font-size: 3rem;
 
-  letter-spacing: 3px;
+    letter-spacing: 3px;
+
+    margin: 0 0 15px;
 
 }
-
-
-
 
 
 .kambo-titulo p {
 
-  font-size: 1.2rem;
+    font-size: 1.2rem;
+
+    line-height: 1.6;
+
+    margin: 0;
 
 }
 
 
-
-
-
-
+/* ===================================
+   TEXTOS
+=================================== */
 
 .kambo-texto {
 
-  max-width: 900px;
+    width: 100%;
 
-  margin: auto;
+    max-width: 900px;
 
-  padding: 70px 30px;
+    margin: 0 auto;
 
-  text-align: center;
+    padding: 70px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
 
 }
-
-
-
 
 
 .kambo-texto h2,
 .kambo-destaque h2 {
 
-  color: #1B3A2A;
+    color: #1B3A2A;
 
-  font-size: 2rem;
+    font-size: 2rem;
 
-  margin-bottom: 25px;
+    margin: 0 0 25px;
 
 }
-
-
-
 
 
 .kambo-texto p,
 .kambo-destaque p {
 
-  line-height: 1.8;
+    line-height: 1.8;
 
-  font-size: 1.1rem;
+    font-size: 1.1rem;
+
+    margin: 0;
 
 }
 
 
-
-
-
-
+/* ===================================
+   BLOCO VERDE
+=================================== */
 
 .kambo-destaque {
 
-  background: #1B3A2A;
+    width: 100%;
 
-  color: white;
+    background: #1B3A2A;
 
-  padding: 70px 30px;
+    color: white;
 
-  text-align: center;
+    padding: 70px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
 
 }
-
-
-
 
 
 .kambo-destaque h2 {
 
-  color: #D4AF37;
+    color: #D4AF37;
 
 }
 
 
-
-
-
-
+/* ===================================
+   FRASE FINAL
+=================================== */
 
 .frase-kambo {
 
-  background: #1B3A2A;
+    width: 100%;
 
-  padding: 60px 30px;
+    background: #1B3A2A;
 
-  text-align: center;
+    padding: 60px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
 
 }
-
-
-
 
 
 .frase-kambo h2 {
 
-  color: #D4AF37;
+    color: #D4AF37;
 
-  font-size: 2rem;
+    font-size: 2rem;
 
-  font-style: italic;
+    font-style: italic;
+
+    margin: 0;
 
 }
 
 
+/* ===================================
+   TELAS GRANDES
+=================================== */
+
+@media (min-width: 1440px) {
+
+    .kambo-titulo h1 {
+
+        font-size: 3.5rem;
+
+    }
 
 
+    .kambo-titulo p {
+
+        font-size: 1.3rem;
+
+    }
 
 
+    .kambo-texto {
 
-@media(max-width:768px){
+        max-width: 1000px;
 
+        padding-top: 90px;
 
-  .kambo-hero {
+        padding-bottom: 90px;
 
-    height: 55vh;
-
-  }
-
-
-
-  .kambo-titulo h1 {
-
-    font-size: 2rem;
-
-  }
+    }
 
 
+    .kambo-destaque {
 
-  .kambo-titulo p {
+        padding-top: 90px;
 
-    font-size: 1rem;
+        padding-bottom: 90px;
 
-  }
+    }
 
 
+    .frase-kambo {
 
-  .kambo-texto {
+        padding-top: 80px;
 
-    padding: 45px 20px;
+        padding-bottom: 80px;
 
-  }
+    }
 
+}
+
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width: 768px) {
+
+    .kambo-page {
+
+        width: 100%;
+
+        max-width: none;
+
+        margin-left: 0;
+
+        transform: none;
+
+    }
+
+
+    .kambo-hero {
+
+        height: 55vh;
+
+    }
+
+
+    .kambo-titulo {
+
+        padding: 20px;
+
+    }
+
+
+    .kambo-titulo h1 {
+
+        font-size: 2rem;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .kambo-titulo p {
+
+        font-size: 1rem;
+
+        line-height: 1.5;
+
+    }
+
+
+    .kambo-texto {
+
+        width: 100%;
+
+        padding: 45px 20px;
+
+    }
+
+
+    .kambo-texto h2 {
+
+        font-size: 1.7rem;
+
+    }
+
+
+    .kambo-texto p,
+    .kambo-destaque p {
+
+        font-size: 1rem;
+
+    }
+
+
+    .kambo-destaque {
+
+        width: 100%;
+
+        padding: 50px 20px;
+
+    }
+
+
+    .kambo-destaque h2 {
+
+        font-size: 1.7rem;
+
+    }
+
+
+    .frase-kambo {
+
+        width: 100%;
+
+        padding: 45px 20px;
+
+    }
+
+
+    .frase-kambo h2 {
+
+        font-size: 1.6rem;
+
+    }
 
 }

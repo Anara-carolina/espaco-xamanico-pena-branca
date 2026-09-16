@@ -1,285 +1,541 @@
+/* =====================================================
+   GALERIA
+===================================================== */
+
 .galeria {
+  position: relative;
 
-    padding: 100px 8%;
-    background: #0f2418;
-    text-align: center;
+  width: 100vw;
+  max-width: none;
 
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  box-sizing: border-box;
+
+  padding: 100px 8%;
+
+  background: #0f2418;
+
+  text-align: center;
+
+  overflow: hidden;
 }
 
+
+/* =====================================================
+   TÍTULO
+===================================================== */
 
 .galeria h2 {
+  margin: 0 0 20px;
 
-    color: #D4AF37;
-    font-size: 2.6rem;
-    margin-bottom: 20px;
+  color: #d4af37;
 
+  font-size: 2.8rem;
+
+  line-height: 1.2;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
 }
 
+
+/* =====================================================
+   DESCRIÇÃO
+===================================================== */
 
 .galeria p {
+  max-width: 750px;
 
-    color: #ddd;
-    max-width: 700px;
-    margin: 0 auto 45px;
-    line-height: 1.8;
+  margin: 0 auto 50px;
 
+  color: #ddd;
+
+  font-size: 17px;
+
+  line-height: 1.8;
 }
 
 
-
-/* CONTAINER DO CARROSSEL */
+/* =====================================================
+   CONTAINER DO CARROSSEL
+===================================================== */
 
 .container-carrossel {
+  position: relative;
 
-    position: relative;
+  width: 100%;
+  max-width: 1300px;
 
-    display: flex;
+  margin: 0 auto;
 
-    align-items: center;
+  display: flex;
 
+  align-items: center;
 }
 
 
-
-/* CARROSSEL */
+/* =====================================================
+   CARROSSEL
+===================================================== */
 
 .carrossel {
+  display: flex;
 
-    display: flex;
+  gap: 25px;
 
-    gap: 20px;
+  width: 100%;
 
-    overflow-x: auto;
+  padding: 15px 10px;
 
-    scroll-behavior: smooth;
+  box-sizing: border-box;
 
-    width: 100%;
+  overflow-x: auto;
 
-    padding: 10px;
+  scroll-behavior: smooth;
 
-    scrollbar-width: none;
-
+  scrollbar-width: none;
 }
 
 
-
-/* remove barra no Chrome */
+/* =====================================================
+   REMOVE BARRA — CHROME
+===================================================== */
 
 .carrossel::-webkit-scrollbar {
-
-    display: none;
-
+  display: none;
 }
 
 
-
-/* imagens */
+/* =====================================================
+   IMAGENS
+===================================================== */
 
 .imagem-galeria {
+  min-width: 350px;
 
-    min-width: 320px;
+  width: 350px;
 
-    height: 230px;
+  height: 250px;
 
-    object-fit: cover;
+  object-fit: cover;
 
-    border-radius: 15px;
+  border-radius: 16px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: 0.4s;
+  flex-shrink: 0;
 
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
+
+/* =====================================================
+   HOVER DAS IMAGENS
+===================================================== */
 
 .imagem-galeria:hover {
+  transform: scale(1.04);
 
-    transform: scale(1.05);
-
-    box-shadow: 0 0 20px rgba(212,175,55,0.4);
-
+  box-shadow:
+    0 0 25px rgba(212, 175, 55, 0.45);
 }
 
 
-
-/* SETAS */
+/* =====================================================
+   SETAS
+===================================================== */
 
 .seta {
+  position: absolute;
 
-    position: absolute;
+  z-index: 5;
 
-    z-index: 5;
+  width: 52px;
 
-    width: 45px;
+  height: 52px;
 
-    height: 45px;
+  border-radius: 50%;
 
-    border-radius: 50%;
+  border: 2px solid #d4af37;
 
-    border: none;
+  background: #d4af37;
 
-    background: #D4AF37;
+  color: #0f2418;
 
-    color: #0f2418;
+  font-size: 26px;
 
-    font-size: 25px;
+  cursor: pointer;
 
-    cursor: pointer;
+  display: flex;
 
-    display: flex;
+  align-items: center;
 
-    align-items: center;
+  justify-content: center;
 
-    justify-content: center;
-
-    transition: 0.3s;
-
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 
 .seta:hover {
+  transform: scale(1.1);
 
-    transform: scale(1.1);
-
+  background: #e3c45b;
 }
 
+
+/* =====================================================
+   SETA ESQUERDA
+===================================================== */
 
 .esquerda {
-
-    left: 10px;
-
+  left: 5px;
 }
 
+
+/* =====================================================
+   SETA DIREITA
+===================================================== */
 
 .direita {
-
-    right: 10px;
-
+  right: 5px;
 }
 
 
-
-
-/* LINK */
+/* =====================================================
+   LINK DA GALERIA
+===================================================== */
 
 .galeria-link {
-
-    margin-top: 45px;
-
+  margin-top: 50px;
 }
 
 
 .galeria-link a {
+  color: #d4af37;
 
-    color: #D4AF37;
+  text-decoration: none;
 
-    text-decoration: none;
+  font-size: 1.1rem;
 
-    font-size: 1.1rem;
+  font-weight: 600;
 
-    transition: 0.3s;
-
+  transition:
+    letter-spacing 0.3s ease,
+    color 0.3s ease;
 }
 
 
 .galeria-link a:hover {
+  color: #ffffff;
 
-    letter-spacing: 1px;
-
+  letter-spacing: 1px;
 }
 
 
-
-
-/* MODAL FOTO GRANDE */
+/* =====================================================
+   MODAL
+===================================================== */
 
 .modal {
+  position: fixed;
 
-    position: fixed;
+  inset: 0;
 
-    inset: 0;
+  background: rgba(0, 0, 0, 0.90);
 
-    background: rgba(0,0,0,0.90);
+  display: flex;
 
-    display: flex;
+  justify-content: center;
 
-    justify-content: center;
+  align-items: center;
 
-    align-items: center;
+  padding: 20px;
 
-    z-index: 999;
+  box-sizing: border-box;
 
+  z-index: 999;
 }
 
+
+/* =====================================================
+   IMAGEM DO MODAL
+===================================================== */
 
 .imagem-modal {
+  max-width: 90%;
 
-    max-width: 90%;
+  max-height: 90vh;
 
-    max-height: 90vh;
+  width: auto;
 
-    object-fit: contain;
+  height: auto;
 
-    border-radius: 15px;
+  object-fit: contain;
 
+  border-radius: 15px;
 }
 
+
+/* =====================================================
+   FECHAR
+===================================================== */
 
 .fechar {
+  position: absolute;
 
-    position: absolute;
+  top: 25px;
 
-    top: 25px;
+  right: 40px;
 
-    right: 40px;
+  color: white;
 
-    color: white;
+  font-size: 45px;
 
-    font-size: 45px;
+  line-height: 1;
 
-    cursor: pointer;
+  cursor: pointer;
 
+  z-index: 1000;
 }
 
 
+/* =====================================================
+   DESKTOP GRANDE
+===================================================== */
 
-/* CELULAR */
+@media (min-width: 1200px) {
 
-@media(max-width:768px){
+  .galeria {
+    width: 100vw;
 
-
-    .imagem-galeria {
-
-        min-width: 260px;
-
-        height: 190px;
-
-    }
+    padding: 110px 10%;
+  }
 
 
-    .seta {
+  .galeria h2 {
+    font-size: 3.2rem;
 
-        width: 38px;
-
-        height: 38px;
-
-        font-size: 20px;
-
-    }
+    letter-spacing: 3px;
+  }
 
 
-    .esquerda {
+  .galeria p {
+    max-width: 800px;
 
-        left: 5px;
+    font-size: 18px;
 
-    }
-
-
-    .direita {
-
-        right: 5px;
-
-    }
+    margin-bottom: 55px;
+  }
 
 
+  .container-carrossel {
+    max-width: 1400px;
+  }
+
+
+  .carrossel {
+    gap: 30px;
+
+    padding: 18px 15px;
+  }
+
+
+  .imagem-galeria {
+    min-width: 390px;
+
+    width: 390px;
+
+    height: 280px;
+  }
+
+
+  .seta {
+    width: 56px;
+
+    height: 56px;
+
+    font-size: 28px;
+  }
+
+
+  .esquerda {
+    left: 0;
+  }
+
+
+  .direita {
+    right: 0;
+  }
+}
+
+
+/* =====================================================
+   NOTEBOOK
+===================================================== */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .galeria {
+    width: 100vw;
+
+    padding: 80px 6%;
+  }
+
+
+  .galeria h2 {
+    font-size: 2.7rem;
+  }
+
+
+  .galeria p {
+    font-size: 17px;
+
+    margin-bottom: 45px;
+  }
+
+
+  .container-carrossel {
+    max-width: 1000px;
+  }
+
+
+  .carrossel {
+    gap: 20px;
+  }
+
+
+  .imagem-galeria {
+    min-width: 320px;
+
+    width: 320px;
+
+    height: 230px;
+  }
+
+
+  .seta {
+    width: 45px;
+
+    height: 45px;
+
+    font-size: 24px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .galeria {
+    position: relative;
+
+    width: 100%;
+
+    max-width: none;
+
+    margin-left: 0;
+
+    transform: none;
+
+    padding: 100px 20px;
+
+    overflow: hidden;
+  }
+
+
+  .galeria h2 {
+    font-size: 2.6rem;
+
+    margin-bottom: 20px;
+  }
+
+
+  .galeria p {
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+    line-height: 1.8;
+  }
+
+
+  .container-carrossel {
+    width: 100%;
+  }
+
+
+  .carrossel {
+    gap: 20px;
+
+    padding: 10px;
+  }
+
+
+  .imagem-galeria {
+    min-width: 260px;
+
+    width: 260px;
+
+    height: 190px;
+  }
+
+
+  .seta {
+    width: 38px;
+
+    height: 38px;
+
+    font-size: 20px;
+  }
+
+
+  .esquerda {
+    left: 5px;
+  }
+
+
+  .direita {
+    right: 5px;
+  }
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .galeria {
+    padding: 75px 15px;
+  }
+
+
+  .galeria h2 {
+    font-size: 2.2rem;
+  }
+
+
+  .galeria p {
+    font-size: 16px;
+  }
+
+
+  .imagem-galeria {
+    min-width: 245px;
+
+    width: 245px;
+
+    height: 180px;
+  }
 }

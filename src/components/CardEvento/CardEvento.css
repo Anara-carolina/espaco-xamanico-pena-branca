@@ -1,63 +1,100 @@
-/* ===========================
+/* =====================================================
    SEÇÃO DA AGENDA
-=========================== */
+===================================================== */
 
 .eventos {
+  position: relative;
+
+  width: 100vw;
+  max-width: none;
+
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  box-sizing: border-box;
 
   background-color: #1f3b2d;
 
-  padding: 50px 20px;
+  padding: 80px 8%;
 
+  overflow: hidden;
 }
 
 
-.eventos h2 {
+/* =====================================================
+   TÍTULO
+===================================================== */
 
+.eventos h2 {
   text-align: center;
 
   color: #ffffff;
 
-  font-size: 32px;
+  font-size: 42px;
 
-  margin-bottom: 35px;
+  margin: 0 0 45px;
 
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 
+  font-weight: 600;
 }
 
 
+/* =====================================================
+   CONTAINER DOS EVENTOS
+===================================================== */
 
-/* ===========================
+.eventos > .evento-card,
+.eventos .evento-card {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto 30px;
+}
+
+
+/* =====================================================
    CARD
-=========================== */
-
+===================================================== */
 
 .evento-card {
-
   display: flex;
 
   background-color: #d8c8a4;
 
-  border-radius: 15px;
+  border-radius: 18px;
 
   overflow: hidden;
 
-  margin-bottom: 25px;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.25);
 
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
-
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 
+/* =====================================================
+   HOVER DO CARD
+===================================================== */
 
-/* ===========================
+.evento-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =====================================================
    DATA
-=========================== */
-
+===================================================== */
 
 .data-evento {
+  width: 110px;
 
-  width: 85px;
+  flex-shrink: 0;
 
   background-color: #4c5d2f;
 
@@ -69,27 +106,33 @@
 
   align-items: center;
 
-  padding: 15px 10px;
+  padding: 20px 12px;
 
+  box-sizing: border-box;
 }
 
 
+/* =====================================================
+   DIA
+===================================================== */
 
 .data-evento strong {
-
-  font-size: 42px;
+  font-size: 48px;
 
   color: #d4af37;
 
   line-height: 1;
 
+  font-weight: 600;
 }
 
 
+/* =====================================================
+   MÊS
+===================================================== */
 
 .data-evento span {
-
-  margin-top: 8px;
+  margin-top: 10px;
 
   color: #d4af37;
 
@@ -98,19 +141,17 @@
   font-weight: bold;
 
   letter-spacing: 1px;
-
 }
 
 
-
-/* ===========================
+/* =====================================================
    CONTEÚDO
-=========================== */
-
+===================================================== */
 
 .evento-info {
-
   flex: 1;
+
+  min-width: 0;
 
   display: flex;
 
@@ -118,64 +159,73 @@
 
   justify-content: space-between;
 
-  padding: 15px;
+  padding: 25px 30px;
 
-  gap: 15px;
+  gap: 30px;
 
+  box-sizing: border-box;
 }
 
 
+/* =====================================================
+   TEXTO
+===================================================== */
 
 .texto-evento {
-
   flex: 1;
 
+  min-width: 0;
 }
-
 
 
 .texto-evento h3 {
-
   color: #5e360d;
 
-  font-size: 17px;
+  font-size: 21px;
 
   line-height: 1.5;
 
   margin: 0;
 
+  font-weight: 600;
 }
 
 
-
-/* ===========================
+/* =====================================================
    IMAGEM
-=========================== */
-
+===================================================== */
 
 .evento-info img {
+  width: 150px;
 
-  width: 95px;
+  height: 170px;
 
-  height: 120px;
+  flex-shrink: 0;
 
   object-fit: cover;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   border: 2px solid #5e360d;
 
+  display: block;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
 }
 
 
+.evento-info img:hover {
+  transform: scale(1.03);
+}
 
-/* ===========================
+
+/* =====================================================
    MODAL
-=========================== */
-
+===================================================== */
 
 .modal {
-
   position: fixed;
 
   inset: 0;
@@ -192,12 +242,15 @@
 
   z-index: 999;
 
+  box-sizing: border-box;
 }
 
 
+/* =====================================================
+   IMAGEM DO MODAL
+===================================================== */
 
 .imagem-modal {
-
   width: auto;
 
   height: auto;
@@ -209,13 +262,14 @@
   object-fit: contain;
 
   border-radius: 12px;
-
 }
 
 
+/* =====================================================
+   FECHAR MODAL
+===================================================== */
 
 .fechar {
-
   position: absolute;
 
   top: 20px;
@@ -228,137 +282,351 @@
 
   cursor: pointer;
 
+  line-height: 1;
+
+  z-index: 1000;
 }
 
 
-
-/* ===========================
+/* =====================================================
    LINK DA AGENDA
-=========================== */
-
+===================================================== */
 
 .agenda-link {
-
   display: flex;
 
   justify-content: flex-end;
 
-  margin-top: 20px;
+  width: 100%;
 
+  max-width: 1100px;
+
+  margin: 25px auto 0;
 }
 
 
-
 .agenda-link a {
-
   color: #ffffff;
 
   text-decoration: none;
 
-  font-size: 16px;
+  font-size: 17px;
 
   font-weight: 600;
 
-  transition: color 0.3s ease;
-
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
-
 
 
 .agenda-link a:hover {
-
   color: #d4af37;
 
+  transform: translateX(-3px);
 }
-
 
 
 .agenda-link a:visited {
-
   color: #ffffff;
-
 }
-
 
 
 .agenda-link a:active {
-
   color: #ffffff;
-
 }
 
 
+/* =====================================================
+   DESKTOP GRANDE
+===================================================== */
 
-
-/* ===========================
-   AJUSTES DESKTOP
-=========================== */
-
-
-@media (min-width: 1024px) {
-
+@media (min-width: 1200px) {
 
   .eventos {
+    width: 100vw;
 
-    padding: 70px 0;
-
+    padding: 90px 10%;
   }
 
 
+  .eventos h2 {
+    font-size: 46px;
 
-  .evento-card {
+    margin-bottom: 50px;
 
-    max-width: 900px;
-
-    margin: 0 auto 30px auto;
-
+    letter-spacing: 4px;
   }
 
+
+  .eventos .evento-card {
+    max-width: 1150px;
+
+    margin-bottom: 32px;
+  }
 
 
   .data-evento {
-
-    width: 100px;
-
+    width: 120px;
   }
 
+
+  .data-evento strong {
+    font-size: 52px;
+  }
+
+
+  .data-evento span {
+    font-size: 19px;
+  }
 
 
   .evento-info {
+    padding: 30px 35px;
 
-    padding: 25px;
-
-    gap: 30px;
-
+    gap: 40px;
   }
-
 
 
   .texto-evento h3 {
+    font-size: 22px;
 
-    font-size: 20px;
-
+    line-height: 1.6;
   }
-
 
 
   .evento-info img {
+    width: 165px;
 
-    width: 130px;
-
-    height: 150px;
-
+    height: 185px;
   }
-
 
 
   .agenda-link {
+    max-width: 1150px;
 
-    max-width: 900px;
+    margin-top: 25px;
+  }
+}
 
-    margin: 20px auto 0;
 
+/* =====================================================
+   NOTEBOOK
+===================================================== */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .eventos {
+    width: 100vw;
+
+    padding: 70px 6%;
   }
 
 
+  .eventos h2 {
+    font-size: 38px;
+
+    margin-bottom: 40px;
+  }
+
+
+  .eventos .evento-card {
+    max-width: 900px;
+
+    margin-bottom: 28px;
+  }
+
+
+  .data-evento {
+    width: 100px;
+  }
+
+
+  .data-evento strong {
+    font-size: 44px;
+  }
+
+
+  .evento-info {
+    padding: 25px;
+
+    gap: 30px;
+  }
+
+
+  .texto-evento h3 {
+    font-size: 19px;
+  }
+
+
+  .evento-info img {
+    width: 130px;
+
+    height: 150px;
+  }
+
+
+  .agenda-link {
+    max-width: 900px;
+
+    margin-top: 20px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .eventos {
+    position: relative;
+
+    width: 100%;
+
+    max-width: none;
+
+    margin-left: 0;
+
+    transform: none;
+
+    padding: 50px 20px;
+
+    overflow: hidden;
+  }
+
+
+  .eventos h2 {
+    font-size: 32px;
+
+    margin-bottom: 35px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .eventos .evento-card {
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0 auto 25px;
+  }
+
+
+  .evento-card {
+    border-radius: 15px;
+  }
+
+
+  .data-evento {
+    width: 85px;
+
+    padding: 15px 10px;
+  }
+
+
+  .data-evento strong {
+    font-size: 42px;
+  }
+
+
+  .data-evento span {
+    margin-top: 8px;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .evento-info {
+    padding: 15px;
+
+    gap: 15px;
+  }
+
+
+  .texto-evento h3 {
+    font-size: 17px;
+
+    line-height: 1.5;
+  }
+
+
+  .evento-info img {
+    width: 95px;
+
+    height: 120px;
+
+    border-radius: 10px;
+  }
+
+
+  .agenda-link {
+    width: 100%;
+
+    max-width: none;
+
+    margin-top: 20px;
+  }
+
+
+  .agenda-link a {
+    font-size: 16px;
+  }
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .eventos {
+    padding: 45px 15px;
+  }
+
+
+  .eventos h2 {
+    font-size: 29px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .data-evento {
+    width: 78px;
+  }
+
+
+  .data-evento strong {
+    font-size: 38px;
+  }
+
+
+  .data-evento span {
+    font-size: 16px;
+  }
+
+
+  .evento-info {
+    padding: 12px;
+
+    gap: 10px;
+  }
+
+
+  .texto-evento h3 {
+    font-size: 15px;
+  }
+
+
+  .evento-info img {
+    width: 82px;
+
+    height: 105px;
+  }
 }
