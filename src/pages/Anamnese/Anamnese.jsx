@@ -3,23 +3,22 @@ import "./Anamnese.css";
 import logo from "../../assets/imagens/logonome.png";
 
 import { useState } from "react";
-
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/config";
-
 import { salvarAnamnese } from "../../services/firebaseService";
-
 import { useNavigate } from "react-router-dom";
 
-import { FaHome, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import {
+  FaHome,
+  FaArrowLeft,
+  FaArrowRight
+} from "react-icons/fa";
 
 
 function Anamnese() {
 
   const [usuario] = useAuthState(auth);
-
   const navigate = useNavigate();
-
 
   // =====================================================
   // ETAPA ATUAL
@@ -41,7 +40,6 @@ function Anamnese() {
     nascimento: "",
     telefone: "",
     cidade: "",
-    profissao: "",
 
     // CONTATO DE EMERGÊNCIA
     contatoEmergencia: "",
@@ -57,19 +55,11 @@ function Anamnese() {
     convulsoes: "",
     desmaios: "",
     problemaRespiratorio: "",
-    problemaHepatico: "",
-    problemaRenal: "",
-    cirurgias: "",
     doencas: "",
-    medicamentos: "",
-    alergias: "",
 
     // NEURODIVERGÊNCIAS
     tdah: "",
     autismo: "",
-    dislexia: "",
-    discalculia: "",
-    altasHabilidades: "",
     outraNeurodivergencia: "",
 
     // SAÚDE MENTAL
@@ -77,21 +67,15 @@ function Anamnese() {
     ansiedade: "",
     panico: "",
     toc: "",
-    tept: "",
-    transtornoBipolar: "",
     esquizofreniaPsicose: "",
-    transtornoAlimentar: "",
     outraCondicaoMental: "",
 
-    // HISTÓRICO PSIQUIÁTRICO
+    // HISTÓRICO EMOCIONAL E PSIQUIÁTRICO
     crisePanico: "",
-    maniaHipomania: "",
     alucinacoes: "",
-    internacaoPsiquiatrica: "",
-    acompanhamentoPsiquiatrico: "",
-    acompanhamentoPsicologico: "",
-    medicamentosPsiquiatricos: "",
     historicoFamiliarPsiquiatrico: "",
+    usaMedicacao: "",
+    qualMedicacao: "",
     estadoEmocional: "",
     qualidadeSono: "",
 
@@ -101,7 +85,6 @@ function Anamnese() {
     cannabis: "",
     outrasSubstancias: "",
     substanciasQuais: "",
-    ultimaUtilizacao: "",
 
     // MEDICINAS
     medicinasConsagradas: [],
@@ -111,15 +94,12 @@ function Anamnese() {
 
     // CERIMÔNIA
     cerimoniaData: "",
-    tipoCerimonia: "",
     primeiraVez: "",
     intencao: "",
-    expectativas: "",
     receios: "",
 
     // CONSENTIMENTO
     aceitouTermos: false
-
   };
 
 
@@ -135,10 +115,20 @@ function Anamnese() {
 
 
   // =====================================================
+  // MENSAGEM DE ERRO
+  // =====================================================
+
+  const [erroFormulario, setErroFormulario] =
+    useState("");
+
+
+  // =====================================================
   // ATUALIZAR CAMPOS
   // =====================================================
 
   function atualizarCampo(e) {
+
+    setErroFormulario("");
 
     const {
       name,
@@ -166,42 +156,30 @@ function Anamnese() {
         if (checked) {
 
           if (listaAtual.includes(value)) {
-
             return estadoAnterior;
-
           }
 
-
           return {
-
             ...estadoAnterior,
-
             medicinasConsagradas: [
               ...listaAtual,
               value
             ]
-
           };
-
         }
 
 
         return {
-
           ...estadoAnterior,
-
           medicinasConsagradas:
             listaAtual.filter(
               (item) => item !== value
             )
-
         };
 
       });
 
-
       return;
-
     }
 
 
@@ -212,29 +190,21 @@ function Anamnese() {
     if (type === "checkbox") {
 
       setFormulario((estadoAnterior) => ({
-
         ...estadoAnterior,
-
         [name]: checked
-
       }));
 
-
       return;
-
     }
 
 
     // =================================================
-    // CAMPOS NORMAIS / RADIO / SELECT
+    // CAMPOS NORMAIS / SELECT
     // =================================================
 
     setFormulario((estadoAnterior) => ({
-
       ...estadoAnterior,
-
       [name]: value
-
     }));
 
   }
@@ -246,9 +216,53 @@ function Anamnese() {
 
   function proximaEtapa() {
 
+    // A medicação precisa ser respondida antes
+    // de sair da etapa 6.
+
+    if (etapa === 6) {
+
+      if (!formulario.usaMedicacao) {
+
+        setErroFormulario(
+          "Informe se faz uso de alguma medicação antes de continuar."
+        );
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+        return;
+      }
+
+
+      if (
+        formulario.usaMedicacao === "Sim" &&
+        !formulario.qualMedicacao.trim()
+      ) {
+
+        setErroFormulario(
+          "Informe qual medicação você utiliza antes de continuar."
+        );
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+        return;
+      }
+
+    }
+
+
     if (etapa < totalEtapas) {
 
-      setEtapa((valor) => valor + 1);
+      setErroFormulario("");
+
+      setEtapa(
+        (valor) => valor + 1
+      );
 
       window.scrollTo({
         top: 0,
@@ -266,9 +280,13 @@ function Anamnese() {
 
   function etapaAnterior() {
 
+    setErroFormulario("");
+
     if (etapa > 1) {
 
-      setEtapa((valor) => valor - 1);
+      setEtapa(
+        (valor) => valor - 1
+      );
 
       window.scrollTo({
         top: 0,
@@ -296,7 +314,45 @@ function Anamnese() {
       );
 
       return;
+    }
 
+
+    // Validação de segurança da etapa 6
+
+    if (!formulario.usaMedicacao) {
+
+      setEtapa(6);
+
+      setErroFormulario(
+        "Informe se faz uso de alguma medicação antes de continuar."
+      );
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      return;
+    }
+
+
+    if (
+      formulario.usaMedicacao === "Sim" &&
+      !formulario.qualMedicacao.trim()
+    ) {
+
+      setEtapa(6);
+
+      setErroFormulario(
+        "Informe qual medicação você utiliza antes de continuar."
+      );
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      return;
     }
 
 
@@ -307,7 +363,6 @@ function Anamnese() {
       );
 
       return;
-
     }
 
 
@@ -326,24 +381,28 @@ function Anamnese() {
       dataEnvio: new Date(),
 
       ...formulario
-
     };
 
 
     try {
 
-      await salvarAnamnese(dadosAnamnese);
-
-
-      alert(
-        "Ficha enviada com sucesso 🌿"
+      await salvarAnamnese(
+        dadosAnamnese
       );
 
 
-      setFormulario(formularioInicial);
+      alert(
+        "Ficha enviada com sucesso."
+      );
+
+
+      setFormulario(
+        formularioInicial
+      );
 
       setEtapa(1);
 
+      setErroFormulario("");
 
     } catch (error) {
 
@@ -389,24 +448,12 @@ function Anamnese() {
             Selecione
           </option>
 
-          <option value="Diagnóstico confirmado">
-            Diagnóstico confirmado
+          <option value="Sim">
+            Sim
           </option>
 
-          <option value="Suspeita ou investigação">
-            Suspeita ou investigação
-          </option>
-
-          <option value="Histórico anterior">
-            Histórico anterior
-          </option>
-
-          <option value="Não possui">
-            Não possui
-          </option>
-
-          <option value="Prefiro não informar">
-            Prefiro não informar
+          <option value="Não">
+            Não
           </option>
 
         </select>
@@ -437,7 +484,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🌿 Dados pessoais
+            Dados pessoais
           </h2>
 
           <p className="descricao-etapa">
@@ -472,12 +519,20 @@ function Anamnese() {
           />
 
 
-          <input
-            name="nascimento"
-            type="date"
-            value={formulario.nascimento}
-            onChange={atualizarCampo}
-          />
+          <div className="campo-pergunta">
+
+            <label>
+              Data de nascimento
+            </label>
+
+            <input
+              name="nascimento"
+              type="date"
+              value={formulario.nascimento}
+              onChange={atualizarCampo}
+            />
+
+          </div>
 
 
           <input
@@ -492,14 +547,6 @@ function Anamnese() {
             name="cidade"
             placeholder="Cidade onde reside"
             value={formulario.cidade}
-            onChange={atualizarCampo}
-          />
-
-
-          <input
-            name="profissao"
-            placeholder="Profissão"
-            value={formulario.profissao}
             onChange={atualizarCampo}
           />
 
@@ -522,7 +569,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            📞 Contato de emergência
+            Contato de emergência
           </h2>
 
           <p className="descricao-etapa">
@@ -572,7 +619,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🤍 Saúde física
+            Saúde física
           </h2>
 
           <p className="descricao-etapa">
@@ -629,46 +676,10 @@ function Anamnese() {
           />
 
 
-          <CampoSelecao
-            label="Problemas no fígado"
-            name="problemaHepatico"
-          />
-
-
-          <CampoSelecao
-            label="Problemas nos rins"
-            name="problemaRenal"
-          />
-
-
-          <textarea
-            name="cirurgias"
-            placeholder="Cirurgias ou internações importantes"
-            value={formulario.cirurgias}
-            onChange={atualizarCampo}
-          />
-
-
           <textarea
             name="doencas"
             placeholder="Outras doenças ou condições de saúde importantes"
             value={formulario.doencas}
-            onChange={atualizarCampo}
-          />
-
-
-          <textarea
-            name="medicamentos"
-            placeholder="Medicamentos utilizados atualmente"
-            value={formulario.medicamentos}
-            onChange={atualizarCampo}
-          />
-
-
-          <textarea
-            name="alergias"
-            placeholder="Alergias a medicamentos, alimentos ou outras substâncias"
-            value={formulario.alergias}
             onChange={atualizarCampo}
           />
 
@@ -691,7 +702,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🧠 Neurodivergências
+            Neurodivergências
           </h2>
 
           <p className="descricao-etapa">
@@ -709,24 +720,6 @@ function Anamnese() {
           <CampoSelecao
             label="Autismo (TEA)"
             name="autismo"
-          />
-
-
-          <CampoSelecao
-            label="Dislexia"
-            name="dislexia"
-          />
-
-
-          <CampoSelecao
-            label="Discalculia"
-            name="discalculia"
-          />
-
-
-          <CampoSelecao
-            label="Altas habilidades / superdotação"
-            name="altasHabilidades"
           />
 
 
@@ -756,7 +749,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🧠 Saúde mental
+            Saúde mental
           </h2>
 
           <p className="descricao-etapa">
@@ -790,26 +783,8 @@ function Anamnese() {
 
 
           <CampoSelecao
-            label="TEPT"
-            name="tept"
-          />
-
-
-          <CampoSelecao
-            label="Transtorno bipolar"
-            name="transtornoBipolar"
-          />
-
-
-          <CampoSelecao
             label="Esquizofrenia ou outro transtorno psicótico"
             name="esquizofreniaPsicose"
-          />
-
-
-          <CampoSelecao
-            label="Transtorno alimentar"
-            name="transtornoAlimentar"
           />
 
 
@@ -829,7 +804,7 @@ function Anamnese() {
 
     // ===================================================
     // ETAPA 6
-    // HISTÓRICO PSIQUIÁTRICO
+    // HISTÓRICO EMOCIONAL E PSIQUIÁTRICO
     // ===================================================
 
     if (etapa === 6) {
@@ -839,7 +814,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🕊️ Histórico emocional e psiquiátrico
+            Histórico emocional e psiquiátrico
           </h2>
 
           <p className="descricao-etapa">
@@ -854,44 +829,8 @@ function Anamnese() {
 
 
           <CampoSelecao
-            label="Já teve episódios de mania ou hipomania?"
-            name="maniaHipomania"
-          />
-
-
-          <CampoSelecao
             label="Já teve alucinações, delírios ou episódios de perda de contato com a realidade?"
             name="alucinacoes"
-          />
-
-
-          <CampoSelecao
-            label="Já precisou de internação psiquiátrica ou atendimento de emergência?"
-            name="internacaoPsiquiatrica"
-          />
-
-
-          <textarea
-            name="acompanhamentoPsiquiatrico"
-            placeholder="Faz ou já fez acompanhamento com psiquiatra? Se desejar, informe há quanto tempo."
-            value={formulario.acompanhamentoPsiquiatrico}
-            onChange={atualizarCampo}
-          />
-
-
-          <textarea
-            name="acompanhamentoPsicologico"
-            placeholder="Faz ou já fez acompanhamento psicológico? Se desejar, informe há quanto tempo."
-            value={formulario.acompanhamentoPsicologico}
-            onChange={atualizarCampo}
-          />
-
-
-          <textarea
-            name="medicamentosPsiquiatricos"
-            placeholder="Utiliza ou já utilizou medicamentos psiquiátricos? Quais?"
-            value={formulario.medicamentosPsiquiatricos}
-            onChange={atualizarCampo}
           />
 
 
@@ -901,6 +840,64 @@ function Anamnese() {
             value={formulario.historicoFamiliarPsiquiatrico}
             onChange={atualizarCampo}
           />
+
+
+          <div className="campo-obrigatorio-destaque">
+
+            <div className="campo-obrigatorio-titulo">
+              Informação obrigatória
+            </div>
+
+            <label htmlFor="usaMedicacao">
+              Faz uso de alguma medicação atualmente?
+            </label>
+
+            <select
+              id="usaMedicacao"
+              name="usaMedicacao"
+              value={formulario.usaMedicacao}
+              onChange={atualizarCampo}
+              required
+            >
+
+              <option value="">
+                Selecione
+              </option>
+
+              <option value="Sim">
+                Sim
+              </option>
+
+              <option value="Não">
+                Não
+              </option>
+
+            </select>
+
+
+            {formulario.usaMedicacao === "Sim" && (
+
+              <div className="campo-medicacao">
+
+                <label htmlFor="qualMedicacao">
+                  Se sim, qual medicação?
+                </label>
+
+                <input
+                  id="qualMedicacao"
+                  name="qualMedicacao"
+                  type="text"
+                  placeholder="Informe o nome da medicação"
+                  value={formulario.qualMedicacao}
+                  onChange={atualizarCampo}
+                  required
+                />
+
+              </div>
+
+            )}
+
+          </div>
 
 
           <textarea
@@ -937,7 +934,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🌿 Uso de substâncias
+            Uso de substâncias
           </h2>
 
           <p className="descricao-etapa">
@@ -978,14 +975,6 @@ function Anamnese() {
             onChange={atualizarCampo}
           />
 
-
-          <textarea
-            name="ultimaUtilizacao"
-            placeholder="Se considerar relevante, informe quando foi o último uso"
-            value={formulario.ultimaUtilizacao}
-            onChange={atualizarCampo}
-          />
-
         </section>
 
       );
@@ -1005,7 +994,7 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🌿 Medicinas já consagradas
+            Medicinas já consagradas
           </h2>
 
           <p className="descricao-etapa">
@@ -1013,80 +1002,76 @@ function Anamnese() {
           </p>
 
 
-          <label>
+          <div className="lista-checkboxes">
 
-            <input
-              type="checkbox"
-              name="medicinasConsagradas"
-              value="Ayahuasca"
-              checked={
-                formulario.medicinasConsagradas.includes(
-                  "Ayahuasca"
-                )
-              }
-              onChange={atualizarCampo}
-            />
+            <label>
+              <input
+                type="checkbox"
+                name="medicinasConsagradas"
+                value="Ayahuasca"
+                checked={
+                  formulario.medicinasConsagradas.includes(
+                    "Ayahuasca"
+                  )
+                }
+                onChange={atualizarCampo}
+              />
 
-            Ayahuasca
-
-          </label>
-
-
-          <label>
-
-            <input
-              type="checkbox"
-              name="medicinasConsagradas"
-              value="Rapé"
-              checked={
-                formulario.medicinasConsagradas.includes(
-                  "Rapé"
-                )
-              }
-              onChange={atualizarCampo}
-            />
-
-            Medicina do Rapé
-
-          </label>
+              Ayahuasca
+            </label>
 
 
-          <label>
+            <label>
+              <input
+                type="checkbox"
+                name="medicinasConsagradas"
+                value="Rapé"
+                checked={
+                  formulario.medicinasConsagradas.includes(
+                    "Rapé"
+                  )
+                }
+                onChange={atualizarCampo}
+              />
 
-            <input
-              type="checkbox"
-              name="medicinasConsagradas"
-              value="Sananga"
-              checked={
-                formulario.medicinasConsagradas.includes(
-                  "Sananga"
-                )
-              }
-              onChange={atualizarCampo}
-            />
-
-            Sananga
-
-          </label>
+              Medicina do Rapé
+            </label>
 
 
-          <label>
+            <label>
+              <input
+                type="checkbox"
+                name="medicinasConsagradas"
+                value="Sananga"
+                checked={
+                  formulario.medicinasConsagradas.includes(
+                    "Sananga"
+                  )
+                }
+                onChange={atualizarCampo}
+              />
 
-            <input
-              type="checkbox"
-              name="medicinasConsagradas"
-              value="Kambô"
-              checked={
-                formulario.medicinasConsagradas.includes(
-                  "Kambô"
-                )
-              }
-              onChange={atualizarCampo}
-            />
+              Sananga
+            </label>
 
-            Kambô
 
-          </label>
+            <label>
+              <input
+                type="checkbox"
+                name="medicinasConsagradas"
+                value="Kambô"
+                checked={
+                  formulario.medicinasConsagradas.includes(
+                    "Kambô"
+                  )
+                }
+                onChange={atualizarCampo}
+              />
+
+              Kambô
+            </label>
+
+          </div>
 
 
           <input
@@ -1131,9 +1116,8 @@ function Anamnese() {
         <section className="campo-grupo">
 
           <h2>
-            🌙 Sua cerimônia e sua intenção
+            Sua cerimônia e sua intenção
           </h2>
-
 
           <p className="descricao-etapa">
             Estas informações ajudam a compreender o momento
@@ -1141,24 +1125,25 @@ function Anamnese() {
           </p>
 
 
-          <input
-            type="date"
-            name="cerimoniaData"
-            value={formulario.cerimoniaData}
-            onChange={atualizarCampo}
-          />
+          <div className="campo-pergunta">
 
+            <label htmlFor="cerimoniaData">
+              Data da cerimônia que estará participando
+            </label>
 
-          <input
-            name="tipoCerimonia"
-            placeholder="Qual cerimônia deseja participar?"
-            value={formulario.tipoCerimonia}
-            onChange={atualizarCampo}
-          />
+            <input
+              id="cerimoniaData"
+              type="date"
+              name="cerimoniaData"
+              value={formulario.cerimoniaData}
+              onChange={atualizarCampo}
+            />
+
+          </div>
 
 
           <CampoSelecao
-            label="Será sua primeira experiência com essa cerimônia?"
+            label="Será sua primeira experiência com as medicinas da floresta?"
             name="primeiraVez"
           />
 
@@ -1167,14 +1152,6 @@ function Anamnese() {
             name="intencao"
             placeholder="Conte sua intenção ao participar desta cerimônia."
             value={formulario.intencao}
-            onChange={atualizarCampo}
-          />
-
-
-          <textarea
-            name="expectativas"
-            placeholder="Quais são suas expectativas?"
-            value={formulario.expectativas}
             onChange={atualizarCampo}
           />
 
@@ -1205,9 +1182,8 @@ function Anamnese() {
         <section className="campo-grupo consentimento">
 
           <h2>
-            🙏 Consentimento
+            Consentimento
           </h2>
-
 
           <p className="descricao-etapa">
             Leia atentamente antes de enviar sua ficha.
@@ -1221,11 +1197,13 @@ function Anamnese() {
               são verdadeiras e completas dentro do meu conhecimento.
             </p>
 
+
             <p>
               Comprometo-me a informar à organização qualquer
               condição de saúde, uso de medicamento ou alteração
               relevante que possa ocorrer antes da cerimônia.
             </p>
+
 
             <p>
               Estou ciente de que o preenchimento desta ficha não
@@ -1272,15 +1250,11 @@ function Anamnese() {
 
     <main className="anamnese">
 
-
       {/* =================================================
           CABEÇALHO
       ================================================= */}
 
       <section className="anamnese-header">
-
-
-        {/* HOME */}
 
         <button
           type="button"
@@ -1288,13 +1262,9 @@ function Anamnese() {
           onClick={() => navigate("/")}
           aria-label="Voltar para Home"
         >
-
           <FaHome />
-
         </button>
 
-
-        {/* USUÁRIO */}
 
         {usuario && (
 
@@ -1334,16 +1304,12 @@ function Anamnese() {
         )}
 
 
-        {/* LOGO */}
-
         <img
           src={logo}
           alt="Espaço Xamânico Pena Branca"
           className="logo-anamnese"
         />
 
-
-        {/* TÍTULO */}
 
         <h1>
           Ficha de Anamnese
@@ -1355,7 +1321,6 @@ function Anamnese() {
           sua saúde e sua intenção antes da participação nas cerimônias.
           Todas as informações são tratadas com respeito e cuidado.
         </p>
-
 
       </section>
 
@@ -1394,6 +1359,18 @@ function Anamnese() {
         onSubmit={enviarFormulario}
       >
 
+        {erroFormulario && (
+
+          <div
+            className="erro-formulario"
+            role="alert"
+          >
+            {erroFormulario}
+          </div>
+
+        )}
+
+
         {renderEtapa()}
 
 
@@ -1402,7 +1379,6 @@ function Anamnese() {
         ================================================= */}
 
         <div className="navegacao-anamnese">
-
 
           {etapa > 1 && (
 
@@ -1444,9 +1420,7 @@ function Anamnese() {
               type="submit"
               className="btn-enviar"
             >
-
-              Enviar minha ficha 🌿
-
+              Enviar minha ficha
             </button>
 
           )}
@@ -1454,6 +1428,18 @@ function Anamnese() {
         </div>
 
       </form>
+
+
+      {/* =================================================
+          HAUX HAUX
+      ================================================= */}
+
+      <div
+        className="haux-final"
+        aria-label="Haux Haux"
+      >
+        Haux Haux
+      </div>
 
     </main>
 

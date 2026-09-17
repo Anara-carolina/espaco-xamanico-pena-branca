@@ -25,18 +25,13 @@ export async function salvarContato(dados) {
       collection(db, "contatos"),
 
       {
-
         ...dados,
-
         criadoEm: serverTimestamp()
-
       }
 
     );
 
-
     return documento.id;
-
 
   } catch (error) {
 
@@ -67,7 +62,6 @@ export async function buscarContatos() {
 
     );
 
-
     return resultado.docs.map((documento) => ({
 
       id: documento.id,
@@ -75,7 +69,6 @@ export async function buscarContatos() {
       ...documento.data()
 
     }));
-
 
   } catch (error) {
 
@@ -106,7 +99,6 @@ export async function removerContato(id) {
 
     );
 
-
   } catch (error) {
 
     console.error(
@@ -119,8 +111,6 @@ export async function removerContato(id) {
   }
 
 }
-
-
 
 
 
@@ -137,27 +127,19 @@ export async function salvarAnamnese(dados) {
       collection(db, "anamneses"),
 
       {
-
         ...dados,
-
         criadoEm: serverTimestamp()
-
       }
 
     );
 
-
     return documento.id;
-
 
   } catch (error) {
 
     console.error(
-
       "Erro ao salvar anamnese:",
-
       error
-
     );
 
     throw error;
@@ -182,7 +164,6 @@ export async function buscarAnamneses() {
 
     );
 
-
     return resultado.docs.map((documento) => ({
 
       id: documento.id,
@@ -191,15 +172,11 @@ export async function buscarAnamneses() {
 
     }));
 
-
   } catch (error) {
 
     console.error(
-
       "Erro ao buscar anamneses:",
-
       error
-
     );
 
     throw error;
@@ -221,13 +198,10 @@ export async function buscarAnamnesePorId(id) {
     const referencia = doc(
 
       db,
-
       "anamneses",
-
       id
 
     );
-
 
     const resultado = await getDoc(
 
@@ -235,9 +209,7 @@ export async function buscarAnamnesePorId(id) {
 
     );
 
-
     if (resultado.exists()) {
-
 
       return {
 
@@ -247,21 +219,15 @@ export async function buscarAnamnesePorId(id) {
 
       };
 
-
     }
 
-
     return null;
-
 
   } catch (error) {
 
     console.error(
-
       "Erro ao buscar anamnese:",
-
       error
-
     );
 
     throw error;
@@ -271,6 +237,45 @@ export async function buscarAnamnesePorId(id) {
 }
 
 
+
+// =============================
+// EXCLUIR ANAMNESE
+// =============================
+
+export async function excluirAnamnese(id) {
+
+  try {
+
+    if (!id) {
+
+      throw new Error(
+        "ID da ficha não informado."
+      );
+
+    }
+
+    await deleteDoc(
+
+      doc(
+        db,
+        "anamneses",
+        id
+      )
+
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Erro ao excluir anamnese:",
+      error
+    );
+
+    throw error;
+
+  }
+
+}
 
 
 
@@ -282,45 +287,31 @@ export async function salvarCerimonia(dados) {
 
   try {
 
-
     const documento = await addDoc(
 
       collection(db, "cerimonias"),
 
       {
-
         ...dados,
-
         criadoEm: serverTimestamp()
-
       }
 
     );
 
-
     return documento.id;
-
 
   } catch (error) {
 
-
     console.error(
-
       "Erro ao salvar cerimônia:",
-
       error
-
     );
 
-
     throw error;
-
 
   }
 
 }
-
-
 
 
 
@@ -332,46 +323,32 @@ export async function buscarCerimonias() {
 
   try {
 
-
     const resultado = await getDocs(
 
       collection(db, "cerimonias")
 
     );
 
-
     return resultado.docs.map((documento) => ({
-
 
       id: documento.id,
 
-
       ...documento.data()
-
 
     }));
 
-
   } catch (error) {
 
-
     console.error(
-
       "Erro ao buscar cerimônias:",
-
       error
-
     );
 
-
     throw error;
-
 
   }
 
 }
-
-
 
 
 
@@ -383,28 +360,24 @@ export async function removerCerimonia(id) {
 
   try {
 
-
     await deleteDoc(
 
-      doc(db, "cerimonias", id)
+      doc(
+        db,
+        "cerimonias",
+        id
+      )
 
     );
-
 
   } catch (error) {
 
-
     console.error(
-
       "Erro ao remover cerimônia:",
-
       error
-
     );
 
-
     throw error;
-
 
   }
 
