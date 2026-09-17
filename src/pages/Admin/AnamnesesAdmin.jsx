@@ -23,9 +23,7 @@ import "./AnamnesesAdmin.css";
 
 function AnamnesesAdmin() {
 
-
   const navigate = useNavigate();
-
 
   const [anamneses, setAnamneses] = useState([]);
 
@@ -74,7 +72,6 @@ function AnamnesesAdmin() {
       return "Sem data";
     }
 
-
     if (timestamp.toDate) {
 
       return timestamp
@@ -82,7 +79,6 @@ function AnamnesesAdmin() {
         .toLocaleDateString("pt-BR");
 
     }
-
 
     return "Sem data";
 
@@ -100,16 +96,13 @@ function AnamnesesAdmin() {
       "Tem certeza que deseja excluir esta ficha de anamnese?\n\nEssa ação não poderá ser desfeita."
     );
 
-
     if (!confirmar) {
       return;
     }
 
-
     try {
 
       await excluirAnamnese(id);
-
 
       setAnamneses(
         (listaAnterior) =>
@@ -118,11 +111,9 @@ function AnamnesesAdmin() {
           )
       );
 
-
       alert(
         "Ficha excluída com sucesso."
       );
-
 
     } catch (error) {
 
@@ -130,7 +121,6 @@ function AnamnesesAdmin() {
         "Erro ao excluir ficha:",
         error
       );
-
 
       alert(
         "Não foi possível excluir a ficha."
@@ -203,13 +193,11 @@ function AnamnesesAdmin() {
         50
       ];
 
-
       const verde = [
         85,
         107,
         47
       ];
-
 
       const verdeClaro = [
         139,
@@ -217,13 +205,11 @@ function AnamnesesAdmin() {
         90
       ];
 
-
       const creme = [
         244,
         239,
         229
       ];
-
 
       const fundoCampo = [
         250,
@@ -231,13 +217,11 @@ function AnamnesesAdmin() {
         243
       ];
 
-
       const texto = [
         55,
         55,
         55
       ];
-
 
       const cinza = [
         110,
@@ -259,57 +243,37 @@ function AnamnesesAdmin() {
 
         pdf.setLineWidth(0.3);
 
-
         pdf.line(
-
           margem,
-
           alturaPagina - 14,
-
           larguraPagina - margem,
-
           alturaPagina - 14
-
         );
-
 
         pdf.setFont(
           "helvetica",
           "normal"
         );
 
-
         pdf.setFontSize(8);
-
 
         pdf.setTextColor(
           ...cinza
         );
 
-
         pdf.text(
-
           "Espaço Xamânico Pena Branca",
-
           margem,
-
           alturaPagina - 8
-
         );
 
-
         pdf.text(
-
           `Página ${pdf.internal.getNumberOfPages()}`,
-
           larguraPagina - margem,
-
           alturaPagina - 8,
-
           {
             align: "right"
           }
-
         );
 
       }
@@ -331,9 +295,7 @@ function AnamnesesAdmin() {
 
           adicionarRodape();
 
-
           pdf.addPage();
-
 
           y = 20;
 
@@ -351,25 +313,15 @@ function AnamnesesAdmin() {
         ...verdeEscuro
       );
 
-
       pdf.roundedRect(
-
         margem,
-
         12,
-
         larguraConteudo,
-
         36,
-
         4,
-
         4,
-
         "F"
-
       );
-
 
       pdf.setTextColor(
         255,
@@ -377,72 +329,48 @@ function AnamnesesAdmin() {
         255
       );
 
-
       pdf.setFont(
         "helvetica",
         "bold"
       );
 
-
       pdf.setFontSize(19);
 
-
       pdf.text(
-
         "Espaço Xamânico Pena Branca",
-
         larguraPagina / 2,
-
         27,
-
         {
           align: "center"
         }
-
       );
-
 
       pdf.setFont(
         "helvetica",
         "normal"
       );
 
-
       pdf.setFontSize(11);
 
-
       pdf.text(
-
         "Ficha de Anamnese",
-
         larguraPagina / 2,
-
         36,
-
         {
           align: "center"
         }
-
       );
-
 
       pdf.setFontSize(8);
 
-
       pdf.text(
-
         "Documento confidencial",
-
         larguraPagina / 2,
-
         43,
-
         {
           align: "center"
         }
-
       );
-
 
       y = 57;
 
@@ -456,98 +384,71 @@ function AnamnesesAdmin() {
         ...creme
       );
 
-
       pdf.roundedRect(
-
         margem,
-
         y,
-
         larguraConteudo,
-
         27,
-
         3,
-
         3,
-
         "F"
-
       );
-
 
       pdf.setTextColor(
         ...verdeEscuro
       );
-
 
       pdf.setFont(
         "helvetica",
         "bold"
       );
 
-
       pdf.setFontSize(12);
 
-
       pdf.text(
-
         ficha.nome ||
         ficha.nomeUsuario ||
         "Nome não informado",
-
         margem + 6,
-
         y + 9
-
       );
-
 
       pdf.setFont(
         "helvetica",
         "normal"
       );
 
-
       pdf.setFontSize(9);
-
 
       pdf.setTextColor(
         ...cinza
       );
 
-
       pdf.text(
-
         `E-mail: ${
           ficha.email ||
           ficha.emailUsuario ||
           "Não informado"
         }`,
-
         margem + 6,
-
         y + 16
-
       );
 
-
       pdf.text(
-
         `Enviada em: ${
           ficha.criadoEm?.toDate
             ? ficha.criadoEm
                 .toDate()
                 .toLocaleDateString("pt-BR")
-            : "Não informada"
+            : ficha.dataEnvio
+              ? new Date(
+                  ficha.dataEnvio
+                ).toLocaleDateString("pt-BR")
+              : "Não informada"
         }`,
-
         margem + 6,
-
         y + 22
-
       );
-
 
       y += 36;
 
@@ -557,36 +458,23 @@ function AnamnesesAdmin() {
          ADICIONAR SEÇÃO
       ================================================= */
 
-      function adicionarSecao(
-        titulo
-      ) {
+      function adicionarSecao(titulo) {
 
         verificarPagina(18);
-
 
         pdf.setFillColor(
           ...verde
         );
 
-
         pdf.roundedRect(
-
           margem,
-
           y,
-
           larguraConteudo,
-
           10,
-
           2,
-
           2,
-
           "F"
-
         );
-
 
         pdf.setTextColor(
           255,
@@ -594,26 +482,18 @@ function AnamnesesAdmin() {
           255
         );
 
-
         pdf.setFont(
           "helvetica",
           "bold"
         );
 
-
         pdf.setFontSize(11);
 
-
         pdf.text(
-
           titulo,
-
           margem + 5,
-
           y + 7
-
         );
-
 
         y += 15;
 
@@ -632,7 +512,6 @@ function AnamnesesAdmin() {
 
         let resposta;
 
-
         if (
           valor === undefined ||
           valor === null ||
@@ -649,104 +528,68 @@ function AnamnesesAdmin() {
 
         }
 
-
         const linhas =
           pdf.splitTextToSize(
-
             resposta,
-
             larguraConteudo - 12
-
           );
 
-
         const altura = Math.max(
-
           13,
-
           linhas.length * 5 + 8
-
         );
-
 
         verificarPagina(
           altura + 4
         );
 
-
         pdf.setFillColor(
           ...fundoCampo
         );
 
-
         pdf.roundedRect(
-
           margem,
-
           y,
-
           larguraConteudo,
-
           altura,
-
           2,
-
           2,
-
           "F"
-
         );
-
 
         pdf.setTextColor(
           ...verdeEscuro
         );
-
 
         pdf.setFont(
           "helvetica",
           "bold"
         );
 
-
         pdf.setFontSize(8.5);
 
-
         pdf.text(
-
           nome,
-
           margem + 5,
-
           y + 5
-
         );
-
 
         pdf.setTextColor(
           ...texto
         );
-
 
         pdf.setFont(
           "helvetica",
           "normal"
         );
 
-
         pdf.setFontSize(9);
 
-
         pdf.text(
-
           linhas,
-
           margem + 5,
-
           y + 10
-
         );
-
 
         y += altura + 4;
 
@@ -762,36 +605,30 @@ function AnamnesesAdmin() {
         "Dados pessoais"
       );
 
-
       adicionarCampo(
         "Nome",
         ficha.nome
       );
-
 
       adicionarCampo(
         "CPF",
         ficha.cpf
       );
 
-
       adicionarCampo(
         "E-mail",
         ficha.email
       );
-
 
       adicionarCampo(
         "Data de nascimento",
         ficha.nascimento
       );
 
-
       adicionarCampo(
         "Telefone",
         ficha.telefone
       );
-
 
       adicionarCampo(
         "Cidade",
@@ -808,18 +645,15 @@ function AnamnesesAdmin() {
         "Contato de emergência"
       );
 
-
       adicionarCampo(
         "Nome",
         ficha.contatoEmergencia
       );
 
-
       adicionarCampo(
         "Telefone",
         ficha.telefoneEmergencia
       );
-
 
       adicionarCampo(
         "Parentesco",
@@ -836,50 +670,83 @@ function AnamnesesAdmin() {
         "Saúde física"
       );
 
-
       adicionarCampo(
-        "Pressão alta",
+        "Pressão alta / hipertensão",
         ficha.pressao
       );
-
 
       adicionarCampo(
         "Diabetes",
         ficha.diabetes
       );
 
+      adicionarCampo(
+        "Doença cardíaca",
+        ficha.problemaCardiaco
+      );
 
       adicionarCampo(
-        "Doenças",
+        "Arritmia ou alteração do ritmo cardíaco",
+        ficha.arritmia
+      );
+
+      adicionarCampo(
+        "Epilepsia",
+        ficha.epilepsia
+      );
+
+      adicionarCampo(
+        "Convulsões",
+        ficha.convulsoes
+      );
+
+      adicionarCampo(
+        "Histórico de desmaios",
+        ficha.desmaios
+      );
+
+      adicionarCampo(
+        "Problemas respiratórios importantes",
+        ficha.problemaRespiratorio
+      );
+
+      adicionarCampo(
+        "Outras doenças ou condições",
         ficha.doencas
       );
 
 
 
       /* =================================================
-         NEURODIVERGÊNCIA
+         NEURODIVERGÊNCIAS
       ================================================= */
 
       adicionarSecao(
-        "Neurodivergência"
+        "Neurodivergências"
       );
 
+      /*
+         IMPORTANTE:
+
+         TDAH e TEA são salvos pelo formulário
+         como texto "Sim" ou "Não".
+
+         NÃO usar:
+         ficha.tdah ? "Sim" : "Não"
+
+         porque "Não" também é considerado
+         verdadeiro pelo JavaScript.
+      */
 
       adicionarCampo(
         "TDAH",
         ficha.tdah
-          ? "Sim"
-          : "Não"
       );
-
 
       adicionarCampo(
-        "Autismo",
+        "Autismo (TEA)",
         ficha.autismo
-          ? "Sim"
-          : "Não"
       );
-
 
       adicionarCampo(
         "Outra neurodivergência ou informação importante",
@@ -889,85 +756,72 @@ function AnamnesesAdmin() {
 
 
       /* =================================================
-         SAÚDE EMOCIONAL
+         SAÚDE MENTAL
       ================================================= */
 
       adicionarSecao(
-        "Saúde emocional e mental"
+        "Saúde mental"
       );
-
 
       adicionarCampo(
         "Depressão",
         ficha.depressao
       );
 
-
       adicionarCampo(
         "Transtorno de ansiedade",
         ficha.ansiedade
       );
 
-
       adicionarCampo(
-        "Síndrome ou transtorno do pânico",
+        "Síndrome / transtorno do pânico",
         ficha.panico
       );
-
 
       adicionarCampo(
         "TOC",
         ficha.toc
       );
 
-
       adicionarCampo(
         "Esquizofrenia ou outro transtorno psicótico",
-        ficha.esquizofrenia
+        ficha.esquizofreniaPsicose
       );
 
-
       adicionarCampo(
-        "Outra condição",
+        "Outra condição ou informação relacionada à saúde mental",
         ficha.outraCondicaoMental
       );
 
 
-      adicionarCampo(
-        "Ataques de pânico",
-        ficha.ataquesPanico
+
+      /* =================================================
+         HISTÓRICO EMOCIONAL E PSIQUIÁTRICO
+      ================================================= */
+
+      adicionarSecao(
+        "Histórico emocional e psiquiátrico"
       );
 
+      adicionarCampo(
+        "Já teve crises de pânico?",
+        ficha.crisePanico
+      );
 
       adicionarCampo(
-        "Alucinações, delírios ou perda de contato com a realidade",
+        "Já teve alucinações, delírios ou perda de contato com a realidade?",
         ficha.alucinacoes
       );
 
-
       adicionarCampo(
-        "Histórico psiquiátrico ou neurológico na família",
-        ficha.historicoFamiliar
+        "Histórico familiar de condições psiquiátricas ou neurológicas",
+        ficha.historicoFamiliarPsiquiatrico
       );
-
-
-      adicionarCampo(
-        "Estado emocional atual",
-        ficha.estadoEmocional
-      );
-
-
-      adicionarCampo(
-        "Qualidade do sono",
-        ficha.qualidadeSono
-      );
-
 
       adicionarCampo(
         "Faz uso de alguma medicação atualmente?",
         ficha.usaMedicacao
       );
-
 
       if (
         ficha.usaMedicacao === "Sim"
@@ -980,6 +834,16 @@ function AnamnesesAdmin() {
 
       }
 
+      adicionarCampo(
+        "Estado emocional atual",
+        ficha.estadoEmocional
+      );
+
+      adicionarCampo(
+        "Qualidade do sono",
+        ficha.qualidadeSono
+      );
+
 
 
       /* =================================================
@@ -990,33 +854,28 @@ function AnamnesesAdmin() {
         "Uso de substâncias"
       );
 
-
       adicionarCampo(
         "Álcool",
         ficha.alcool
       );
 
-
       adicionarCampo(
-        "Nicotina ou tabaco",
+        "Nicotina / tabaco",
         ficha.nicotina
       );
-
 
       adicionarCampo(
         "Cannabis",
         ficha.cannabis
       );
 
-
       adicionarCampo(
         "Outras substâncias psicoativas",
         ficha.outrasSubstancias
       );
 
-
       adicionarCampo(
-        "Quais outras substâncias psicoativas?",
+        "Quais substâncias e com que frequência?",
         ficha.substanciasQuais
       );
 
@@ -1027,27 +886,23 @@ function AnamnesesAdmin() {
       ================================================= */
 
       adicionarSecao(
-        "Medicinas consagradas"
+        "Medicinas já consagradas"
       );
-
 
       adicionarCampo(
         "Medicinas",
         ficha.medicinasConsagradas?.join(", ")
       );
 
-
       adicionarCampo(
         "Outras medicinas",
         ficha.outrasMedicinas
       );
 
-
       adicionarCampo(
         "Experiência com as medicinas",
         ficha.experienciaMedicinas
       );
-
 
       adicionarCampo(
         "Reações ou efeitos anteriores",
@@ -1057,35 +912,31 @@ function AnamnesesAdmin() {
 
 
       /* =================================================
-         PRÓXIMA CERIMÔNIA
+         CERIMÔNIA E INTENÇÃO
       ================================================= */
 
       adicionarSecao(
-        "Próxima cerimônia"
+        "Sua cerimônia e sua intenção"
       );
-
 
       adicionarCampo(
         "Data da cerimônia que estará participando",
         ficha.cerimoniaData
       );
 
-
       adicionarCampo(
-        "Será sua experiência com as medicinas da floresta?",
-        ficha.primeiraExperiencia
+        "Será sua primeira experiência com as medicinas da floresta?",
+        ficha.primeiraVez
       );
-
 
       adicionarCampo(
         "Intenção",
         ficha.intencao
       );
 
-
       adicionarCampo(
-        "Preocupações ou informações importantes",
-        ficha.preocupacoes
+        "Receios, medos ou preocupações",
+        ficha.receios
       );
 
 
@@ -1097,7 +948,6 @@ function AnamnesesAdmin() {
       adicionarSecao(
         "Consentimento"
       );
-
 
       adicionarCampo(
         "Aceitou os termos",
@@ -1125,7 +975,6 @@ function AnamnesesAdmin() {
         ficha.nomeUsuario ||
         "Participante";
 
-
       pdf.save(
         `Anamnese-${nomeArquivo}.pdf`
       );
@@ -1137,7 +986,6 @@ function AnamnesesAdmin() {
         "Erro ao gerar PDF:",
         error
       );
-
 
       alert(
         "Erro ao gerar PDF."
@@ -1157,20 +1005,15 @@ function AnamnesesAdmin() {
 
     <main className="anamneses-admin">
 
-
       <header className="admin-topo">
 
-
         <button
-
           className="btn-voltar-admin"
-
           onClick={() =>
             navigate(
               "/admin/dashboard"
             )
           }
-
         >
 
           <FaArrowLeft />
@@ -1180,13 +1023,9 @@ function AnamnesesAdmin() {
         </button>
 
 
-
         <h1>
-
           🌿 Fichas de Anamnese
-
         </h1>
-
 
       </header>
 
@@ -1194,40 +1033,30 @@ function AnamnesesAdmin() {
 
       <section className="lista-anamneses">
 
-
         {anamneses.length === 0 && (
 
           <p>
-
             Nenhuma ficha encontrada.
-
           </p>
 
         )}
-
 
 
         {anamneses.map(
           (item) => (
 
             <article
-
               className="card-anamnese"
-
               key={item.id}
-
             >
 
-
               <h2>
-
                 {
                   item.nome ||
-                  item.nomeUsuario
+                  item.nomeUsuario ||
+                  "Nome não informado"
                 }
-
               </h2>
-
 
 
               <p>
@@ -1236,17 +1065,16 @@ function AnamnesesAdmin() {
 
                 {
                   item.email ||
-                  item.emailUsuario
+                  item.emailUsuario ||
+                  "E-mail não informado"
                 }
 
               </p>
 
 
-
               <span>
 
                 Enviada em:
-
                 {" "}
 
                 {
@@ -1258,18 +1086,14 @@ function AnamnesesAdmin() {
               </span>
 
 
-
               <div className="acoes-anamnese">
 
-
                 <button
-
                   onClick={() =>
                     navigate(
                       `/admin/anamnese/${item.id}`
                     )
                   }
-
                 >
 
                   <FaEye />
@@ -1279,13 +1103,10 @@ function AnamnesesAdmin() {
                 </button>
 
 
-
                 <button
-
                   onClick={() =>
                     gerarPDF(item.id)
                   }
-
                 >
 
                   <FaFilePdf />
@@ -1295,15 +1116,11 @@ function AnamnesesAdmin() {
                 </button>
 
 
-
                 <button
-
                   className="btn-excluir"
-
                   onClick={() =>
                     excluirFicha(item.id)
                   }
-
                 >
 
                   <FaTrash />
@@ -1312,24 +1129,21 @@ function AnamnesesAdmin() {
 
                 </button>
 
-
               </div>
-
 
             </article>
 
           )
         )}
 
-
       </section>
-
 
     </main>
 
   );
 
 }
+
 
 
 export default AnamnesesAdmin;
