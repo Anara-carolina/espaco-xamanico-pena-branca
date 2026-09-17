@@ -986,7 +986,7 @@ function AnamneseDetalhe() {
 
 
         <h1>
-          🌿 Ficha de Anamnese
+           Ficha de Anamnese
         </h1>
 
 
@@ -1011,7 +1011,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🌿 Dados pessoais
+          Dados pessoais
         </h2>
 
         <p>
@@ -1051,7 +1051,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          📞 Contato de emergência
+          Contato de emergência
         </h2>
 
         <p>
@@ -1082,7 +1082,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🤍 Saúde física
+          Saúde física
         </h2>
 
         <p>
@@ -1151,7 +1151,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🧠 Neurodivergências
+           Neurodivergências
         </h2>
 
         <p>
@@ -1178,7 +1178,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🧠 Saúde mental
+           Saúde mental
         </h2>
 
         <p>
@@ -1230,7 +1230,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🌙 Histórico emocional e psiquiátrico
+           Histórico emocional e psiquiátrico
         </h2>
 
         <p>
@@ -1293,7 +1293,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🌿 Uso de substâncias
+          Uso de substâncias
         </h2>
 
         <p>
@@ -1338,7 +1338,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🌿 Medicinas já consagradas
+          Medicinas já consagradas
         </h2>
 
         <p>
@@ -1384,7 +1384,7 @@ function AnamneseDetalhe() {
         ================================================= */}
 
         <h2>
-          🌙 Sua cerimônia e sua intenção
+          Sua cerimônia e sua intenção
         </h2>
 
         <p>
