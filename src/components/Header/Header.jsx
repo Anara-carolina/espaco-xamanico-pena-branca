@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 
+import { FiMenu } from "react-icons/fi";
+
 import logo from "../../assets/imagens/logonome.png";
-import menu from "../../assets/imagens/menu.png";
 
 import MenuMobile from "../MenuMobile/MenuMobile";
 
@@ -10,9 +12,7 @@ import "./Header.css";
 
 function Header() {
 
-
   const [menuAberto, setMenuAberto] = useState(false);
-
 
 
   return (
@@ -21,40 +21,30 @@ function Header() {
 
       <header className="header">
 
-
         <button
           className="menu-button"
           onClick={() => setMenuAberto(true)}
+          aria-label="Abrir menu"
         >
 
-          <img 
-            src={menu}
-            alt="Abrir menu"
-          />
+          <FiMenu />
 
         </button>
 
 
-
-        <img 
+        <img
           className="logo"
           src={logo}
           alt="Espaço Xamânico Pena Branca"
         />
 
-
       </header>
 
 
-
       <MenuMobile
-
         aberto={menuAberto}
-
         fecharMenu={() => setMenuAberto(false)}
-
       />
-
 
     </>
 
