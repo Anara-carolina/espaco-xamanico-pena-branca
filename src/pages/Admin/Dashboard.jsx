@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 
@@ -7,6 +6,7 @@ import { auth } from "../../firebase/config";
 import {
   FaCalendarAlt,
   FaClipboardList,
+  FaFileSignature,
   FaEnvelope,
   FaQuestionCircle,
   FaSignOutAlt
@@ -43,6 +43,13 @@ function Dashboard() {
       descricao: "Consultar fichas preenchidas",
       icone: <FaClipboardList />,
       rota: "/admin/anamneses"
+    },
+
+    {
+      titulo: "Autorizações de Menores",
+      descricao: "Consultar autorizações dos responsáveis",
+      icone: <FaFileSignature />,
+      rota: "/admin/autorizacoes-menores"
     },
 
     {

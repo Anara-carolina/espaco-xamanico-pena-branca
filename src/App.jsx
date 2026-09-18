@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
@@ -27,6 +26,7 @@ import Dashboard from "./pages/Admin/Dashboard";
 import CerimoniasAdmin from "./pages/Admin/CerimoniasAdmin";
 import AnamnesesAdmin from "./pages/Admin/AnamnesesAdmin";
 import AnamneseDetalhe from "./pages/Admin/AnamneseDetalhe";
+import AutorizacoesMenoresAdmin from "./pages/Admin/AutorizacoesMenoresAdmin";
 import MensagensAdmin from "./pages/Admin/MensagensAdmin";
 import PerguntasAdmin from "./pages/Admin/PerguntasAdmin";
 
@@ -133,6 +133,20 @@ function App() {
           element={
             <AdminRoute>
               <AnamneseDetalhe />
+            </AdminRoute>
+          }
+        />
+
+
+        {/* =========================
+            AUTORIZAÇÕES DE MENORES
+        ========================= */}
+
+        <Route
+          path="/admin/autorizacoes-menores"
+          element={
+            <AdminRoute>
+              <AutorizacoesMenoresAdmin />
             </AdminRoute>
           }
         />

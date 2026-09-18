@@ -1,686 +1,1219 @@
 /* =====================================================
-   ANAMNESE
-===================================================== */
+   ANAMNESE - ESPAÇO XAMÂNICO PENA BRANCA
+   ===================================================== */
 
 .anamnese {
   width: 100%;
   min-height: 100vh;
-  background: #f3eee3;
-  padding-bottom: 60px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  background: #f4efe5;
+  color: #24382a;
+  padding: 0 0 40px;
+  position: relative;
 }
 
+.anamnese,
+.anamnese * {
+  box-sizing: border-box;
+}
 
 /* =====================================================
-   CABEÇALHO
-===================================================== */
+   CABEÇALHO PRINCIPAL
+   ===================================================== */
 
 .anamnese-header {
-  position: relative;
   width: 100%;
+  min-height: 160px;
+  padding: 22px 34px 24px;
   background: #24382a;
-  padding: 18px 25px 20px;
+  color: #f7f1e5;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
-  color: white;
-  box-sizing: border-box;
+  border-bottom: 3px solid #c9a45c;
 }
 
-
-/* =====================================================
-   BOTÃO HOME
-===================================================== */
-
-.btn-home,
-.home-login {
+.btn-home {
   position: absolute;
-  top: 16px;
-  left: 22px;
+  left: 24px;
+  top: 24px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: #d1ad63;
-  color: #24382a;
-  font-size: 19px;
-  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 10px;
+  background: rgba(255,255,255,.08);
+  color: #f7f1e5;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 5;
+  cursor: pointer;
+  z-index: 20;
+  transition: .2s ease;
 }
 
-.btn-home:hover,
-.home-login:hover {
-  background: white;
-  transform: scale(1.08);
+.btn-home:hover {
+  background: #c9a45c;
+  color: #24382a;
 }
 
-
-/* =====================================================
-   USUÁRIO LOGADO
-===================================================== */
+.linha-separadora {
+  display: none;
+}
 
 .usuario-logado {
+  position: absolute;
+  right: 28px;
+  top: 22px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 9px;
-  margin-bottom: 5px;
+  gap: 10px;
+  text-align: left;
+  max-width: 280px;
+  z-index: 20;
 }
 
 .usuario-logado img {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #d1ad63;
+  border: 2px solid #c9a45c;
 }
 
 .usuario-logado div {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  gap: 2px;
 }
 
 .usuario-logado strong {
-  color: white;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .usuario-logado span {
-  color: #ddd;
+  max-width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 11px;
+  opacity: .75;
 }
-
-
-/* =====================================================
-   LOGO
-===================================================== */
 
 .logo-anamnese {
+  width: 108px;
+  max-width: 40vw;
+  height: auto;
   display: block;
-  width: 145px;
-  max-width: 60%;
-  margin: 2px auto 5px;
+  object-fit: contain;
+  opacity: 1;
+  filter: none;
 }
 
-
-/* =====================================================
-   TÍTULO
-===================================================== */
+.anamnese-header .logo-anamnese {
+  margin: 0 0 8px;
+}
 
 .anamnese-header h1 {
-  color: #d1ad63;
-  font-size: 24px;
-  line-height: 1.2;
-  margin: 0 0 5px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(26px, 4vw, 38px);
+  line-height: 1.15;
   font-weight: 600;
+  color: #f7f1e5;
 }
 
 .anamnese-header p {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  color: #f4f4f4;
-  font-size: 13px;
-  line-height: 1.4;
-  opacity: 0.95;
+  width: min(760px, 100%);
+  margin: 10px auto 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(247,241,229,.82);
 }
-
-
-/* =====================================================
-   LINHA SEPARADORA
-===================================================== */
-
-.linha-separadora {
-  width: 35%;
-  max-width: 400px;
-  height: 1px;
-  background: #d1ad63;
-  margin: 7px auto;
-}
-
 
 /* =====================================================
    PROGRESSO
-===================================================== */
+   ===================================================== */
 
 .progresso-anamnese {
-  width: 100%;
-  margin: 20px 0 0;
-  padding: 0 25px;
-  box-sizing: border-box;
-  text-align: center;
+  width: min(1100px, calc(100% - 48px));
+  margin: 24px auto 18px;
 }
 
 .progresso-anamnese span {
   display: block;
-  margin-bottom: 9px;
-  color: #24382a;
-  font-size: 14px;
+  margin-bottom: 8px;
+  color: #536357;
+  font-size: 13px;
   font-weight: 600;
 }
 
-
-/* =====================================================
-   BARRA DE PROGRESSO
-===================================================== */
-
 .barra-progresso {
   width: 100%;
-  height: 8px;
-  background: #ddd5c4;
-  border-radius: 20px;
+  height: 7px;
   overflow: hidden;
+  border-radius: 999px;
+  background: #ded7ca;
 }
 
 .barra-progresso-preenchida {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    #24382a,
-    #d1ad63
-  );
-  border-radius: 20px;
-  transition: width 0.35s ease;
+  border-radius: inherit;
+  background: #c9a45c;
+  transition: width .25s ease;
 }
 
-
 /* =====================================================
-   FORMULÁRIO
-===================================================== */
+   FORMULÁRIO PRINCIPAL
+   ===================================================== */
 
 .form-anamnese {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 25px;
-  box-sizing: border-box;
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
 }
-
-
-/* =====================================================
-   DESCRIÇÃO DA ETAPA
-===================================================== */
-
-.descricao-etapa {
-  width: 100%;
-  color: #666;
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 22px;
-}
-
-
-/* =====================================================
-   CARDS
-===================================================== */
 
 .campo-grupo {
   width: 100%;
-  background: white;
+  background: #fffdf9;
+  border: 1px solid #e3dccf;
+  border-radius: 16px;
   padding: 30px;
-  margin: 0 0 22px;
-  border-radius: 18px;
-  border-left: 5px solid #c8a45d;
-  box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.06);
-  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(36,56,42,.07);
 }
 
 .campo-grupo h2 {
+  margin: 0 0 8px;
   color: #24382a;
-  font-size: 23px;
-  line-height: 1.3;
-  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
   font-weight: 600;
 }
 
-.campo-grupo > p {
-  color: #666;
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 22px;
+.descricao-etapa {
+  margin: 0 0 24px;
+  color: #697268;
+  font-size: 14px;
+  line-height: 1.65;
 }
-
 
 /* =====================================================
-   CAMPO / PERGUNTA
-===================================================== */
+   CAMPOS
+   ===================================================== */
 
-.campo-pergunta {
+.campo-grupo > input,
+.campo-grupo > textarea,
+.campo-grupo > select,
+.campo-pergunta input,
+.campo-pergunta select,
+.campo-medicacao input,
+.autorizacao-menor-secao input,
+.autorizacao-menor-secao select,
+.autorizacao-menor-secao textarea {
   width: 100%;
-  margin-bottom: 19px;
-  box-sizing: border-box;
+  border: 1px solid #d9d1c2;
+  border-radius: 10px;
+  background: #fff;
+  color: #24382a;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-.campo-pergunta:last-child {
+.campo-grupo > input,
+.campo-grupo > select,
+.campo-pergunta input,
+.campo-pergunta select,
+.campo-medicacao input,
+.autorizacao-menor-secao input,
+.autorizacao-menor-secao select {
+  min-height: 48px;
+  padding: 0 14px;
+  margin-bottom: 14px;
+}
+
+.campo-grupo > textarea,
+.autorizacao-menor-secao textarea {
+  min-height: 120px;
+  padding: 14px;
+  resize: vertical;
+  margin-bottom: 14px;
+}
+
+.campo-grupo input:focus,
+.campo-grupo select:focus,
+.campo-grupo textarea:focus,
+.autorizacao-menor-secao input:focus,
+.autorizacao-menor-secao select:focus,
+.autorizacao-menor-secao textarea:focus {
+  border-color: #c9a45c;
+  box-shadow: 0 0 0 3px rgba(201,164,92,.14);
+}
+
+.campo-pergunta {
+  margin-bottom: 14px;
+}
+
+.campo-pergunta label,
+.campo-obrigatorio-destaque label,
+.autorizacao-menor-secao > label:not(.check-termo) {
+  display: block;
+  margin-bottom: 8px;
+  color: #35453a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.campo-pergunta input,
+.campo-pergunta select {
   margin-bottom: 0;
 }
 
-.campo-pergunta label {
-  display: block;
-  margin-bottom: 7px;
-  color: #3f3f3f;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.5;
+.campo-obrigatorio-destaque {
+  margin: 8px 0 18px;
+  padding: 18px;
+  border: 1px solid #d7c28f;
+  border-radius: 12px;
+  background: #fbf6e9;
 }
 
-
-/* =====================================================
-   INPUTS / SELECT / TEXTAREA
-===================================================== */
-
-.form-anamnese input:not(
-  [type="checkbox"]
-):not(
-  [type="radio"]
-),
-.form-anamnese select,
-.form-anamnese textarea {
-  width: 100%;
-  padding: 13px 14px;
-  margin: 0;
-  border-radius: 11px;
-  border: 1px solid #ddd;
-  background: #fafafa;
-  color: #333;
-  font-size: 16px;
-  font-family: inherit;
-  box-sizing: border-box;
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-
-/* =====================================================
-   SELECT
-===================================================== */
-
-.form-anamnese select {
-  min-height: 48px;
-  cursor: pointer;
-}
-
-
-/* =====================================================
-   TEXTAREA
-===================================================== */
-
-.form-anamnese textarea {
-  min-height: 120px;
-  resize: vertical;
-  line-height: 1.5;
-}
-
-
-/* =====================================================
-   FOCO
-===================================================== */
-
-.form-anamnese input:not(
-  [type="checkbox"]
-):not(
-  [type="radio"]
-):focus,
-
-.form-anamnese select:focus,
-
-.form-anamnese textarea:focus {
-  outline: none;
-  border-color: #c8a45d;
-  background: white;
-  box-shadow:
-    0 0 0 3px rgba(200, 164, 93, 0.12);
-}
-
-
-/* =====================================================
-   PLACEHOLDER
-===================================================== */
-
-.form-anamnese input::placeholder,
-.form-anamnese textarea::placeholder {
-  color: #999;
-}
-
-
-/* =====================================================
-   CHECKBOX / RADIO
-===================================================== */
-
-.form-anamnese input[type="checkbox"],
-.form-anamnese input[type="radio"] {
-  appearance: auto;
-  -webkit-appearance: auto;
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
-  min-height: 18px;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  accent-color: #24382a;
-  flex-shrink: 0;
-}
-
-
-/* =====================================================
-   LABEL DE CHECKBOX / RADIO
-===================================================== */
-
-.form-anamnese label:has(
-  input[type="checkbox"]
-),
-.form-anamnese label:has(
-  input[type="radio"]
-) {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.campo-obrigatorio-titulo {
   margin-bottom: 12px;
-  color: #444;
-  font-size: 15px;
-  font-weight: 400;
+  color: #7b612c;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.campo-medicacao {
+  margin-top: 4px;
+}
+
+/* =====================================================
+   CHECKBOXES
+   ===================================================== */
+
+.lista-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.lista-checkboxes label,
+.check-termo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e1d9cc;
+  border-radius: 10px;
+  background: #faf8f2;
+  color: #465147;
+  font-size: 13px;
   line-height: 1.5;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.lista-checkboxes input[type="checkbox"],
+.check-termo input[type="checkbox"] {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  flex: 0 0 20px;
+  margin: 1px 0 0 !important;
+  padding: 0 !important;
+  border: 1px solid #9d9d9d !important;
+  border-radius: 4px !important;
+  background: #ffffff !important;
+  accent-color: #24382a;
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.check-termo {
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.check-termo input[type="checkbox"]:checked {
+  accent-color: #24382a;
+}
+
+/* =====================================================
+   CONSENTIMENTO
+   ===================================================== */
+
+.texto-consentimento,
+.texto-termo-responsavel {
+  width: 100%;
+  padding: 18px;
+  border: 1px solid #e2d9ca;
+  border-radius: 12px;
+  background: #faf8f2;
+  color: #505950;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.texto-consentimento p,
+.texto-termo-responsavel p {
+  margin: 0 0 14px;
+}
+
+.texto-consentimento p:last-child,
+.texto-termo-responsavel p:last-child {
+  margin-bottom: 0;
+}
+
+.consentimento .check-termo {
+  margin-top: 18px;
+}
+
+/* =====================================================
+   ERROS
+   ===================================================== */
+
+.erro-formulario {
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 13px 15px;
+  border: 1px solid #c97870;
+  border-radius: 10px;
+  background: #fff1ef;
+  color: #7c302b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   NAVEGAÇÃO
+   ===================================================== */
+
+.navegacao-anamnese,
+.autorizacao-menor-botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 20;
+}
+
+.btn-voltar,
+.btn-proximo,
+.btn-enviar,
+.btn-limpar-assinatura {
+  min-height: 46px;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: .2s ease;
+}
+
+.btn-voltar {
+  border: 1px solid #cfc7b9;
+  background: #fffdf9;
+  color: #344238;
+}
+
+.btn-voltar:hover {
+  border-color: #24382a;
+  background: #f3eee4;
+}
+
+.btn-proximo,
+.btn-enviar {
+  border: 1px solid #24382a;
+  background: #24382a;
+  color: #fffdf9;
+}
+
+.btn-proximo:hover,
+.btn-enviar:hover {
+  background: #304936;
+  transform: translateY(-1px);
+}
+
+.btn-enviar {
+  margin-left: auto;
+  border-color: #c9a45c;
+  background: #c9a45c;
+  color: #24382a;
+}
+
+.btn-enviar:hover {
+  background: #d4b574;
+}
+
+/* =====================================================
+   AUTORIZAÇÃO PARA MENOR
+   ===================================================== */
+
+.tela-autorizacao-menor {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 24px 60px;
+  background: #f4efe5;
+  display: block;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.autorizacao-menor-card {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 0 42px;
+  background: #fffdf9;
+  border: 1px solid #d9cfbd;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(36,56,42,.08);
+  overflow: visible;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+/* =====================================================
+   TOPO DA AUTORIZAÇÃO
+   ===================================================== */
+
+.autorizacao-menor-topo {
+  width: 100%;
+  padding: 34px 50px 28px;
+  text-align: center;
+  background: #fffdf9;
+  border-bottom: 1px solid #e3dccf;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.autorizacao-menor-topo .logo-anamnese {
+  width: 82px;
+  margin: 0 auto 18px;
+}
+
+.autorizacao-menor-topo h1 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 14px;
+  padding: 0;
+  color: #24382a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.2;
+  font-weight: 600;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.autorizacao-menor-topo p {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  color: #687168;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =====================================================
+   AVISO
+   ===================================================== */
+
+.autorizacao-menor-aviso {
+  width: calc(100% - 80px);
+  margin: 28px auto 0;
+  padding: 18px 24px;
+  border-left: 3px solid #c9a45c;
+  border-radius: 0 10px 10px 0;
+  background: #faf6eb;
+  color: #596158;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.autorizacao-menor-aviso strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #6d5527;
+  font-size: 14px;
+  text-align: center;
+}
+
+.autorizacao-menor-aviso p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.autorizacao-menor-aviso p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   SEÇÕES DA AUTORIZAÇÃO
+   ===================================================== */
+
+.autorizacao-menor-secao {
+  width: calc(100% - 80px);
+  margin: 24px auto 0;
+  padding: 26px;
+  border: 1px solid #e3dccf;
+  border-radius: 14px;
+  background: #ffffff;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.autorizacao-menor-secao h2 {
+  margin: 0 0 8px;
+  color: #24382a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.autorizacao-menor-secao .descricao-etapa {
+  margin-bottom: 18px;
+}
+
+/* =====================================================
+   CAMPOS DA AUTORIZAÇÃO
+   ===================================================== */
+
+.autorizacao-menor-secao input,
+.autorizacao-menor-secao select,
+.autorizacao-menor-secao textarea {
+  position: relative;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+.autorizacao-menor-secao input,
+.autorizacao-menor-secao select {
+  min-height: 48px;
+}
+
+.autorizacao-menor-secao input[type="text"],
+.autorizacao-menor-secao input[type="tel"],
+.autorizacao-menor-secao input[type="number"],
+.autorizacao-menor-secao input[type="date"],
+.autorizacao-menor-secao select {
+  cursor: text;
+}
+
+.autorizacao-menor-secao select {
   cursor: pointer;
 }
 
+.autorizacao-menor-secao .check-termo {
+  margin-top: 14px;
+}
 
 /* =====================================================
-   MEDICAÇÃO - CAMPO OBRIGATÓRIO DESTACADO
+   TERMO DO RESPONSÁVEL
+   ===================================================== */
+
+.texto-termo-responsavel {
+  max-height: 320px;
+  overflow-y: auto;
+  text-align: left;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.versao-termo-responsavel {
+  margin: 16px 0 0;
+  color: #8a8f88;
+  font-size: 11px;
+  text-align: right;
+}
+
+/* =====================================================
+   ASSINATURA
+   ===================================================== */
+
+.area-assinatura {
+  width: 100%;
+  margin-top: 8px;
+  position: relative;
+  z-index: 40;
+  overflow: hidden;
+  border: 1px solid #d9d1c2;
+  border-radius: 10px;
+  background: #ffffff;
+  pointer-events: auto;
+}
+
+.canvas-assinatura {
+  display: block;
+  width: 100%;
+  height: 190px;
+  background: #ffffff;
+  cursor: crosshair;
+  touch-action: none;
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.linha-assinatura {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 28px;
+  padding-top: 8px;
+  border-top: 1px solid #bfb7aa;
+  color: #7a8179;
+  font-size: 11px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 110;
+}
+
+.btn-limpar-assinatura {
+  margin-top: 10px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid #d2c9bb;
+  background: #f7f3eb;
+  color: #465147;
+  font-size: 13px;
+  position: relative;
+  z-index: 120;
+}
+
+.btn-limpar-assinatura:hover {
+  background: #ece6da;
+}
+
+/* =====================================================
+   BOTÕES DA AUTORIZAÇÃO
+   ===================================================== */
+
+.autorizacao-menor-botoes {
+  width: calc(100% - 80px);
+  margin: 30px auto 0;
+  justify-content: flex-end;
+}
+
+.autorizacao-menor-botoes button {
+  min-width: 210px;
+  position: relative;
+  z-index: 200;
+  pointer-events: auto;
+}
+
+/* =====================================================
+   MENORES DE 12 ANOS
+   ===================================================== */
+
+.tela-menor-sem-autorizacao {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 24px;
+  background: #f4efe5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+.menor-sem-autorizacao-card {
+  width: min(760px, 100%);
+  padding: 40px;
+  background: #fffdf9;
+  border: 1px solid #e3dccf;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(36,56,42,.08);
+  text-align: center;
+  position: relative;
+  z-index: 20;
+}
+
+.menor-sem-autorizacao-card .logo-anamnese {
+  width: 95px;
+  margin: 0 auto 18px;
+}
+
+.menor-sem-autorizacao-card h1 {
+  margin: 0 0 14px;
+  color: #24382a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.menor-sem-autorizacao-card p {
+  max-width: 650px;
+  margin: 0 auto 14px;
+  color: #626a63;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.menor-sem-autorizacao-card .btn-proximo,
+.menor-sem-autorizacao-card .btn-voltar {
+  margin-top: 10px;
+}
+
+/* =====================================================
+   FINAL
+   ===================================================== */
+
+.haux-final {
+  margin: 28px auto 0;
+  color: #788077;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: .08em;
+}
+
+/* =====================================================
+   GARANTIAS DE INTERAÇÃO
+   ===================================================== */
+
+.tela-autorizacao-menor input,
+.tela-autorizacao-menor select,
+.tela-autorizacao-menor textarea,
+.tela-autorizacao-menor button,
+.tela-autorizacao-menor canvas,
+.tela-menor-sem-autorizacao button {
+  pointer-events: auto;
+}
+
+.tela-autorizacao-menor input,
+.tela-autorizacao-menor select,
+.tela-autorizacao-menor textarea,
+.tela-autorizacao-menor button,
+.tela-autorizacao-menor canvas {
+  position: relative;
+  z-index: 100;
+}
+
+/* =====================================================
+   RESPONSIVO - TABLET
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .anamnese-header {
+    min-height: 150px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .progresso-anamnese,
+  .form-anamnese {
+    width: calc(100% - 32px);
+  }
+
+  .campo-grupo {
+    padding: 25px;
+  }
+
+  .tela-autorizacao-menor {
+    padding: 20px 16px 45px;
+  }
+
+  .autorizacao-menor-card {
+    max-width: 100%;
+  }
+
+  .autorizacao-menor-topo {
+    padding: 30px 30px 25px;
+  }
+
+  .autorizacao-menor-topo h1 {
+    max-width: 760px;
+    font-size: 34px;
+  }
+
+  .autorizacao-menor-aviso,
+  .autorizacao-menor-secao,
+  .autorizacao-menor-botoes {
+    width: calc(100% - 48px);
+  }
+}
+
+/* =====================================================
+   RESPONSIVO - MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+  .anamnese {
+    padding-bottom: 24px;
+  }
+
+  .anamnese-header {
+    min-height: 145px;
+    padding: 18px 20px 20px;
+  }
+
+  .btn-home {
+    left: 14px;
+    top: 14px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .usuario-logado {
+    right: 14px;
+    top: 14px;
+    max-width: 170px;
+  }
+
+  .usuario-logado img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .usuario-logado strong,
+  .usuario-logado span {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .logo-anamnese {
+    width: 82px;
+  }
+
+  .anamnese-header .logo-anamnese {
+    margin-top: 18px;
+  }
+
+  .anamnese-header h1 {
+    font-size: 26px;
+  }
+
+  .anamnese-header p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .progresso-anamnese,
+  .form-anamnese {
+    width: calc(100% - 24px);
+  }
+
+  .progresso-anamnese {
+    margin-top: 16px;
+  }
+
+  .campo-grupo {
+    padding: 20px 16px;
+    border-radius: 13px;
+  }
+
+  .campo-grupo h2 {
+    font-size: 22px;
+  }
+
+  .lista-checkboxes {
+    grid-template-columns: 1fr;
+  }
+
+  .navegacao-anamnese {
+    flex-wrap: wrap;
+  }
+
+  .navegacao-anamnese .btn-proximo,
+  .navegacao-anamnese .btn-enviar {
+    margin-left: auto;
+  }
+
+  .tela-autorizacao-menor {
+    padding: 10px 8px 28px;
+  }
+
+  .autorizacao-menor-card {
+    width: 100%;
+    border-radius: 12px;
+    padding-bottom: 28px;
+  }
+
+  .autorizacao-menor-topo {
+    padding: 22px 16px 20px;
+  }
+
+  .autorizacao-menor-topo .logo-anamnese {
+    width: 78px;
+    margin-bottom: 12px;
+  }
+
+  .autorizacao-menor-topo h1 {
+    width: 100%;
+    max-width: 100%;
+    font-size: 27px;
+    line-height: 1.2;
+  }
+
+  .autorizacao-menor-topo p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .autorizacao-menor-aviso,
+  .autorizacao-menor-secao,
+  .autorizacao-menor-botoes {
+    width: calc(100% - 32px);
+  }
+
+  .autorizacao-menor-aviso {
+    margin-top: 18px;
+    padding: 15px 14px;
+  }
+
+  .autorizacao-menor-aviso p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .autorizacao-menor-secao {
+    margin-top: 18px;
+    padding: 18px 15px;
+  }
+
+  .autorizacao-menor-secao h2 {
+    font-size: 21px;
+  }
+
+  .autorizacao-menor-secao input,
+  .autorizacao-menor-secao select,
+  .autorizacao-menor-secao textarea {
+    font-size: 14px;
+  }
+
+  .texto-termo-responsavel {
+    max-height: 300px;
+    padding: 16px 14px;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .canvas-assinatura {
+    height: 155px;
+  }
+
+  .linha-assinatura {
+    left: 16px;
+    right: 16px;
+    bottom: 24px;
+  }
+
+  .autorizacao-menor-botoes {
+    margin-top: 20px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .autorizacao-menor-botoes button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .versao-termo-responsavel {
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .menor-sem-autorizacao-card {
+    padding: 28px 18px;
+  }
+
+  .menor-sem-autorizacao-card h1 {
+    font-size: 27px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVO - CELULARES PEQUENOS
+   ===================================================== */
+
+@media (max-width: 420px) {
+  .usuario-logado div {
+    display: none;
+  }
+
+  .anamnese-header {
+    min-height: 138px;
+  }
+
+  .anamnese-header p {
+    max-width: 310px;
+  }
+
+  .navegacao-anamnese {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navegacao-anamnese button {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .autorizacao-menor-topo h1 {
+    font-size: 25px;
+  }
+
+  .autorizacao-menor-topo p {
+    font-size: 12px;
+  }
+
+  .autorizacao-menor-secao {
+    width: calc(100% - 20px);
+    padding: 16px 13px;
+  }
+
+  .autorizacao-menor-aviso,
+  .autorizacao-menor-botoes {
+    width: calc(100% - 20px);
+  }
+
+  .autorizacao-menor-secao h2 {
+    font-size: 19px;
+  }
+
+  .canvas-assinatura {
+    height: 145px;
+  }
+}
+/* =====================================================
+   SELECT DE MEDICAÇÃO
 ===================================================== */
 
 .campo-obrigatorio-destaque {
   width: 100%;
-  margin: 28px 0;
-  padding: 22px;
-  background: #f4f0e5;
-  border: 2px solid #c8a45d;
-  border-left: 6px solid #24382a;
-  border-radius: 14px;
-  box-shadow: 0 5px 16px rgba(36, 56, 42, 0.10);
   box-sizing: border-box;
-}
-
-.campo-obrigatorio-destaque label {
-  display: block;
-  margin-bottom: 10px;
-  color: #24382a;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.campo-obrigatorio {
-  color: #a52d2d;
-  font-size: 18px;
-  font-weight: 800;
-  margin-left: 4px;
 }
 
 .campo-obrigatorio-destaque select,
-.campo-obrigatorio-destaque input {
+#usaMedicacao {
+  display: block;
   width: 100%;
+  min-height: 52px;
+  margin: 18px 0 0;
+  padding: 0 48px 0 16px;
+  box-sizing: border-box;
+
+  border: 1px solid #d8c7a5;
+  border-radius: 10px;
+
+  background-color: #fffdf8;
+  color: #263128;
+
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #9b7a32 50%),
+    linear-gradient(135deg, #9b7a32 50%, transparent 50%);
+  background-position:
+    calc(100% - 21px) 22px,
+    calc(100% - 15px) 22px;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.campo-obrigatorio-destaque input {
-  margin-top: 12px !important;
-}
-
-.campo-obrigatorio-destaque select:invalid {
-  border-color: #c8a45d;
+.campo-obrigatorio-destaque select:hover,
+#usaMedicacao:hover {
+  border-color: #b89445;
+  background-color: #fffaf0;
 }
 
 .campo-obrigatorio-destaque select:focus,
-.campo-obrigatorio-destaque input:focus {
-  border-color: #24382a;
-  box-shadow: 0 0 0 3px rgba(36, 56, 42, 0.12);
+#usaMedicacao:focus {
+  outline: none;
+  border-color: #b89445;
+  box-shadow: 0 0 0 3px rgba(184, 148, 69, 0.16);
+}
+
+.campo-obrigatorio-destaque select option,
+#usaMedicacao option {
+  background: #fffdf8;
+  color: #263128;
 }
 
 
 /* =====================================================
-   MENSAGEM DE ERRO
+   CAMPO DA MEDICAÇÃO
 ===================================================== */
 
-.erro-formulario {
+.campo-medicacao {
   width: 100%;
-  margin: 0 0 18px;
-  padding: 14px 16px;
-  background: #fff1f1;
-  border: 1px solid #d8a0a0;
-  border-left: 5px solid #a52d2d;
-  border-radius: 10px;
-  color: #8f2525;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.5;
-  box-sizing: border-box;
-  box-shadow: 0 3px 10px rgba(165, 45, 45, 0.08);
+  margin-top: 18px;
 }
 
+.campo-medicacao label {
+  display: block;
+  margin-bottom: 8px;
+}
 
-/* =====================================================
-   HAUX HAUX
-===================================================== */
-
-.haux-final {
+.campo-medicacao input {
+  display: block;
   width: 100%;
-  text-align: center;
-  color: #4f8a5b;
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 2px;
-  margin: 35px 0 45px;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-
-/* =====================================================
-   CONSENTIMENTO
-===================================================== */
-
-.consentimento {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.texto-consentimento {
-  width: 100%;
-  background: #f5f1e8;
-  padding: 18px;
-  border-radius: 12px;
-  margin-bottom: 18px;
-  color: #555;
-  font-size: 14px;
-  line-height: 1.7;
-  border: 1px solid #e2dac9;
-  box-sizing: border-box;
-}
-
-.check-termo {
-  width: 100%;
-  background: #f5f1e8;
-  padding: 16px;
-  border-radius: 12px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  border: 1px solid #e2dac9;
-  box-sizing: border-box;
-}
-
-.check-termo input[type="checkbox"] {
-  margin-top: 3px;
-}
-
-.check-termo span {
-  color: #444;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-
-/* =====================================================
-   NAVEGAÇÃO
-===================================================== */
-
-.navegacao-anamnese {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  margin-top: 25px;
-  box-sizing: border-box;
-}
-
-
-/* =====================================================
-   BOTÕES
-===================================================== */
-
-.btn-voltar,
-.btn-proximo,
-.btn-enviar {
   min-height: 52px;
-  padding: 14px 28px;
-  border-radius: 35px;
-  border: none;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  transition: all 0.3s ease;
+  padding: 0 16px;
   box-sizing: border-box;
+
+  border: 1px solid #d8c7a5;
+  border-radius: 10px;
+
+  background: #fffdf8;
+  color: #263128;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  outline: none;
 }
 
-
-/* =====================================================
-   VOLTAR
-===================================================== */
-
-.btn-voltar {
-  background: transparent;
-  color: #24382a;
-  border: 1px solid #24382a;
-}
-
-.btn-voltar:hover {
-  background: #24382a;
-  color: white;
-  transform: translateY(-2px);
-}
-
-
-/* =====================================================
-   PRÓXIMO
-===================================================== */
-
-.btn-proximo {
-  margin-left: auto;
-  background: #24382a;
-  color: white;
-}
-
-.btn-proximo:hover {
-  background: #3b5a42;
-  transform: translateY(-2px);
-}
-
-
-/* =====================================================
-   ENVIAR
-===================================================== */
-
-.btn-enviar {
-  width: 100%;
-  background: #24382a;
-  color: white;
-}
-
-.btn-enviar:hover {
-  background: #3b5a42;
-  transform: translateY(-2px);
-}
-
-
-/* =====================================================
-   BOTÕES DESABILITADOS
-===================================================== */
-
-.btn-voltar:disabled,
-.btn-proximo:disabled,
-.btn-enviar:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-
-/* =====================================================
-   DESKTOP GRANDE
-===================================================== */
-
-@media (min-width: 1440px) {
-
-  .anamnese-header {
-    padding-top: 18px;
-    padding-bottom: 20px;
-  }
-
-  .logo-anamnese {
-    width: 150px;
-  }
-
-  .anamnese-header h1 {
-    font-size: 25px;
-  }
-
-  .form-anamnese {
-    padding: 28px 30px;
-  }
-
-  .progresso-anamnese {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  .campo-grupo {
-    padding: 34px;
-  }
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1024px) {
-
-  .form-anamnese {
-    padding: 22px;
-  }
-
-  .progresso-anamnese {
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-
-  .campo-grupo {
-    padding: 27px;
-  }
+.campo-medicacao input:focus {
+  border-color: #b89445;
+  box-shadow: 0 0 0 3px rgba(184, 148, 69, 0.16);
 }
 
 
@@ -688,243 +1221,23 @@
    MOBILE
 ===================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 700px) {
 
-  .anamnese {
-    padding-bottom: 35px;
+  .campo-obrigatorio-destaque select,
+  #usaMedicacao {
+    min-height: 50px;
+    font-size: 15px;
+    padding-left: 14px;
+    padding-right: 44px;
+
+    background-position:
+      calc(100% - 20px) 21px,
+      calc(100% - 14px) 21px;
   }
 
-
-  /* CABEÇALHO MOBILE COMPACTO */
-
-  .anamnese-header {
-    padding: 5px 8px 7px;
-    min-height: auto;
-  }
-
-  .anamnese-header .logo-anamnese {
-    width: 45px;
-    max-width: 45px;
-    margin: 0 auto 2px;
-  }
-
-  .anamnese-header h1 {
-    font-size: 18px;
-    line-height: 1.15;
-    margin: 0 0 3px;
-  }
-
-  .anamnese-header p {
-    font-size: 10px;
-    line-height: 1.25;
-  }
-
-  .linha-separadora {
-    width: 35%;
-    margin: 4px auto;
-  }
-
-
-  /* HOME */
-
-  .btn-home,
-  .home-login {
-    top: 6px;
-    left: 8px;
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  }
-
-
-  /* USUÁRIO */
-
-  .usuario-logado {
-    gap: 5px;
-    margin-bottom: 2px;
-  }
-
-  .usuario-logado img {
-    width: 25px;
-    height: 25px;
-  }
-
-  .usuario-logado strong {
-    font-size: 11px;
-  }
-
-  .usuario-logado span {
-    font-size: 9px;
-  }
-
-
-  /* PROGRESSO */
-
-  .progresso-anamnese {
-    margin-top: 14px;
-    padding: 0 10px;
-  }
-
-  .progresso-anamnese span {
-    font-size: 13px;
-  }
-
-
-  /* FORM */
-
-  .form-anamnese {
-    padding: 15px 10px;
-  }
-
-
-  /* CARDS */
-
-  .campo-grupo {
-    padding: 20px 16px;
-    margin-bottom: 18px;
-    border-radius: 16px;
-    border-left-width: 4px;
-  }
-
-  .campo-grupo h2 {
-    font-size: 20px;
-  }
-
-  .campo-grupo > p {
-    font-size: 14px;
-  }
-
-
-  /* CAMPOS */
-
-  .form-anamnese input:not(
-    [type="checkbox"]
-  ):not(
-    [type="radio"]
-  ),
-  .form-anamnese select,
-  .form-anamnese textarea {
-    font-size: 16px;
-    padding: 12px;
-  }
-
-  .form-anamnese textarea {
-    min-height: 110px;
-  }
-
-
-  /* MEDICAÇÃO */
-
-  .campo-obrigatorio-destaque {
-    margin: 24px 0;
-    padding: 18px 15px;
-    border-left-width: 5px;
-    border-radius: 13px;
-  }
-
-  .campo-obrigatorio-destaque label {
+  .campo-medicacao input {
+    min-height: 50px;
     font-size: 15px;
   }
 
-
-  /* MENSAGEM DE ERRO */
-
-  .erro-formulario {
-    margin: 0 0 15px;
-    padding: 12px 13px;
-    font-size: 13px;
-    border-left-width: 4px;
-  }
-
-
-  /* HAUX HAUX */
-
-  .haux-final {
-    font-size: 1.5rem;
-    margin: 28px 0 35px;
-    letter-spacing: 1.5px;
-  }
-
-
-  /* NAVEGAÇÃO */
-
-  .navegacao-anamnese {
-    gap: 10px;
-    margin-top: 18px;
-  }
-
-  .btn-voltar,
-  .btn-proximo,
-  .btn-enviar {
-    min-height: 48px;
-    padding: 12px 18px;
-    font-size: 14px;
-  }
-}
-
-
-/* =====================================================
-   CELULARES PEQUENOS
-===================================================== */
-
-@media (max-width: 390px) {
-
-  .anamnese-header {
-    padding: 4px 6px 6px;
-  }
-
-  .anamnese-header .logo-anamnese {
-    width: 40px;
-    max-width: 40px;
-  }
-
-  .anamnese-header h1 {
-    font-size: 17px;
-  }
-
-  .anamnese-header p {
-    font-size: 9px;
-  }
-
-  .btn-home,
-  .home-login {
-    top: 5px;
-    left: 6px;
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
-  }
-
-  .form-anamnese {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .progresso-anamnese {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .campo-grupo {
-    padding: 17px 14px;
-    border-radius: 14px;
-  }
-
-  .campo-grupo h2 {
-    font-size: 19px;
-  }
-
-  .campo-pergunta label {
-    font-size: 13px;
-  }
-
-  .navegacao-anamnese {
-    flex-direction: column-reverse;
-  }
-
-  .btn-voltar,
-  .btn-proximo,
-  .btn-enviar {
-    width: 100%;
-  }
 }
