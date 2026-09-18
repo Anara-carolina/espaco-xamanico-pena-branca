@@ -1,227 +1,205 @@
+
 /* ===================================
    PÁGINA AYAHUASCA
 =================================== */
 
 .ayahuasca-page {
-
     width: 100vw;
     max-width: none;
-
     margin-left: 50%;
     transform: translateX(-50%);
-
     min-height: 100vh;
-
     box-sizing: border-box;
-
     background: #d8c8a4;
-
     color: #2b1b0b;
-
     overflow-x: hidden;
-
 }
 
-
 /* ===================================
-   IMAGEM TOPO
+   HERO
 =================================== */
 
 .ayahuasca-hero {
-
     width: 100%;
-
-    height: 70vh;
-
+    height: 55vh;
     position: relative;
-
     overflow: hidden;
-
+    background: #1B3A2A;
 }
 
+/* DESKTOP: SEM FOTO */
 
 .ayahuasca-hero img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
+    display: none !important;
 }
-
 
 /* ===================================
    TÍTULO
 =================================== */
 
 .ayahuasca-titulo {
-
     position: absolute;
-
     inset: 0;
-
-    background: rgba(0, 0, 0, .45);
-
+    background: #1B3A2A;
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     text-align: center;
-
     color: white;
-
     padding: 20px;
-
     box-sizing: border-box;
-
 }
-
 
 .ayahuasca-titulo h1 {
-
     color: #D4AF37;
-
     font-size: 3rem;
-
     letter-spacing: 3px;
-
     margin: 0 0 15px;
-
 }
-
 
 .ayahuasca-titulo p {
-
     font-size: 1.2rem;
-
     line-height: 1.6;
-
     margin: 0;
-
 }
-
 
 /* ===================================
    TEXTOS
 =================================== */
 
 .ayahuasca-texto {
-
     width: 100%;
-
     max-width: 900px;
-
     margin: 0 auto;
-
     padding: 70px 30px;
-
     box-sizing: border-box;
-
     text-align: center;
-
 }
-
 
 .ayahuasca-texto h2,
 .ayahuasca-destaque h2 {
-
     color: #1B3A2A;
-
     font-size: 2rem;
-
     margin: 0 0 25px;
-
 }
-
 
 .ayahuasca-texto p,
 .ayahuasca-destaque p {
-
     line-height: 1.8;
-
     font-size: 1.1rem;
-
-    margin: 0;
-
+    margin: 0 0 20px;
 }
 
+.ayahuasca-texto p:last-child {
+    margin-bottom: 0;
+}
 
 /* ===================================
    BLOCO VERDE
 =================================== */
 
 .ayahuasca-destaque {
-
     width: 100%;
-
     background: #1B3A2A;
-
     color: white;
-
     padding: 70px 30px;
-
     box-sizing: border-box;
-
     text-align: center;
-
 }
-
 
 .ayahuasca-destaque h2,
 .ayahuasca-destaque h3 {
-
     color: #D4AF37;
-
 }
-
 
 .ayahuasca-destaque h3 {
-
     margin-top: 35px;
-
     font-size: 1.5rem;
-
 }
 
+/* ===================================
+   OUTRAS MEDICINAS
+=================================== */
+
+.outras-medicinas {
+    width: 100%;
+    padding: 70px 30px;
+    background: #d8c8a4;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.outras-medicinas h2 {
+    color: #1B3A2A;
+    font-size: 2rem;
+    margin: 0 0 15px;
+}
+
+.outras-medicinas > p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.medicinas-links {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.medicina-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    padding: 25px;
+    box-sizing: border-box;
+    background: #1B3A2A;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: transform .3s ease, background .3s ease;
+}
+
+.medicina-link:hover {
+    transform: translateY(-5px);
+    background: #244d38;
+}
+
+.medicina-link h3 {
+    color: #D4AF37;
+    font-size: 1.6rem;
+    margin: 0 0 10px;
+}
+
+.medicina-link span {
+    color: white;
+    font-size: .95rem;
+}
 
 /* ===================================
    FRASE FINAL
 =================================== */
 
 .frase-ayahuasca {
-
     width: 100%;
-
     background: #1B3A2A;
-
     padding: 60px 30px;
-
     box-sizing: border-box;
-
     text-align: center;
-
 }
-
 
 .frase-ayahuasca h2 {
-
     color: #D4AF37;
-
     font-style: italic;
-
     font-size: 2rem;
-
     margin: 0;
-
 }
-
 
 /* ===================================
    TELAS GRANDES
@@ -229,50 +207,39 @@
 
 @media (min-width: 1440px) {
 
-    .ayahuasca-titulo h1 {
-
-        font-size: 3.5rem;
-
+    .ayahuasca-hero {
+        height: 60vh;
     }
 
+    .ayahuasca-titulo h1 {
+        font-size: 3.5rem;
+    }
 
     .ayahuasca-titulo p {
-
         font-size: 1.3rem;
-
     }
-
 
     .ayahuasca-texto {
-
         max-width: 1000px;
-
         padding-top: 90px;
-
         padding-bottom: 90px;
-
     }
-
 
     .ayahuasca-destaque {
-
         padding-top: 90px;
-
         padding-bottom: 90px;
-
     }
 
+    .outras-medicinas {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
 
     .frase-ayahuasca {
-
         padding-top: 80px;
-
         padding-bottom: 80px;
-
     }
-
 }
-
 
 /* ===================================
    MOBILE
@@ -281,110 +248,105 @@
 @media (max-width: 768px) {
 
     .ayahuasca-page {
-
         width: 100%;
-
         max-width: none;
-
         margin-left: 0;
-
         transform: none;
-
     }
-
 
     .ayahuasca-hero {
-
         height: 55vh;
-
     }
 
+    /* MOBILE: FOTO VISÍVEL */
+
+    .ayahuasca-hero img {
+        display: block !important;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 
     .ayahuasca-titulo {
-
+        background: rgba(0, 0, 0, .45);
         padding: 20px;
-
     }
-
 
     .ayahuasca-titulo h1 {
-
         font-size: 2rem;
-
         letter-spacing: 2px;
-
     }
-
 
     .ayahuasca-titulo p {
-
         font-size: 1rem;
-
         line-height: 1.5;
-
     }
-
 
     .ayahuasca-texto {
-
         width: 100%;
-
         padding: 45px 20px;
-
     }
-
 
     .ayahuasca-texto h2 {
-
         font-size: 1.7rem;
-
     }
-
 
     .ayahuasca-texto p,
     .ayahuasca-destaque p {
-
         font-size: 1rem;
-
+        line-height: 1.7;
     }
-
 
     .ayahuasca-destaque {
-
         width: 100%;
-
         padding: 50px 20px;
-
     }
-
 
     .ayahuasca-destaque h2 {
-
         font-size: 1.7rem;
-
     }
-
 
     .ayahuasca-destaque h3 {
-
         font-size: 1.3rem;
-
     }
 
+    /* OUTRAS MEDICINAS */
+
+    .outras-medicinas {
+        padding: 50px 20px;
+    }
+
+    .outras-medicinas h2 {
+        font-size: 1.7rem;
+    }
+
+    .outras-medicinas > p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .medicinas-links {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .medicina-link {
+        min-height: 120px;
+    }
+
+    .medicina-link h3 {
+        font-size: 1.4rem;
+    }
 
     .frase-ayahuasca {
-
         width: 100%;
-
         padding: 45px 20px;
-
     }
-
 
     .frase-ayahuasca h2 {
-
         font-size: 1.6rem;
-
+        line-height: 1.5;
     }
-
 }

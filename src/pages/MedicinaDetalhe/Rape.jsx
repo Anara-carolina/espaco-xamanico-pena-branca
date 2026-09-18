@@ -1,6 +1,6 @@
 import "./Rape.css";
 
-import rape from "../../assets/imagens/rape.jpg";
+import rape from "../../assets/imagens/rape-sagrado.jpg";
 
 
 function Rape() {

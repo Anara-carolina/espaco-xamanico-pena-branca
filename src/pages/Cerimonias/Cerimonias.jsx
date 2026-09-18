@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import "./Cerimonias.css";
-import imagemCerimonia from "../../assets/imagens/ritual.jpg";
+import imagemCerimonia from "../../assets/imagens/ritual.jpeg";
 
 
 function Cerimonias() {

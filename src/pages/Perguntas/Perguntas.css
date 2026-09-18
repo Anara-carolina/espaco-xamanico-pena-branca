@@ -1,0 +1,661 @@
+
+/* =========================================================
+   PERGUNTAS
+   ESPAÇO XAMÂNICO PENA BRANCA
+========================================================= */
+
+.perguntas-page {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0;
+  background: #1b3a2a;
+  color: #f4efe5;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.perguntas-hero {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  min-height: 52vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(212, 175, 55, 0.08),
+      transparent 38%
+    ),
+    #1b3a2a;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.perguntas-hero::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 50%;
+  top: -400px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.perguntas-hero::after {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  bottom: -350px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTEÚDO DO HERO
+========================================================= */
+
+.perguntas-hero-conteudo {
+  position: relative;
+  z-index: 2;
+  width: min(900px, 90%);
+  margin: 0 auto;
+  padding: 100px 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.perguntas-hero-conteudo::before {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 1px;
+  margin: 0 auto 28px;
+  background: #d4af37;
+}
+
+.perguntas-hero h1 {
+  margin: 0;
+  color: #d4af37;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.perguntas-hero p {
+  max-width: 650px;
+  margin: 25px auto 0;
+  color: #d8c8a4;
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   FUNDO OCUPA 100% DA TELA
+========================================================= */
+
+.perguntas-conteudo {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-width: 100%;
+  margin: 0;
+  padding: 100px 0 110px;
+  background: #f4efe5;
+  color: #24382b;
+  box-sizing: border-box;
+}
+
+.perguntas-conteudo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80px;
+  height: 3px;
+  transform: translateX(-50%);
+  background: #d4af37;
+}
+
+
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
+
+.perguntas-introducao {
+  width: min(1000px, 88%);
+  margin: 0 auto 55px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.perguntas-introducao h2 {
+  margin: 0 0 15px;
+  color: #1b3a2a;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.perguntas-introducao p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #596258;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   LISTA DE PERGUNTAS
+========================================================= */
+
+.perguntas-lista {
+  width: min(1000px, 88%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(27, 58, 42, 0.18);
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.pergunta-item {
+  width: 100%;
+  border-bottom: 1px solid rgba(27, 58, 42, 0.18);
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.pergunta-item:hover {
+  background: rgba(216, 200, 164, 0.16);
+}
+
+.pergunta-item.aberta {
+  background: rgba(216, 200, 164, 0.2);
+}
+
+
+/* =========================================================
+   BOTÃO DA PERGUNTA
+========================================================= */
+
+.pergunta-botao {
+  position: relative;
+  width: 100%;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 0;
+  padding: 22px 10px 22px 5px;
+  border: none;
+  background: transparent;
+  color: #1b3a2a;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.pergunta-botao span:first-child {
+  flex: 1;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.pergunta-item:hover .pergunta-botao span:first-child {
+  color: #876f18;
+}
+
+
+/* =========================================================
+   SÍMBOLO
+========================================================= */
+
+.pergunta-simbolo {
+  position: relative;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 1;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.pergunta-item.aberta .pergunta-simbolo {
+  color: #1b3a2a;
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   RESPOSTA
+========================================================= */
+
+.pergunta-resposta {
+  width: 100%;
+  max-width: 850px;
+  padding: 0 70px 28px 5px;
+  animation: aparecerResposta 0.35s ease;
+  box-sizing: border-box;
+}
+
+.pergunta-resposta p {
+  margin: 0;
+  color: #596258;
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+@keyframes aparecerResposta {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   FAÇA SUA PERGUNTA
+========================================================= */
+
+.faca-sua-pergunta {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-width: 100%;
+  margin: 0;
+  padding: 110px 20px 120px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(212, 175, 55, 0.08),
+      transparent 40%
+    ),
+    #1b3a2a;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.faca-sua-pergunta::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  top: -450px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.faca-sua-pergunta-conteudo {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.faca-sua-pergunta h2 {
+  margin: 0;
+  color: #d4af37;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.faca-sua-pergunta > div > p {
+  max-width: 600px;
+  margin: 20px auto 50px;
+  color: #d8c8a4;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.faca-sua-pergunta form {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0;
+  padding: 45px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(15, 43, 30, 0.65);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    inset 0 0 50px rgba(212, 175, 55, 0.025);
+}
+
+.campo-pergunta {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.campo-pergunta label {
+  color: #d8c8a4;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.campo-pergunta input,
+.campo-pergunta textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(216, 200, 164, 0.3);
+  border-radius: 0;
+  outline: none;
+  background: rgba(244, 239, 229, 0.06);
+  color: #f4efe5;
+  padding: 14px 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.campo-pergunta input {
+  height: 52px;
+}
+
+.campo-pergunta textarea {
+  min-height: 160px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.campo-pergunta input::placeholder,
+.campo-pergunta textarea::placeholder {
+  color: rgba(216, 200, 164, 0.55);
+}
+
+.campo-pergunta input:focus,
+.campo-pergunta textarea:focus {
+  border-color: #d4af37;
+  background: rgba(244, 239, 229, 0.09);
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+.botao-enviar-pergunta {
+  width: fit-content;
+  min-width: 210px;
+  min-height: 52px;
+  align-self: center;
+  margin-top: 10px;
+  padding: 14px 30px;
+  border: 1px solid #d4af37;
+  border-radius: 0;
+  background: transparent;
+  color: #d4af37;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.botao-enviar-pergunta:hover {
+  background: #d4af37;
+  color: #1b3a2a;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .perguntas-hero {
+    min-height: 45vh;
+  }
+
+  .perguntas-hero-conteudo {
+    padding: 80px 20px;
+  }
+
+  .perguntas-introducao,
+  .perguntas-lista {
+    width: 92%;
+  }
+
+  .perguntas-conteudo {
+    padding: 80px 0 90px;
+  }
+
+  .faca-sua-pergunta {
+    padding: 85px 20px 95px;
+  }
+
+  .faca-sua-pergunta form {
+    padding: 35px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .perguntas-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .perguntas-hero {
+    min-height: 43vh;
+  }
+
+  .perguntas-hero-conteudo {
+    width: 92%;
+    padding: 70px 10px;
+  }
+
+  .perguntas-hero-conteudo::before {
+    width: 50px;
+    margin-bottom: 22px;
+  }
+
+  .perguntas-hero h1 {
+    font-size: 2.25rem;
+    letter-spacing: 1px;
+  }
+
+  .perguntas-hero p {
+    margin-top: 20px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .perguntas-conteudo {
+    padding: 65px 0 75px;
+  }
+
+  .perguntas-introducao {
+    width: 92%;
+    margin-bottom: 38px;
+  }
+
+  .perguntas-introducao h2 {
+    font-size: 1.85rem;
+  }
+
+  .perguntas-introducao p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .perguntas-lista {
+    width: 92%;
+  }
+
+  .pergunta-botao {
+    min-height: 72px;
+    gap: 12px;
+    padding: 18px 2px;
+  }
+
+  .pergunta-botao span:first-child {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .pergunta-simbolo {
+    width: 30px;
+    height: 30px;
+    font-size: 1.45rem;
+  }
+
+  .pergunta-resposta {
+    padding: 0 38px 22px 2px;
+  }
+
+  .pergunta-resposta p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .faca-sua-pergunta {
+    padding: 70px 15px 80px;
+  }
+
+  .faca-sua-pergunta h2 {
+    font-size: 2rem;
+  }
+
+  .faca-sua-pergunta > div > p {
+    margin: 18px auto 35px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .faca-sua-pergunta form {
+    padding: 28px 20px;
+    gap: 21px;
+  }
+
+  .campo-pergunta input {
+    height: 49px;
+  }
+
+  .campo-pergunta input,
+  .campo-pergunta textarea {
+    font-size: 0.92rem;
+    padding: 13px 14px;
+  }
+
+  .campo-pergunta textarea {
+    min-height: 130px;
+  }
+
+  .botao-enviar-pergunta {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .perguntas-hero h1 {
+    font-size: 2rem;
+  }
+
+  .perguntas-hero p {
+    font-size: 0.88rem;
+  }
+
+  .perguntas-introducao,
+  .perguntas-lista {
+    width: 94%;
+  }
+
+  .pergunta-botao span:first-child {
+    font-size: 0.9rem;
+  }
+
+  .pergunta-resposta {
+    padding-right: 25px;
+  }
+
+  .faca-sua-pergunta form {
+    padding: 24px 16px;
+  }
+}

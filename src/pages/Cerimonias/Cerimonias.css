@@ -1,9 +1,9 @@
+
 /* ===================================
    PÁGINA CERIMÔNIAS
 =================================== */
 
 .cerimonias-page {
-
     width: 100vw;
     max-width: none;
 
@@ -13,41 +13,34 @@
     box-sizing: border-box;
 
     background: #d8c8a4;
-
     color: #2b1b0b;
 
     overflow-x: hidden;
-
 }
 
 
 /* ===================================
-   IMAGEM TOPO
+   HERO
 =================================== */
 
 .cerimonias-hero {
-
     width: 100%;
-
-    height: 70vh;
+    height: 55vh;
 
     position: relative;
-
     overflow: hidden;
 
+    background: #1B3A2A;
 }
 
 
+/* ===================================
+   IMAGEM DO HERO
+   DESKTOP SEM FOTO
+=================================== */
+
 .cerimonias-hero img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
+    display: none !important;
 }
 
 
@@ -56,19 +49,15 @@
 =================================== */
 
 .cerimonias-titulo {
-
     position: absolute;
-
     inset: 0;
 
-    background: rgba(0, 0, 0, .45);
+    background: #1B3A2A;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -78,12 +67,10 @@
     padding: 20px;
 
     box-sizing: border-box;
-
 }
 
 
 .cerimonias-titulo h1 {
-
     color: #D4AF37;
 
     font-size: 3rem;
@@ -91,12 +78,10 @@
     letter-spacing: 3px;
 
     margin: 0 0 15px;
-
 }
 
 
 .cerimonias-titulo p {
-
     font-size: 1.2rem;
 
     max-width: 700px;
@@ -104,7 +89,6 @@
     margin: 0;
 
     line-height: 1.6;
-
 }
 
 
@@ -113,7 +97,6 @@
 =================================== */
 
 .cerimonias-texto {
-
     width: 100%;
 
     max-width: 900px;
@@ -125,31 +108,31 @@
     box-sizing: border-box;
 
     text-align: center;
-
 }
 
 
 .cerimonias-texto h2,
 .cerimonias-destaque h2 {
-
     color: #1B3A2A;
 
     font-size: 2rem;
 
     margin: 0 0 25px;
-
 }
 
 
 .cerimonias-texto p,
 .cerimonias-destaque p {
-
     line-height: 1.8;
 
     font-size: 1.1rem;
 
-    margin: 0;
+    margin: 0 0 20px;
+}
 
+
+.cerimonias-texto p:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -158,7 +141,6 @@
 =================================== */
 
 .cerimonias-lista {
-
     width: 100%;
 
     max-width: 700px;
@@ -170,12 +152,10 @@
     text-align: left;
 
     box-sizing: border-box;
-
 }
 
 
 .cerimonias-lista li {
-
     list-style: none;
 
     background: rgba(255, 255, 255, .35);
@@ -187,7 +167,6 @@
     border-radius: 15px;
 
     font-size: 1.1rem;
-
 }
 
 
@@ -196,7 +175,6 @@
 =================================== */
 
 .cerimonias-destaque {
-
     width: 100%;
 
     background: #1B3A2A;
@@ -208,24 +186,19 @@
     box-sizing: border-box;
 
     text-align: center;
-
 }
 
 
 .cerimonias-destaque h2,
 .cerimonias-destaque h3 {
-
     color: #D4AF37;
-
 }
 
 
 .cerimonias-destaque h3 {
-
     margin-top: 35px;
 
     font-size: 1.5rem;
-
 }
 
 
@@ -234,7 +207,6 @@
 =================================== */
 
 .cerimonias-horarios {
-
     width: 100%;
 
     max-width: 800px;
@@ -242,12 +214,10 @@
     margin: 40px auto;
 
     box-sizing: border-box;
-
 }
 
 
 .cerimonias-horarios p {
-
     background: rgba(255, 255, 255, .15);
 
     padding: 15px;
@@ -255,7 +225,6 @@
     border-radius: 12px;
 
     margin-bottom: 15px;
-
 }
 
 
@@ -264,7 +233,6 @@
 =================================== */
 
 .cerimonias-partilha {
-
     width: 100%;
 
     max-width: 900px;
@@ -276,18 +244,15 @@
     box-sizing: border-box;
 
     text-align: center;
-
 }
 
 
 .cerimonias-partilha h2 {
-
     color: #1B3A2A;
 
     font-size: 2rem;
 
     margin: 0 0 25px;
-
 }
 
 
@@ -296,7 +261,6 @@
 =================================== */
 
 .frase-cerimonia {
-
     width: 100%;
 
     background: #1B3A2A;
@@ -306,12 +270,10 @@
     box-sizing: border-box;
 
     text-align: center;
-
 }
 
 
 .frase-cerimonia h2 {
-
     color: #D4AF37;
 
     font-style: italic;
@@ -319,7 +281,6 @@
     font-size: 2rem;
 
     margin: 0;
-
 }
 
 
@@ -328,14 +289,11 @@
 =================================== */
 
 .cerimonias-botao {
-
     margin-top: 30px;
-
 }
 
 
 .cerimonias-botao button {
-
     background: #D4AF37;
 
     color: #1B3A2A;
@@ -351,14 +309,11 @@
     cursor: pointer;
 
     transition: .3s;
-
 }
 
 
 .cerimonias-botao button:hover {
-
     background: white;
-
 }
 
 
@@ -368,55 +323,40 @@
 
 @media (min-width: 1440px) {
 
+    .cerimonias-hero {
+        height: 60vh;
+    }
+
+
     .cerimonias-titulo h1 {
-
         font-size: 3.5rem;
-
     }
 
 
     .cerimonias-titulo p {
-
         font-size: 1.3rem;
-
     }
 
 
     .cerimonias-texto,
     .cerimonias-partilha {
-
         max-width: 1000px;
 
-    }
-
-
-    .cerimonias-texto,
-    .cerimonias-partilha {
-
         padding-top: 90px;
-
         padding-bottom: 90px;
-
     }
 
 
     .cerimonias-destaque {
-
         padding-top: 90px;
-
         padding-bottom: 90px;
-
     }
 
 
     .frase-cerimonia {
-
         padding-top: 80px;
-
         padding-bottom: 80px;
-
     }
-
 }
 
 
@@ -427,7 +367,6 @@
 @media (max-width: 768px) {
 
     .cerimonias-page {
-
         width: 100%;
 
         max-width: none;
@@ -435,131 +374,151 @@
         margin-left: 0;
 
         transform: none;
-
     }
 
 
+    /* ===================================
+       HERO MOBILE
+    =================================== */
+
     .cerimonias-hero {
-
         height: 55vh;
+    }
 
+
+    .cerimonias-hero img {
+        display: block !important;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
     }
 
 
     .cerimonias-titulo {
+        background: rgba(0, 0, 0, .45);
 
         padding: 20px;
-
     }
 
 
     .cerimonias-titulo h1 {
-
         font-size: 2rem;
 
         letter-spacing: 2px;
-
     }
 
 
     .cerimonias-titulo p {
-
         font-size: 1rem;
 
         line-height: 1.5;
-
     }
 
 
+    /* ===================================
+       TEXTOS MOBILE
+    =================================== */
+
     .cerimonias-texto,
     .cerimonias-partilha {
-
         width: 100%;
 
         padding: 45px 20px;
-
     }
 
 
     .cerimonias-texto h2,
     .cerimonias-partilha h2 {
-
         font-size: 1.7rem;
-
     }
 
 
     .cerimonias-texto p,
     .cerimonias-destaque p {
-
         font-size: 1rem;
 
+        line-height: 1.7;
     }
 
 
-    .cerimonias-lista {
+    /* ===================================
+       LISTA MOBILE
+    =================================== */
 
+    .cerimonias-lista {
         width: 100%;
 
         text-align: left;
-
     }
 
 
     .cerimonias-lista li {
-
         font-size: 1rem;
 
         padding: 14px 16px;
-
     }
 
 
-    .cerimonias-destaque {
+    /* ===================================
+       DESTAQUE MOBILE
+    =================================== */
 
+    .cerimonias-destaque {
         width: 100%;
 
         padding: 50px 20px;
-
     }
 
 
     .cerimonias-destaque h2 {
-
         font-size: 1.7rem;
-
     }
 
 
     .cerimonias-destaque h3 {
-
         font-size: 1.3rem;
-
     }
 
 
-    .cerimonias-horarios {
+    /* ===================================
+       HORÁRIOS MOBILE
+    =================================== */
 
+    .cerimonias-horarios {
         width: 100%;
 
         margin: 30px auto;
-
     }
 
 
-    .frase-cerimonia {
+    /* ===================================
+       FRASE MOBILE
+    =================================== */
 
+    .frase-cerimonia {
         width: 100%;
 
         padding: 45px 20px;
-
     }
 
 
     .frase-cerimonia h2 {
-
         font-size: 1.6rem;
 
+        line-height: 1.5;
     }
 
+
+    /* ===================================
+       BOTÃO MOBILE
+    =================================== */
+
+    .cerimonias-botao button {
+        width: 100%;
+
+        max-width: 320px;
+    }
 }
