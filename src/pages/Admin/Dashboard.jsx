@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 
@@ -7,6 +8,7 @@ import {
   FaCalendarAlt,
   FaClipboardList,
   FaEnvelope,
+  FaQuestionCircle,
   FaSignOutAlt
 } from "react-icons/fa";
 
@@ -15,26 +17,19 @@ import "./Dashboard.css";
 
 function Dashboard() {
 
-
   const navigate = useNavigate();
 
 
-
   async function sair() {
-
 
     await signOut(auth);
 
     navigate("/admin");
 
-
   }
 
 
-
-
   const opcoes = [
-
 
     {
       titulo: "Gerenciar Cerimônias",
@@ -43,7 +38,6 @@ function Dashboard() {
       rota: "/admin/cerimonias"
     },
 
-
     {
       titulo: "Visualizar Anamneses",
       descricao: "Consultar fichas preenchidas",
@@ -51,153 +45,95 @@ function Dashboard() {
       rota: "/admin/anamneses"
     },
 
-
     {
       titulo: "Mensagens de Contato",
       descricao: "Ver mensagens recebidas",
       icone: <FaEnvelope />,
       rota: "/admin/mensagens"
-    }
+    },
 
+    {
+      titulo: "Perguntas Recebidas",
+      descricao: "Ver e responder dúvidas enviadas",
+      icone: <FaQuestionCircle />,
+      rota: "/admin/perguntas"
+    }
 
   ];
 
 
-
-
-
   return (
-
 
     <div className="dashboard">
 
 
-
       <header className="dashboard-header">
 
-
         <h1>
-
-          🌿 Painel Administrativo
-
+          Painel Administrativo
         </h1>
 
-
         <p>
-
           Espaço Xamânico Pena Branca
-
         </p>
 
-
       </header>
-
-
-
-
 
 
       <section className="dashboard-grid">
 
 
-
         {opcoes.map((item) => (
 
-
           <div
-
             className="dashboard-card"
-
             key={item.titulo}
-
             onClick={() => navigate(item.rota)}
-
           >
 
-
-
             <div className="dashboard-icon">
-
               {item.icone}
-
             </div>
 
-
-
             <h2>
-
               {item.titulo}
-
             </h2>
 
-
-
             <p>
-
               {item.descricao}
-
             </p>
 
-
-
           </div>
-
 
         ))}
 
 
-
-
-
-
-
         <div
-
           className="dashboard-card sair"
-
           onClick={sair}
-
         >
 
-
           <div className="dashboard-icon">
-
             <FaSignOutAlt />
-
           </div>
 
-
-
           <h2>
-
             Sair
-
           </h2>
 
-
-
           <p>
-
             Encerrar sessão
-
           </p>
 
-
         </div>
-
-
 
 
       </section>
 
 
-
-
     </div>
 
-
   );
-
 
 }
 

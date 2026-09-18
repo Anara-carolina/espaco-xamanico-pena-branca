@@ -1,10 +1,10 @@
+
 import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
 import ScrollToTop from "./components/ScrollToTop";
-
 
 
 // ===============================
@@ -18,7 +18,6 @@ import Galeria from "./pages/Galeria/Galeria";
 import Login from "./pages/Login/Login";
 
 
-
 // ===============================
 // ADMIN
 // ===============================
@@ -29,7 +28,7 @@ import CerimoniasAdmin from "./pages/Admin/CerimoniasAdmin";
 import AnamnesesAdmin from "./pages/Admin/AnamnesesAdmin";
 import AnamneseDetalhe from "./pages/Admin/AnamneseDetalhe";
 import MensagensAdmin from "./pages/Admin/MensagensAdmin";
-
+import PerguntasAdmin from "./pages/Admin/PerguntasAdmin";
 
 
 // ===============================
@@ -42,7 +41,6 @@ import Cerimonias from "./pages/Cerimonias/Cerimonias";
 import Perguntas from "./pages/Perguntas/Perguntas";
 
 
-
 // ===============================
 // MEDICINAS
 // ===============================
@@ -51,7 +49,6 @@ import Ayahuasca from "./pages/MedicinaDetalhe/Ayahuasca";
 import Rape from "./pages/MedicinaDetalhe/Rape";
 import Sananga from "./pages/MedicinaDetalhe/Sananga";
 import Kambo from "./pages/MedicinaDetalhe/Kambo";
-
 
 
 function App() {
@@ -64,6 +61,7 @@ function App() {
 
       <Routes>
 
+
         {/* =========================
             LOGIN PÚBLICO
         ========================= */}
@@ -74,7 +72,6 @@ function App() {
         />
 
 
-
         {/* =========================
             LOGIN ADMIN
         ========================= */}
@@ -83,7 +80,6 @@ function App() {
           path="/admin"
           element={<LoginAdmin />}
         />
-
 
 
         {/* =========================
@@ -100,7 +96,6 @@ function App() {
         />
 
 
-
         {/* =========================
             GERENCIAR CERIMÔNIAS
         ========================= */}
@@ -113,7 +108,6 @@ function App() {
             </AdminRoute>
           }
         />
-
 
 
         {/* =========================
@@ -130,7 +124,6 @@ function App() {
         />
 
 
-
         {/* =========================
             DETALHE DA ANAMNESE
         ========================= */}
@@ -143,7 +136,6 @@ function App() {
             </AdminRoute>
           }
         />
-
 
 
         {/* =========================
@@ -160,6 +152,19 @@ function App() {
         />
 
 
+        {/* =========================
+            PERGUNTAS RECEBIDAS
+        ========================= */}
+
+        <Route
+          path="/admin/perguntas"
+          element={
+            <AdminRoute>
+              <PerguntasAdmin />
+            </AdminRoute>
+          }
+        />
+
 
         {/* =========================
             ANAMNESE DO PARTICIPANTE
@@ -175,48 +180,53 @@ function App() {
         />
 
 
-
         {/* =========================
             SITE PRINCIPAL
         ========================= */}
 
         <Route element={<Layout />}>
 
+
           <Route
             path="/"
             element={<Home />}
           />
+
 
           <Route
             path="/sobre"
             element={<Sobre />}
           />
 
+
           <Route
             path="/agenda"
             element={<Agenda />}
           />
+
 
           <Route
             path="/galeria"
             element={<Galeria />}
           />
 
+
           <Route
             path="/cerimonias"
             element={<Cerimonias />}
           />
+
 
           <Route
             path="/contato"
             element={<Contato />}
           />
 
+
           <Route
             path="/perguntas"
             element={<Perguntas />}
           />
-
 
 
           {/* =========================
@@ -228,29 +238,36 @@ function App() {
             element={<Ayahuasca />}
           />
 
+
           <Route
             path="/medicinas/rape"
             element={<Rape />}
           />
+
 
           <Route
             path="/medicinas/sananga"
             element={<Sananga />}
           />
 
+
           <Route
             path="/medicinas/kambo"
             element={<Kambo />}
           />
 
+
         </Route>
 
+
       </Routes>
+
 
     </>
 
   );
 
 }
+
 
 export default App;

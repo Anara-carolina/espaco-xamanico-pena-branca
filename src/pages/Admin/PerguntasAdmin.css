@@ -1,0 +1,578 @@
+
+/* =========================================================
+   PERGUNTAS ADMIN
+   ESPAÇO XAMÂNICO PENA BRANCA
+========================================================= */
+
+.perguntas-admin {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 6%;
+  box-sizing: border-box;
+  background: #f4efe5;
+  color: #24382b;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.perguntas-admin-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+
+.perguntas-admin-titulo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+.perguntas-admin-icone {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #1b3a2a;
+  color: #d4af37;
+  font-size: 1.5rem;
+}
+
+
+.perguntas-admin-header h1 {
+  margin: 0;
+  color: #1b3a2a;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+
+.perguntas-admin-header p {
+  margin: 6px 0 0;
+  color: #687168;
+  font-size: 0.95rem;
+}
+
+
+.perguntas-admin-total {
+  min-width: 90px;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: #fffdf8;
+  box-sizing: border-box;
+}
+
+
+.perguntas-admin-total span {
+  color: #1b3a2a;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+
+.perguntas-admin-total small {
+  margin-top: 5px;
+  color: #687168;
+  font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.perguntas-admin-lista {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.pergunta-admin-card {
+  width: 100%;
+  border: 1px solid rgba(27, 58, 42, 0.15);
+  background: #fffdf8;
+  box-sizing: border-box;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.pergunta-admin-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+
+.pergunta-admin-card.aberta {
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 10px 30px rgba(27, 58, 42, 0.08);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CARD
+========================================================= */
+
+.pergunta-admin-cabecalho {
+  width: 100%;
+  min-height: 90px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+
+.pergunta-admin-principal {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+
+
+.pergunta-admin-avatar {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #1b3a2a;
+  color: #d4af37;
+  font-size: 1rem;
+}
+
+
+.pergunta-admin-principal h2 {
+  margin: 0;
+  color: #1b3a2a;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+
+.pergunta-admin-principal span {
+  display: block;
+  margin-top: 5px;
+  color: #687168;
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+
+.pergunta-admin-data {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #687168;
+  font-size: 0.82rem;
+}
+
+
+.pergunta-admin-data svg {
+  color: #b18d1c;
+}
+
+
+/* =========================================================
+   RESUMO DA PERGUNTA
+========================================================= */
+
+.pergunta-admin-resumo {
+  padding: 0 22px 20px 83px;
+}
+
+
+.pergunta-admin-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #b18d1c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+.pergunta-admin-resumo p {
+  margin: 0;
+  color: #4f5951;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   DETALHES
+========================================================= */
+
+.pergunta-admin-detalhes {
+  padding: 25px 22px 25px 83px;
+  border-top: 1px solid rgba(27, 58, 42, 0.12);
+  background: #f8f3e9;
+}
+
+
+.pergunta-admin-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+
+.pergunta-admin-info p,
+.pergunta-admin-texto p {
+  margin: 0;
+  color: #3f4941;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+
+.pergunta-admin-texto {
+  margin-bottom: 25px;
+}
+
+
+.pergunta-admin-texto p {
+  white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   AÇÕES
+========================================================= */
+
+.pergunta-admin-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+.botao-responder-email,
+.botao-excluir-pergunta {
+  min-height: 44px;
+  padding: 11px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.botao-responder-email {
+  border: 1px solid #1b3a2a;
+  background: #1b3a2a;
+  color: #d8c8a4;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.botao-responder-email:hover {
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #1b3a2a;
+}
+
+
+.botao-excluir-pergunta {
+  border: 1px solid rgba(150, 50, 50, 0.35);
+  background: transparent;
+  color: #8b3d3d;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.botao-excluir-pergunta:hover {
+  background: #8b3d3d;
+  color: #fff;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.perguntas-admin-mensagem,
+.perguntas-admin-vazio {
+  width: min(700px, 100%);
+  min-height: 250px;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.perguntas-admin-mensagem svg,
+.perguntas-admin-vazio svg {
+  margin-bottom: 18px;
+  color: #d4af37;
+  font-size: 2rem;
+}
+
+
+.perguntas-admin-mensagem p,
+.perguntas-admin-vazio p {
+  margin: 0;
+  color: #687168;
+  line-height: 1.7;
+}
+
+
+.perguntas-admin-vazio h2 {
+  margin: 0 0 10px;
+  color: #1b3a2a;
+  font-size: 1.5rem;
+}
+
+
+.perguntas-admin-mensagem.erro p {
+  color: #8b3d3d;
+}
+
+
+.perguntas-admin-mensagem.erro button {
+  margin-top: 20px;
+  padding: 11px 22px;
+  border: 1px solid #1b3a2a;
+  background: #1b3a2a;
+  color: #d8c8a4;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .perguntas-admin {
+    padding: 40px 4%;
+  }
+
+
+  .perguntas-admin-header {
+    align-items: flex-start;
+  }
+
+
+  .perguntas-admin-header h1 {
+    font-size: 1.7rem;
+  }
+
+
+  .pergunta-admin-cabecalho {
+    padding: 17px;
+  }
+
+
+  .pergunta-admin-resumo {
+    padding-left: 78px;
+    padding-right: 17px;
+  }
+
+
+  .pergunta-admin-detalhes {
+    padding-left: 78px;
+    padding-right: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .perguntas-admin {
+    padding: 30px 15px 50px;
+  }
+
+
+  .perguntas-admin-header {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+
+  .perguntas-admin-titulo {
+    width: 100%;
+    gap: 12px;
+  }
+
+
+  .perguntas-admin-icone {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+
+
+  .perguntas-admin-header h1 {
+    font-size: 1.45rem;
+  }
+
+
+  .perguntas-admin-header p {
+    font-size: 0.82rem;
+  }
+
+
+  .perguntas-admin-total {
+    align-self: flex-start;
+    min-width: 75px;
+    padding: 9px 14px;
+  }
+
+
+  .pergunta-admin-cabecalho {
+    min-height: auto;
+    padding: 16px;
+    align-items: flex-start;
+  }
+
+
+  .pergunta-admin-principal {
+    gap: 11px;
+  }
+
+
+  .pergunta-admin-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .pergunta-admin-principal h2 {
+    font-size: 0.92rem;
+  }
+
+
+  .pergunta-admin-principal span {
+    font-size: 0.76rem;
+  }
+
+
+  .pergunta-admin-data {
+    display: none;
+  }
+
+
+  .pergunta-admin-resumo {
+    padding: 0 16px 18px 67px;
+  }
+
+
+  .pergunta-admin-resumo p {
+    font-size: 0.88rem;
+  }
+
+
+  .pergunta-admin-detalhes {
+    padding: 20px 16px;
+  }
+
+
+  .pergunta-admin-info {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+
+  .pergunta-admin-info p,
+  .pergunta-admin-texto p {
+    font-size: 0.88rem;
+  }
+
+
+  .pergunta-admin-acoes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .botao-responder-email,
+  .botao-excluir-pergunta {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .perguntas-admin {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .perguntas-admin-header h1 {
+    font-size: 1.3rem;
+  }
+
+
+  .pergunta-admin-resumo {
+    padding-left: 16px;
+  }
+
+}
