@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Galeria.css";
 
-
 import imagem001 from "../../assets/imagens/001.jpg";
 import imagem002 from "../../assets/imagens/002.jpg";
 import imagem003 from "../../assets/imagens/003.jpg";
@@ -40,135 +39,229 @@ import imagem035 from "../../assets/imagens/035.jpg";
 import imagem036 from "../../assets/imagens/036.jpg";
 import imagem037 from "../../assets/imagens/037.jpg";
 import imagem038 from "../../assets/imagens/038.jpg";
-
+import imagem039 from "../../assets/imagens/0039.jpeg";
 
 
 function Galeria() {
 
-
-  const [imagemSelecionada, setImagemSelecionada] = useState(null);
-
+  const [itemSelecionado, setItemSelecionado] = useState(null);
 
 
   const imagens = [
-
-    imagem001, imagem002, imagem003, imagem004,
-    imagem005, imagem006, imagem007, imagem008,
-    imagem009, imagem010, imagem011, imagem012,
-    imagem013, imagem014, imagem015, imagem016,
-    imagem017, imagem018, imagem019, imagem020,
-    imagem021, imagem022, imagem023, imagem024,
-    imagem025, imagem026, imagem027, imagem028,
-    imagem029, imagem030, imagem031, imagem032,
-    imagem033, imagem034, imagem035, imagem036,
-    imagem037, imagem038
-
+    imagem001,
+    imagem002,
+    imagem003,
+    imagem004,
+    imagem005,
+    imagem006,
+    imagem007,
+    imagem008,
+    imagem009,
+    imagem010,
+    imagem011,
+    imagem012,
+    imagem013,
+    imagem014,
+    imagem015,
+    imagem016,
+    imagem017,
+    imagem018,
+    imagem019,
+    imagem020,
+    imagem021,
+    imagem022,
+    imagem023,
+    imagem024,
+    imagem025,
+    imagem026,
+    imagem027,
+    imagem028,
+    imagem029,
+    imagem030,
+    imagem031,
+    imagem032,
+    imagem033,
+    imagem034,
+    imagem035,
+    imagem036,
+    imagem037,
+    imagem038,
+    imagem039
   ];
 
 
+  const videos = [
+    {
+      tipo: "video",
+      src: "/Videos/video1.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video2.mp4"
+    }
+  ];
+
+
+  const fecharModal = () => {
+    setItemSelecionado(null);
+  };
 
 
   return (
-
     <main className="pagina-galeria">
 
-
-
       <section className="titulo-galeria">
-
 
         <h1>
           Nossa Galeria
         </h1>
-
 
         <p>
           Momentos, encontros e experiências vividas
           no Espaço Xamânico Pena Branca.
         </p>
 
-
       </section>
 
 
+      {/* ===================================
+          FOTOS
+      =================================== */}
+
+      <section className="secao-galeria">
+
+        <h2 className="titulo-secao-galeria">
+          Fotos
+        </h2>
 
 
+        <div className="galeria-grid">
 
+          {imagens.map((imagem, index) => (
 
-      <section className="galeria-grid">
+            <div
+              key={index}
+              className="item-galeria"
+              onClick={() =>
+                setItemSelecionado({
+                  tipo: "imagem",
+                  src: imagem
+                })
+              }
+            >
 
+              <img
+                src={imagem}
+                alt={`Momento da galeria ${index + 1}`}
+              />
 
-        {imagens.map((imagem,index)=>(
+            </div>
 
-
-          <img
-
-            key={index}
-
-            src={imagem}
-
-            alt={`Momento da galeria ${index + 1}`}
-
-            onClick={() => setImagemSelecionada(imagem)}
-
-          />
-
-
-        ))}
-
-
-
-      </section>
-
-
-
-
-
-
-
-      {imagemSelecionada && (
-
-
-        <div
-
-          className="modal-galeria"
-
-          onClick={() => setImagemSelecionada(null)}
-
-        >
-
-
-          <button className="fechar-galeria">
-
-            ×
-
-          </button>
-
-
-
-          <img
-
-            src={imagemSelecionada}
-
-            alt="Imagem ampliada"
-
-          />
-
+          ))}
 
         </div>
 
+      </section>
+
+
+      {/* ===================================
+          VÍDEOS
+      =================================== */}
+
+      <section className="secao-galeria secao-videos">
+
+        <h2 className="titulo-secao-galeria">
+          Vídeos
+        </h2>
+
+
+        <div className="galeria-grid">
+
+          {videos.map((video, index) => (
+
+            <div
+              key={index}
+              className="item-galeria item-video"
+              onClick={() => setItemSelecionado(video)}
+            >
+
+              <div className="miniatura-video">
+
+                <video
+                  src={video.src}
+                  muted
+                  preload="metadata"
+                />
+
+                <div className="icone-video">
+                  <span>▶</span>
+                </div>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
+
+      {/* ===================================
+          MODAL
+      =================================== */}
+
+      {itemSelecionado && (
+
+        <div
+          className="modal-galeria"
+          onClick={fecharModal}
+        >
+
+          <button
+            type="button"
+            className="fechar-galeria"
+            onClick={fecharModal}
+            aria-label="Fechar galeria"
+          >
+            ×
+          </button>
+
+
+          <div
+            className="conteudo-modal-galeria"
+            onClick={(event) => event.stopPropagation()}
+          >
+
+            {itemSelecionado.tipo === "imagem" ? (
+
+              <img
+                src={itemSelecionado.src}
+                alt="Imagem ampliada"
+              />
+
+            ) : (
+
+              <video
+                className="video-modal-galeria"
+                src={itemSelecionado.src}
+                controls
+                autoPlay
+                playsInline
+              />
+
+            )}
+
+          </div>
+
+        </div>
 
       )}
 
-
-
     </main>
-
-
   );
-
 }
-
 
 
 export default Galeria;
