@@ -1,4 +1,6 @@
+
 import Hero from "../../components/Hero/Hero";
+import VideoCerimonia from "../../components/VideoCerimonia/VideoCerimonia";
 import CardEvento from "../../components/CardEvento/CardEvento";
 import Button from "../../components/Button/Button";
 import CardGaleria from "../../components/CardGaleria/CardGaleria";
@@ -8,9 +10,15 @@ function Home() {
   return (
     <>
       <Hero />
+
+      <VideoCerimonia />
+
       <CardEvento />
+
       <Button />
+
       <CardGaleria />
+
       <CardMedicina />
     </>
   );

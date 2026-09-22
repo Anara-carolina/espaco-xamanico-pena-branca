@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+
+import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
 import ScrollToTop from "./components/ScrollToTop";
-
-import VideoCerimonia from "./components/VideoCerimonia/VideoCerimonia";
 
 // ===============================
 // PÁGINAS PRINCIPAIS
@@ -49,24 +47,10 @@ import Rape from "./pages/MedicinaDetalhe/Rape";
 import Sananga from "./pages/MedicinaDetalhe/Sananga";
 import Kambo from "./pages/MedicinaDetalhe/Kambo";
 
-
 function AppContent() {
-  const location = useLocation();
-
-  const [videoAberto, setVideoAberto] = useState(
-    location.pathname === "/"
-  );
-
   return (
     <>
       <ScrollToTop />
-
-      {location.pathname === "/" && (
-        <VideoCerimonia
-          aberto={videoAberto}
-          fechar={() => setVideoAberto(false)}
-        />
-      )}
 
       <Routes>
 
@@ -79,7 +63,6 @@ function AppContent() {
           element={<Login />}
         />
 
-
         {/* =========================
             LOGIN ADMIN
         ========================= */}
@@ -88,7 +71,6 @@ function AppContent() {
           path="/admin"
           element={<LoginAdmin />}
         />
-
 
         {/* =========================
             DASHBOARD ADMIN
@@ -103,7 +85,6 @@ function AppContent() {
           }
         />
 
-
         {/* =========================
             GERENCIAR CERIMÔNIAS
         ========================= */}
@@ -116,7 +97,6 @@ function AppContent() {
             </AdminRoute>
           }
         />
-
 
         {/* =========================
             LISTA DE ANAMNESES
@@ -131,7 +111,6 @@ function AppContent() {
           }
         />
 
-
         {/* =========================
             DETALHE DA ANAMNESE
         ========================= */}
@@ -144,7 +123,6 @@ function AppContent() {
             </AdminRoute>
           }
         />
-
 
         {/* =========================
             AUTORIZAÇÕES DE MENORES
@@ -159,7 +137,6 @@ function AppContent() {
           }
         />
 
-
         {/* =========================
             MENSAGENS DE CONTATO
         ========================= */}
@@ -172,7 +149,6 @@ function AppContent() {
             </AdminRoute>
           }
         />
-
 
         {/* =========================
             PERGUNTAS RECEBIDAS
@@ -187,7 +163,6 @@ function AppContent() {
           }
         />
 
-
         {/* =========================
             ANAMNESE DO PARTICIPANTE
         ========================= */}
@@ -200,7 +175,6 @@ function AppContent() {
             </PrivateRoute>
           }
         />
-
 
         {/* =========================
             SITE PRINCIPAL
@@ -243,7 +217,6 @@ function AppContent() {
             element={<Perguntas />}
           />
 
-
           {/* =========================
               MEDICINAS
           ========================= */}
@@ -275,10 +248,8 @@ function AppContent() {
   );
 }
 
-
 function App() {
   return <AppContent />;
 }
-
 
 export default App;
