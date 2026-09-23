@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./Galeria.css";
 
@@ -41,11 +42,39 @@ import imagem037 from "../../assets/imagens/037.jpg";
 import imagem038 from "../../assets/imagens/038.jpg";
 import imagem039 from "../../assets/imagens/0039.jpeg";
 
+import imagem0040 from "../../assets/imagens/0040.jpeg";
+import imagem0041 from "../../assets/imagens/0041.jpeg";
+import imagem0042 from "../../assets/imagens/0042.jpeg";
+import imagem0043 from "../../assets/imagens/0043.jpeg";
+import imagem0044 from "../../assets/imagens/0044.jpeg";
+import imagem0045 from "../../assets/imagens/0045.jpeg";
+import imagem0046 from "../../assets/imagens/0046.jpeg";
+import imagem0047 from "../../assets/imagens/0047.jpeg";
+import imagem0048 from "../../assets/imagens/0048.jpeg";
+import imagem0049 from "../../assets/imagens/0049.jpeg";
+import imagem0050 from "../../assets/imagens/0050.jpeg";
+import imagem0051 from "../../assets/imagens/0051.jpeg";
+import imagem0052 from "../../assets/imagens/0052.jpeg";
+import imagem0053 from "../../assets/imagens/0053.jpeg";
+import imagem0054 from "../../assets/imagens/0054.jpeg";
+import imagem0055 from "../../assets/imagens/0055.jpeg";
+import imagem0056 from "../../assets/imagens/0056.jpeg";
+import imagem0057 from "../../assets/imagens/0057.jpeg";
+import imagem0058 from "../../assets/imagens/0058.jpeg";
+import imagem0059 from "../../assets/imagens/0059.jpeg";
+import imagem0060 from "../../assets/imagens/0060.jpeg";
+import imagem0061 from "../../assets/imagens/0061.jpeg";
+import imagem0062 from "../../assets/imagens/0062.jpeg";
+
 
 function Galeria() {
 
   const [itemSelecionado, setItemSelecionado] = useState(null);
 
+
+  /* ===================================
+     TODAS AS FOTOS
+  =================================== */
 
   const imagens = [
     imagem001,
@@ -86,9 +115,37 @@ function Galeria() {
     imagem036,
     imagem037,
     imagem038,
-    imagem039
+    imagem039,
+
+    imagem0040,
+    imagem0041,
+    imagem0042,
+    imagem0043,
+    imagem0044,
+    imagem0045,
+    imagem0046,
+    imagem0047,
+    imagem0048,
+    imagem0049,
+    imagem0050,
+    imagem0051,
+    imagem0052,
+    imagem0053,
+    imagem0054,
+    imagem0055,
+    imagem0056,
+    imagem0057,
+    imagem0058,
+    imagem0059,
+    imagem0060,
+    imagem0061,
+    imagem0062
   ];
 
+
+  /* ===================================
+     TODOS OS VÍDEOS
+  =================================== */
 
   const videos = [
     {
@@ -98,9 +155,46 @@ function Galeria() {
     {
       tipo: "video",
       src: "/Videos/video2.mp4"
-    }
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video3.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video4.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video5.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video6.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video7.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video8.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video9.mp4"
+    },
+    {
+      tipo: "video",
+      src: "/Videos/video10.mp4"
+    },
+    
   ];
 
+
+  /* ===================================
+     FECHAR MODAL
+  =================================== */
 
   const fecharModal = () => {
     setItemSelecionado(null);
@@ -108,7 +202,13 @@ function Galeria() {
 
 
   return (
+
     <main className="pagina-galeria">
+
+
+      {/* ===================================
+          TÍTULO
+      =================================== */}
 
       <section className="titulo-galeria">
 
@@ -153,6 +253,7 @@ function Galeria() {
               <img
                 src={imagem}
                 alt={`Momento da galeria ${index + 1}`}
+                loading="lazy"
               />
 
             </div>
@@ -191,6 +292,7 @@ function Galeria() {
                   src={video.src}
                   muted
                   preload="metadata"
+                  playsInline
                 />
 
                 <div className="icone-video">

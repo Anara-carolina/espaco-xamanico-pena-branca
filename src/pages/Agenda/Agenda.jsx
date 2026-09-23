@@ -13,6 +13,7 @@ import imagemCrianca from "../../assets/imagens/ccrianca.jpg";
 
 import imagemAgosto from "../../assets/imagens/cerimoniaagosto.jpeg";
 import imagemSetembro from "../../assets/imagens/cerimoniasetembro.jpeg";
+import imagemOutubro from "../../assets/imagens/cerimoniaoutubro.jpeg";
 
 
 function Agenda() {
@@ -40,7 +41,9 @@ function Agenda() {
 
       cerimonia_agosto: imagemAgosto,
 
-      cerimonia_setembro: imagemSetembro
+      cerimonia_setembro: imagemSetembro,
+
+      cerimonia_outubro: imagemOutubro
 
     };
 
@@ -65,6 +68,20 @@ function Agenda() {
       // =================================================
 
       const eventosFixos = [
+
+        {
+          id: "outubro-2026",
+
+          data: "OUT/A DEFINIR",
+
+          titulo: "Cerimônia na força de Juramidam",
+
+          descricao:
+            "Um encontro de conexão, presença e respeito à medicina da floresta.",
+
+          imagem: "cerimonia_outubro"
+        },
+
 
         {
           id: "setembro-2026",
@@ -99,8 +116,9 @@ function Agenda() {
       // =================================================
       // ORDEM DA AGENDA
       // =================================================
-      // Setembro primeiro
-      // Agosto segundo
+      // Outubro primeiro
+      // Setembro segundo
+      // Agosto terceiro
       // Depois as cerimônias cadastradas no Firebase
       // =================================================
 

@@ -1,70 +1,148 @@
-/* ===================================
+/* =====================================================
    PÁGINA GALERIA
-=================================== */
+===================================================== */
 
 .pagina-galeria {
-
   width: 100vw;
   max-width: none;
+  min-height: 100vh;
 
   margin-left: 50%;
   transform: translateX(-50%);
 
-  min-height: 100vh;
-
-  box-sizing: border-box;
-
   background: #d8c8a4;
 
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 
-/* ===================================
-   TÍTULO
-=================================== */
+/* =====================================================
+   TÍTULO PRINCIPAL
+===================================================== */
 
 .titulo-galeria {
-
   width: 100%;
+  box-sizing: border-box;
+
+  padding: 80px 20px 55px;
+
+  background: #d8c8a4;
+
+  text-align: center;
+}
+
+.titulo-galeria h1 {
+  margin: 0 0 15px;
+
+  color: #1B3A2A;
+
+  font-size: 3rem;
+  font-weight: 600;
+
+  line-height: 1.2;
+}
+
+.titulo-galeria p {
+  max-width: 750px;
+
+  margin: 0 auto;
+
+  color: #1B3A2A;
+
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.secao-galeria {
+  width: 100%;
+
+  margin: 0;
+  padding: 0 0 70px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   SEÇÃO FOTOS
+===================================================== */
+
+.secao-galeria:not(.secao-videos) {
+  background: #1B3A2A;
+}
+
+
+/* =====================================================
+   SEÇÃO VÍDEOS
+===================================================== */
+
+.secao-videos {
+  background: #d8c8a4;
+}
+
+
+/* =====================================================
+   TÍTULO DAS SEÇÕES
+===================================================== */
+
+.titulo-secao-galeria {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 30px 20px;
 
   box-sizing: border-box;
 
   text-align: center;
 
-  padding: 80px 20px 40px;
+  font-size: 2rem;
+  font-weight: 500;
+
+  letter-spacing: 1px;
+
+  line-height: 1.2;
 }
 
 
-.titulo-galeria h1 {
+/* =====================================================
+   TÍTULO FOTOS
+===================================================== */
+
+.secao-galeria:not(.secao-videos) .titulo-secao-galeria {
+  background: #1B3A2A;
+
+  color: #d8c8a4;
+}
+
+
+/* =====================================================
+   TÍTULO VÍDEOS
+===================================================== */
+
+.secao-videos .titulo-secao-galeria {
+  background: #d8c8a4;
 
   color: #1B3A2A;
-
-  font-size: 3rem;
-
-  margin: 0 0 15px;
 }
 
 
-.titulo-galeria p {
-
-  font-size: 1.2rem;
-
-  margin: 0;
-}
-
-
-/* ===================================
+/* =====================================================
    GRID
-=================================== */
+===================================================== */
 
 .galeria-grid {
-
   width: 100%;
 
-  box-sizing: border-box;
+  padding: 15px 8% 0;
 
-  padding: 40px 8%;
+  box-sizing: border-box;
 
   display: grid;
 
@@ -74,112 +152,101 @@
 }
 
 
-/* ===================================
-   ITEM
-=================================== */
+/* =====================================================
+   ITEM DA GALERIA
+===================================================== */
 
 .item-galeria {
+  position: relative;
 
   width: 100%;
-
   height: 280px;
+
+  overflow: hidden;
 
   border-radius: 15px;
 
-  overflow: hidden;
+  background: #0f241a;
 
   cursor: pointer;
 
-  position: relative;
-
-  background: #1B3A2A;
-
-  transition: transform .4s;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
 }
-
 
 .item-galeria:hover {
+  transform: scale(1.025);
 
-  transform: scale(1.05);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, .25);
 }
 
 
-/* ===================================
+/* =====================================================
    IMAGENS
-=================================== */
+===================================================== */
 
 .item-galeria img {
+  display: block;
 
   width: 100%;
-
   height: 100%;
 
   object-fit: cover;
-
-  display: block;
 }
 
 
-/* ===================================
-   MINIATURA DO VÍDEO
-=================================== */
+/* =====================================================
+   VÍDEO MINIATURA
+===================================================== */
 
 .miniatura-video {
-
-  width: 100%;
-
-  height: 100%;
-
   position: relative;
 
-  background: #000;
+  width: 100%;
+  height: 100%;
 
   overflow: hidden;
+
+  background: #000;
 }
 
-
 .miniatura-video video {
+  display: block;
 
   width: 100%;
-
   height: 100%;
 
   object-fit: cover;
 
-  display: block;
-
-  opacity: .75;
+  opacity: .78;
 }
 
 
-/* ===================================
-   ÍCONE DO VÍDEO
-=================================== */
+/* =====================================================
+   ÍCONE DE PLAY
+===================================================== */
 
 .icone-video {
-
   position: absolute;
 
   top: 50%;
-
   left: 50%;
 
   transform: translate(-50%, -50%);
 
   width: 65px;
-
   height: 65px;
 
   border-radius: 50%;
 
-  background: rgba(27, 58, 42, .9);
+  background: rgba(27, 58, 42, .92);
 
   border: 2px solid #D4AF37;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   color: #D4AF37;
@@ -192,14 +259,15 @@
 }
 
 
-.titulo-video {
+/* =====================================================
+   TÍTULO DO VÍDEO
+===================================================== */
 
+.titulo-video {
   position: absolute;
 
   left: 0;
-
   right: 0;
-
   bottom: 0;
 
   padding: 15px;
@@ -214,90 +282,81 @@
   color: #ffffff;
 
   font-size: 1rem;
-
   font-weight: 500;
 
   text-align: center;
 }
 
 
-/* ===================================
+/* =====================================================
    MODAL
-=================================== */
+===================================================== */
 
 .modal-galeria {
-
   position: fixed;
 
   inset: 0;
 
   width: 100vw;
-
   height: 100vh;
-
-  background: rgba(0, 0, 0, .92);
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  z-index: 9999;
 
   padding: 20px;
 
   box-sizing: border-box;
+
+  background: rgba(0, 0, 0, .92);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
 }
 
 
-/* ===================================
+/* =====================================================
    CONTEÚDO DO MODAL
-=================================== */
+===================================================== */
 
 .conteudo-modal-galeria {
-
   max-width: 92vw;
-
   max-height: 90vh;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 }
 
 
+/* =====================================================
+   IMAGEM NO MODAL
+===================================================== */
+
 .conteudo-modal-galeria img {
-
-  max-width: 92vw;
-
-  max-height: 90vh;
+  display: block;
 
   width: auto;
-
   height: auto;
+
+  max-width: 92vw;
+  max-height: 90vh;
 
   object-fit: contain;
 
   border-radius: 15px;
-
-  display: block;
 }
 
 
-/* ===================================
+/* =====================================================
    VÍDEO NO MODAL
-=================================== */
+===================================================== */
 
 .video-modal-galeria {
+  display: block;
 
   width: min(1000px, 92vw);
 
   max-height: 85vh;
-
-  display: block;
 
   background: #000;
 
@@ -305,21 +364,20 @@
 }
 
 
-/* ===================================
+/* =====================================================
    BOTÃO FECHAR
-=================================== */
+===================================================== */
 
 .fechar-galeria {
-
   position: absolute;
 
   top: 25px;
-
   right: 35px;
 
   width: 45px;
-
   height: 45px;
+
+  padding: 0;
 
   background: transparent;
 
@@ -335,43 +393,59 @@
 
   z-index: 10000;
 
-  padding: 0;
+  transition: color .2s ease;
 }
 
-
 .fechar-galeria:hover {
-
   color: #D4AF37;
 }
 
 
-/* ===================================
-   TABLET / NOTEBOOK
-=================================== */
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media (max-width: 1000px) {
 
-  .galeria-grid {
-
-    grid-template-columns: repeat(2, 1fr);
-
-    padding: 30px 5%;
+  .titulo-galeria {
+    padding: 65px 20px 45px;
   }
 
+  .titulo-galeria h1 {
+    font-size: 2.5rem;
+  }
+
+  .titulo-galeria p {
+    font-size: 1.05rem;
+  }
+
+  .titulo-secao-galeria {
+    padding: 26px 20px;
+    font-size: 1.8rem;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 15px 5% 0;
+
+    gap: 18px;
+  }
+
+  .item-galeria {
+    height: 250px;
+  }
 }
 
 
-/* ===================================
+/* =====================================================
    MOBILE
-=================================== */
+===================================================== */
 
 @media (max-width: 600px) {
 
   .pagina-galeria {
-
     width: 100%;
-
-    max-width: none;
 
     margin-left: 0;
 
@@ -379,79 +453,171 @@
   }
 
 
-  .titulo-galeria {
+  /* ---------------------------------------------
+     TÍTULO PRINCIPAL
+  --------------------------------------------- */
 
-    padding: 50px 20px 20px;
+  .titulo-galeria {
+    padding: 45px 20px 30px;
   }
 
-
   .titulo-galeria h1 {
+    margin-bottom: 10px;
 
     font-size: 2rem;
   }
 
-
   .titulo-galeria p {
+    font-size: .95rem;
 
-    font-size: 1rem;
+    line-height: 1.5;
   }
 
+
+  /* ---------------------------------------------
+     SEÇÕES
+  --------------------------------------------- */
+
+  .secao-galeria {
+    padding-bottom: 40px;
+  }
+
+
+  /* ---------------------------------------------
+     TÍTULOS
+  --------------------------------------------- */
+
+  .titulo-secao-galeria {
+    padding: 19px 15px;
+
+    font-size: 1.5rem;
+
+    letter-spacing: .5px;
+  }
+
+
+  /* ---------------------------------------------
+     GRID
+  --------------------------------------------- */
 
   .galeria-grid {
-
     width: 100%;
 
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
 
-    padding: 30px 20px;
+    padding: 12px 12px 0;
 
-    gap: 20px;
+    gap: 12px;
   }
 
+
+  /* ---------------------------------------------
+     ITENS
+  --------------------------------------------- */
 
   .item-galeria {
+    height: 180px;
 
-    height: 350px;
+    border-radius: 10px;
+  }
+
+  .item-galeria:hover {
+    transform: none;
+
+    box-shadow: none;
   }
 
 
-  .fechar-galeria {
+  /* ---------------------------------------------
+     PLAY
+  --------------------------------------------- */
 
-    top: 15px;
+  .icone-video {
+    width: 48px;
+    height: 48px;
 
-    right: 20px;
-
-    font-size: 38px;
+    font-size: 18px;
   }
 
+
+  /* ---------------------------------------------
+     MODAL
+  --------------------------------------------- */
 
   .modal-galeria {
-
-    padding: 15px;
+    padding: 10px;
   }
-
 
   .conteudo-modal-galeria {
-
-    max-width: 95vw;
-
-    max-height: 85vh;
+    max-width: 96vw;
+    max-height: 88vh;
   }
-
 
   .conteudo-modal-galeria img {
+    max-width: 96vw;
+    max-height: 88vh;
 
-    max-width: 95vw;
-
-    max-height: 85vh;
+    border-radius: 10px;
   }
-
 
   .video-modal-galeria {
-
-    width: 95vw;
+    width: 96vw;
 
     max-height: 80vh;
+
+    border-radius: 8px;
   }
 
+
+  /* ---------------------------------------------
+     FECHAR
+  --------------------------------------------- */
+
+  .fechar-galeria {
+    top: 10px;
+    right: 12px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 36px;
+  }
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .titulo-galeria {
+    padding-top: 40px;
+  }
+
+  .titulo-galeria h1 {
+    font-size: 1.8rem;
+  }
+
+  .titulo-galeria p {
+    font-size: .9rem;
+  }
+
+  .titulo-secao-galeria {
+    padding: 16px 15px;
+
+    font-size: 1.35rem;
+  }
+
+  .galeria-grid {
+    padding: 10px 10px 0;
+
+    gap: 10px;
+  }
+
+  .item-galeria {
+    height: 160px;
+
+    border-radius: 8px;
+  }
 }
