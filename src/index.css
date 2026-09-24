@@ -1,5 +1,13 @@
+
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
 html {
   color-scheme: light;
+
+  width: 100%;
+  min-height: 100%;
 }
 
 :root {
@@ -8,79 +16,150 @@ html {
   --bg: #ffffff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
+
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
+
   --social-bg: rgba(244, 243, 236, 0.5);
+
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
+
   letter-spacing: 0.18px;
 
-  color-scheme: light;
   color: var(--text);
   background: var(--bg);
 
+  color-scheme: light;
+
   font-synthesis: none;
+
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  box-sizing: border-box;
 }
 
-@media (max-width: 1024px) {
-  :root {
-    font-size: 16px;
-  }
+
+/* =====================================================
+   BOX SIZING GLOBAL
+===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HTML / BODY
+===================================================== */
+
+html,
+body {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   color: var(--text);
   background: var(--bg);
+
+  overflow-x: hidden;
 }
 
+
+/* =====================================================
+   ROOT DO REACT
+===================================================== */
+
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  width: 100%;
+  max-width: none;
+
+  min-width: 0;
   min-height: 100svh;
+
+  margin: 0;
+  padding: 0;
+
   display: flex;
   flex-direction: column;
+
+  text-align: center;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   ELEMENTOS PRINCIPAIS
+===================================================== */
+
+main {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
   box-sizing: border-box;
 }
+
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
 
 h1,
 h2 {
   font-family: var(--heading);
+
   font-weight: 500;
+
   color: var(--text-h);
 }
 
 h1 {
   font-size: 56px;
+
   letter-spacing: -1.68px;
+
   margin: 32px 0;
 }
 
 @media (max-width: 1024px) {
   h1 {
     font-size: 36px;
+
     margin: 20px 0;
   }
 }
 
 h2 {
   font-size: 24px;
+
   line-height: 118%;
+
   letter-spacing: -0.24px;
+
   margin: 0 0 8px;
 }
 
@@ -90,29 +169,46 @@ h2 {
   }
 }
 
+
+/* =====================================================
+   PARÁGRAFOS
+===================================================== */
+
 p {
   margin: 0;
 }
 
+
+/* =====================================================
+   CÓDIGO
+===================================================== */
+
 code,
 .counter {
   font-family: var(--mono);
+
   display: inline-flex;
+
   border-radius: 4px;
+
   color: var(--text-h);
 }
 
 code {
   font-size: 15px;
+
   line-height: 135%;
+
   padding: 4px 8px;
+
   background: var(--code-bg);
 }
 
-/* ===========================
+
+/* =====================================================
    CAMPOS FIXOS
    IGNORA MODO ESCURO DO CELULAR
-=========================== */
+===================================================== */
 
 input,
 textarea,
@@ -121,41 +217,101 @@ select {
   -webkit-appearance: none;
 
   color: #2b2b2b !important;
+
   background-color: #ffffff !important;
+
   border: 1px solid #cccccc;
 
   -webkit-text-fill-color: #2b2b2b !important;
+
   caret-color: #2b2b2b !important;
 }
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
 
 input::placeholder,
 textarea::placeholder {
   color: #777777 !important;
+
   opacity: 1;
 }
+
+
+/* =====================================================
+   FOCO DOS CAMPOS
+===================================================== */
 
 input:focus,
 textarea:focus,
 select:focus {
   color: #2b2b2b !important;
+
   background-color: #ffffff !important;
+
   -webkit-text-fill-color: #2b2b2b !important;
+
   outline: none;
 }
 
-/* Chrome / Android autofill */
+
+/* =====================================================
+   CHROME / ANDROID AUTOFILL
+===================================================== */
+
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   -webkit-text-fill-color: #2b2b2b !important;
-  box-shadow: 0 0 0px 1000px #ffffff inset !important;
-  transition: background-color 9999s ease-in-out 0s;
+
+  box-shadow:
+    0 0 0px 1000px #ffffff inset !important;
+
+  transition:
+    background-color 9999s ease-in-out 0s;
 }
 
-/* Safari / iPhone */
+
+/* =====================================================
+   SAFARI / IPHONE AUTOFILL
+===================================================== */
+
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: #2b2b2b !important;
-  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+
+  box-shadow:
+    0 0 0px 1000px #ffffff inset !important;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE GLOBAL
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+
+/* =====================================================
+   GARANTE LARGURA TOTAL EM TELAS GRANDES
+===================================================== */
+
+@media (min-width: 1025px) {
+  html,
+  body,
+  #root,
+  main {
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

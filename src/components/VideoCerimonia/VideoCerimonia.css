@@ -5,6 +5,8 @@
 
 .video-cerimonia {
   width: 100vw;
+  max-width: none;
+
   margin-left: calc(50% - 50vw);
 
   box-sizing: border-box;
@@ -12,6 +14,8 @@
   background: #1B3A2A;
 
   padding: 70px 20px 85px;
+
+  overflow: hidden;
 }
 
 
@@ -21,6 +25,7 @@
 
 .video-cerimonia-container {
   width: 100%;
+  max-width: none;
 
   margin: 0 auto;
 
@@ -94,10 +99,14 @@
 
 .video-cerimonia-video-wrapper {
   width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
 
   display: flex;
-  justify-content: center;
+
   align-items: center;
+  justify-content: center;
 
   box-sizing: border-box;
 }
@@ -110,10 +119,15 @@
 .video-cerimonia-video {
   display: block;
 
-  width: 65%;
-  max-width: 850px;
+  width: min(850px, 80vw);
 
-  max-height: 500px;
+  height: auto;
+
+  max-width: 100%;
+
+  max-height: 70vh;
+
+  aspect-ratio: 16 / 9;
 
   background: #000;
 
@@ -140,9 +154,16 @@
     padding-bottom: 95px;
   }
 
+  .video-cerimonia-video-wrapper {
+    max-width: 1200px;
+  }
+
   .video-cerimonia-video {
-    width: 60%;
-    max-width: 850px;
+    width: 850px;
+
+    max-width: 80vw;
+
+    max-height: 70vh;
   }
 }
 
@@ -157,9 +178,18 @@
     padding: 60px 20px 75px;
   }
 
+  .video-cerimonia-video-wrapper {
+    max-width: 900px;
+  }
+
   .video-cerimonia-video {
-    width: 75%;
+    width: 78vw;
+
     max-width: 800px;
+
+    max-height: 65vh;
+
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -252,6 +282,8 @@
   .video-cerimonia-video-wrapper {
     width: 100%;
 
+    max-width: none;
+
     padding: 0 18px;
 
     box-sizing: border-box;
@@ -263,15 +295,23 @@
   =================================================== */
 
   .video-cerimonia-video {
+    display: block;
+
     width: 100%;
 
     max-width: 520px;
 
-    max-height: 70vh;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    max-height: none;
 
     border: 1px solid rgba(212, 175, 55, 0.5);
 
     border-radius: 12px;
+
+    object-fit: contain;
 
     box-shadow:
       0 15px 35px rgba(0, 0, 0, 0.5),
@@ -288,28 +328,42 @@
 
   .video-cerimonia {
     padding-top: 45px;
+
     padding-bottom: 55px;
   }
 
+
   .video-cerimonia-chamada {
     font-size: 0.82rem;
+
     letter-spacing: 1.3px;
   }
+
 
   .video-cerimonia-titulo {
     font-size: 1.6rem;
   }
 
+
   .video-cerimonia-juramidam {
     font-size: 1rem;
+
     margin-bottom: 24px;
   }
+
 
   .video-cerimonia-video-wrapper {
     padding: 0 14px;
   }
 
+
   .video-cerimonia-video {
+    width: 100%;
+
+    max-width: 100%;
+
+    aspect-ratio: 16 / 9;
+
     border-radius: 10px;
   }
 }

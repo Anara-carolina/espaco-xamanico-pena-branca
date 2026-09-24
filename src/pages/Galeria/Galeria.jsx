@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Galeria.css";
 
 import imagem001 from "../../assets/imagens/001.jpg";
@@ -40,8 +39,8 @@ import imagem035 from "../../assets/imagens/035.jpg";
 import imagem036 from "../../assets/imagens/036.jpg";
 import imagem037 from "../../assets/imagens/037.jpg";
 import imagem038 from "../../assets/imagens/038.jpg";
-import imagem039 from "../../assets/imagens/0039.jpeg";
 
+import imagem039 from "../../assets/imagens/0039.jpeg";
 import imagem0040 from "../../assets/imagens/0040.jpeg";
 import imagem0041 from "../../assets/imagens/0041.jpeg";
 import imagem0042 from "../../assets/imagens/0042.jpeg";
@@ -66,15 +65,9 @@ import imagem0060 from "../../assets/imagens/0060.jpeg";
 import imagem0061 from "../../assets/imagens/0061.jpeg";
 import imagem0062 from "../../assets/imagens/0062.jpeg";
 
-
 function Galeria() {
-
+  const [tipoSelecionado, setTipoSelecionado] = useState("fotos");
   const [itemSelecionado, setItemSelecionado] = useState(null);
-
-
-  /* ===================================
-     TODAS AS FOTOS
-  =================================== */
 
   const imagens = [
     imagem001,
@@ -116,7 +109,6 @@ function Galeria() {
     imagem037,
     imagem038,
     imagem039,
-
     imagem0040,
     imagem0041,
     imagem0042,
@@ -142,180 +134,207 @@ function Galeria() {
     imagem0062
   ];
 
-
-  /* ===================================
-     TODOS OS VÍDEOS
-  =================================== */
-
   const videos = [
-    {
-      tipo: "video",
-      src: "/Videos/video1.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video2.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video3.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video4.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video5.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video6.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video7.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video8.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video9.mp4"
-    },
-    {
-      tipo: "video",
-      src: "/Videos/video10.mp4"
-    },
-    
+    "/Videos/video1.mp4",
+    "/Videos/video2.mp4",
+    "/Videos/video3.mp4",
+    "/Videos/video4.mp4",
+    "/Videos/video5.mp4",
+    "/Videos/video6.mp4",
+    "/Videos/video7.mp4",
+    "/Videos/video8.mp4",
+    "/Videos/video9.mp4",
+    "/Videos/video10.mp4"
   ];
 
-
-  /* ===================================
-     FECHAR MODAL
-  =================================== */
+  const itensAtuais =
+    tipoSelecionado === "fotos"
+      ? imagens
+      : videos;
 
   const fecharModal = () => {
     setItemSelecionado(null);
   };
 
+  const abrirItem = (index) => {
+    setItemSelecionado({
+      tipo: tipoSelecionado,
+      index
+    });
+  };
+
+  const itemAnterior = (event) => {
+    event.stopPropagation();
+
+    if (!itemSelecionado) {
+      return;
+    }
+
+    const novoIndex =
+      itemSelecionado.index === 0
+        ? itensAtuais.length - 1
+        : itemSelecionado.index - 1;
+
+    setItemSelecionado({
+      tipo: itemSelecionado.tipo,
+      index: novoIndex
+    });
+  };
+
+  const proximoItem = (event) => {
+    event.stopPropagation();
+
+    if (!itemSelecionado) {
+      return;
+    }
+
+    const novoIndex =
+      itemSelecionado.index === itensAtuais.length - 1
+        ? 0
+        : itemSelecionado.index + 1;
+
+    setItemSelecionado({
+      tipo: itemSelecionado.tipo,
+      index: novoIndex
+    });
+  };
+
+  const trocarTipo = (tipo) => {
+    setTipoSelecionado(tipo);
+    setItemSelecionado(null);
+  };
+
+  useEffect(() => {
+    const pressionarTecla = (event) => {
+      if (!itemSelecionado) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        fecharModal();
+      }
+
+      if (event.key === "ArrowLeft") {
+        itemAnterior(event);
+      }
+
+      if (event.key === "ArrowRight") {
+        proximoItem(event);
+      }
+    };
+
+    window.addEventListener("keydown", pressionarTecla);
+
+    return () => {
+      window.removeEventListener("keydown", pressionarTecla);
+    };
+  }, [itemSelecionado, itensAtuais.length]);
 
   return (
-
     <main className="pagina-galeria">
 
-
-      {/* ===================================
-          TÍTULO
-      =================================== */}
-
       <section className="titulo-galeria">
-
-        <h1>
-          Nossa Galeria
-        </h1>
+        <h1>Nossa Galeria</h1>
 
         <p>
           Momentos, encontros e experiências vividas
           no Espaço Xamânico Pena Branca.
         </p>
 
-      </section>
+        <div className="filtros-galeria">
 
+          <button
+            type="button"
+            className={
+              tipoSelecionado === "fotos"
+                ? "filtro-galeria ativo"
+                : "filtro-galeria"
+            }
+            onClick={() => trocarTipo("fotos")}
+          >
+            Fotos
+          </button>
 
-      {/* ===================================
-          FOTOS
-      =================================== */}
-
-      <section className="secao-galeria">
-
-        <h2 className="titulo-secao-galeria">
-          Fotos
-        </h2>
-
-
-        <div className="galeria-grid">
-
-          {imagens.map((imagem, index) => (
-
-            <div
-              key={index}
-              className="item-galeria"
-              onClick={() =>
-                setItemSelecionado({
-                  tipo: "imagem",
-                  src: imagem
-                })
-              }
-            >
-
-              <img
-                src={imagem}
-                alt={`Momento da galeria ${index + 1}`}
-                loading="lazy"
-              />
-
-            </div>
-
-          ))}
+          <button
+            type="button"
+            className={
+              tipoSelecionado === "videos"
+                ? "filtro-galeria ativo"
+                : "filtro-galeria"
+            }
+            onClick={() => trocarTipo("videos")}
+          >
+            Vídeos
+          </button>
 
         </div>
-
       </section>
 
 
-      {/* ===================================
-          VÍDEOS
-      =================================== */}
-
-      <section className="secao-galeria secao-videos">
-
-        <h2 className="titulo-secao-galeria">
-          Vídeos
-        </h2>
-
+      <section
+        className={
+          tipoSelecionado === "fotos"
+            ? "secao-galeria modo-fotos"
+            : "secao-galeria modo-videos"
+        }
+      >
 
         <div className="galeria-grid">
 
-          {videos.map((video, index) => (
-
-            <div
-              key={index}
-              className="item-galeria item-video"
-              onClick={() => setItemSelecionado(video)}
-            >
-
-              <div className="miniatura-video">
-
-                <video
-                  src={video.src}
-                  muted
-                  preload="metadata"
-                  playsInline
+          {tipoSelecionado === "fotos" &&
+            imagens.map((imagem, index) => (
+              <button
+                type="button"
+                key={imagem}
+                className="item-galeria item-imagem"
+                onClick={() => abrirItem(index)}
+                aria-label={`Abrir foto ${index + 1}`}
+              >
+                <img
+                  src={imagem}
+                  alt={`Momento da galeria ${index + 1}`}
+                  loading="lazy"
                 />
+              </button>
+            ))
+          }
 
-                <div className="icone-video">
-                  <span>▶</span>
+
+          {tipoSelecionado === "videos" &&
+            videos.map((video, index) => (
+              <button
+                type="button"
+                key={video}
+                className="item-galeria item-video"
+                onClick={() => abrirItem(index)}
+                aria-label={`Abrir vídeo ${index + 1}`}
+              >
+
+                <div className="miniatura-video">
+
+                  <video
+                    src={video}
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+
+                  <div className="icone-video">
+                    <span>▶</span>
+                  </div>
+
                 </div>
 
-              </div>
-
-            </div>
-
-          ))}
+              </button>
+            ))
+          }
 
         </div>
 
       </section>
 
 
-      {/* ===================================
-          MODAL
-      =================================== */}
-
       {itemSelecionado && (
-
         <div
           className="modal-galeria"
           onClick={fecharModal}
@@ -331,39 +350,62 @@ function Galeria() {
           </button>
 
 
+          <button
+            type="button"
+            className="navegacao-galeria anterior-galeria"
+            onClick={itemAnterior}
+            aria-label="Item anterior"
+          >
+            ‹
+          </button>
+
+
           <div
             className="conteudo-modal-galeria"
             onClick={(event) => event.stopPropagation()}
           >
 
-            {itemSelecionado.tipo === "imagem" ? (
-
+            {itemSelecionado.tipo === "fotos" ? (
               <img
-                src={itemSelecionado.src}
-                alt="Imagem ampliada"
+                src={imagens[itemSelecionado.index]}
+                alt={`Foto ${itemSelecionado.index + 1}`}
               />
-
             ) : (
-
               <video
+                key={videos[itemSelecionado.index]}
                 className="video-modal-galeria"
-                src={itemSelecionado.src}
+                src={videos[itemSelecionado.index]}
                 controls
                 autoPlay
                 playsInline
-              />
-
+                preload="auto"
+              >
+                Seu navegador não conseguiu reproduzir este vídeo.
+              </video>
             )}
 
           </div>
 
-        </div>
 
+          <button
+            type="button"
+            className="navegacao-galeria proximo-galeria"
+            onClick={proximoItem}
+            aria-label="Próximo item"
+          >
+            ›
+          </button>
+
+
+          <div className="contador-galeria">
+            {itemSelecionado.index + 1} / {itensAtuais.length}
+          </div>
+
+        </div>
       )}
 
     </main>
   );
 }
-
 
 export default Galeria;

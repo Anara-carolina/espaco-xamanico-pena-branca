@@ -22,10 +22,13 @@ function VideoCerimonia() {
           <video
             className="video-cerimonia-video"
             src="/Videos/juramidam.mp4"
+            poster="/Imagens/juramidam-preview.jpg"
             controls
             playsInline
             preload="metadata"
-          />
+          >
+            Seu navegador não suporta a reprodução de vídeo.
+          </video>
         </div>
 
       </div>
