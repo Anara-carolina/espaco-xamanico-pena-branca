@@ -65,6 +65,134 @@ import imagem0060 from "../../assets/imagens/0060.jpeg";
 import imagem0061 from "../../assets/imagens/0061.jpeg";
 import imagem0062 from "../../assets/imagens/0062.jpeg";
 
+
+function MiniaturaVideo({ src }) {
+  const [poster, setPoster] = useState("");
+
+  useEffect(() => {
+    let video;
+    let canvas;
+    let ativo = true;
+
+    const criarPrevia = () => {
+      if (!video || !ativo) {
+        return;
+      }
+
+      if (!video.videoWidth || !video.videoHeight) {
+        return;
+      }
+
+      canvas = document.createElement("canvas");
+
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      const contexto = canvas.getContext("2d");
+
+      if (!contexto) {
+        return;
+      }
+
+      try {
+        contexto.drawImage(
+          video,
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+        const imagemGerada = canvas.toDataURL("image/jpeg", 0.85);
+
+        if (ativo) {
+          setPoster(imagemGerada);
+        }
+      } catch (error) {
+        console.error("Não foi possível criar a prévia do vídeo:", error);
+      }
+    };
+
+    const prepararVideo = () => {
+      if (!video || !ativo) {
+        return;
+      }
+
+      try {
+        video.currentTime = 0.5;
+      } catch (error) {
+        criarPrevia();
+      }
+    };
+
+    video = document.createElement("video");
+
+    video.src = src;
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = "auto";
+
+    video.addEventListener("loadedmetadata", prepararVideo);
+    video.addEventListener("seeked", criarPrevia);
+    video.addEventListener("loadeddata", criarPrevia);
+
+    video.load();
+
+    return () => {
+      ativo = false;
+
+      video.removeEventListener(
+        "loadedmetadata",
+        prepararVideo
+      );
+
+      video.removeEventListener(
+        "seeked",
+        criarPrevia
+      );
+
+      video.removeEventListener(
+        "loadeddata",
+        criarPrevia
+      );
+
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+
+      canvas = null;
+      video = null;
+    };
+  }, [src]);
+
+  return (
+    <div
+      className="miniatura-video"
+      style={
+        poster
+          ? {
+              backgroundImage: `url(${poster})`
+            }
+          : undefined
+      }
+    >
+      <video
+        src={src}
+        muted
+        playsInline
+        preload="metadata"
+        poster={poster || undefined}
+        aria-hidden="true"
+      />
+
+      <div className="icone-video">
+        <span>▶</span>
+      </div>
+    </div>
+  );
+}
+
+
 function Galeria() {
   const [tipoSelecionado, setTipoSelecionado] = useState("fotos");
   const [itemSelecionado, setItemSelecionado] = useState(null);
@@ -309,22 +437,7 @@ function Galeria() {
                 onClick={() => abrirItem(index)}
                 aria-label={`Abrir vídeo ${index + 1}`}
               >
-
-                <div className="miniatura-video">
-
-                  <video
-                    src={video}
-                    muted
-                    playsInline
-                    preload="metadata"
-                  />
-
-                  <div className="icone-video">
-                    <span>▶</span>
-                  </div>
-
-                </div>
-
+                <MiniaturaVideo src={video} />
               </button>
             ))
           }
